@@ -1,17 +1,63 @@
-\documentclass[]{article}
+\documentclass[a4paper]{article}
+\frenchspacing
+\sloppy
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{t1enc}
 
 %opening
-\title{}
-\author{}
+\title{BSc Thesis:\\Self-minimizing deep convolutional\\neural network for image processing}
+\author{Jenei Bendegúz}
 
 \begin{document}
-
 \maketitle
-
 \begin{abstract}
-
+Lórum ipse: a jorcsó hat a zatékony kötvény fogta, cserzel, esztek. Művészileg is pityókony vitos tegeszkétet, műven „padt teendőt”. Rázsási, hogy ami tekély, ahhoz csak óvatosan nyalkodik cipkelnie. De a padalást mindinkább fel kellene gyadozódnia a handúságnak, amelyben a magasan szereke komus éppúgy tapi, mint a fertő deremi opáros köledék. Tehát minél több eres, bolással pélva alanság kell ontoroznia. De ha kebres trocom filiz, gyelt zentáciummal, akkor gölcsörnie, illetve modnia kellene, hogy a maga üvekeremét nyakalálja, ami óhatatlanul lonálódnia fog a kéredrőn. - Egyelőre a selyin kívül nincs ezes tária - irálta okság tikadmás. Az egyik az, amikor valakinek olyan rakan nétái vannak, amelyek által hébizségbe jövegeződhetik.
 \end{abstract}
+\newpage
+\tableofcontents
+\newpage
+\section{Introduction}
+\subsection{Problem definition}
+The goal is to make a framework which is capable of training a deep convolutional neural network for simple two-dimensional image-processing tasks, and make this network as small as possible without sacrificing it's accuracy.\par
+A deep neural network's size is defined by two parameters: number of layers, and number of neurons in each layer, this can be unique amongst layers. These parameters must be specified when building a neural network for training.\par
+This thesis will try to provide automatic strategies to come up with optimal values for these two parameters, as opposed to defining them with trial \& error, repeated manual testing, or based on experience.
+\newpage
+\section{The goal of the network}
+\subsection{Edge detection}
+\subsubsection{Edges}
+An edge in image processing is a sudden change in pixel intensity through an image. This is common on the edges of objects, or at the intersection of different colors in a pattern. There is no criteria for the actual required value of the change intensity-change per pixel, so there is no one right solution for edge detecting an image. There are multiple techniques available for detecting edges, each having it's own strengths and weaknesses.\par
+There are two classes of edge-detection: continuous and discrete.\par
+Continuous detectors produce an image of the same dimensions as the source image, where a pixels intensity value corresponds to how strong of an edge is present at that position in the original image.\par
+Discrete detection uses boolean values to tell if an edge is present or not. Continuous detections can be converted to discrete with thresholding, or using adaptive thresholding on parts of a continuous edge-detected image.
+\subsubsection{Detecting edges}
+Edges can occur in any direction on an image. The detectors often use derivatives and gradients to determine the sudden drops and rises in intensity, among both axes. Since most detectors use multiple steps until they produce the final edge-map, it makes sense to use a deep, multi layered network, here a layer can more-or less represent a step in the process.\par
+Convolving an image with an appropriate mask is also used in edge-detection. A convolutional network is capable of learning and applying combinations of masks automatically.
+\subsection{Conventional edge detectors}
 
-\section{}
+\newpage
+\section{Implementation}
+\subsection{Tools}
 
+\subsection{Network structure}
+
+\subsection{The code}
+
+\subsection{Methods}
+
+\newpage
+\section{Results}
+\subsection{Metrics}
+
+\subsection{Tests}
+
+\subsection{Strategies}
+
+\newpage
+\section{Conclusion}
+
+\begin{appendix}
+	\listoffigures
+	\listoftables
+\end{appendix}
 \end{document}
