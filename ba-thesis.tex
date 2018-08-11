@@ -31,15 +31,32 @@ There are two classes of edge-detection: continuous and discrete.\par
 Continuous detectors produce an image of the same dimensions as the source image, where a pixels intensity value corresponds to how strong of an edge is present at that position in the original image.\par
 Discrete detection uses boolean values to tell if an edge is present or not. Continuous detections can be converted to discrete with thresholding, or using adaptive thresholding on parts of a continuous edge-detected image.
 \subsubsection{Detecting edges}
-Edges can occur in any direction on an image. The detectors often use derivatives and gradients to determine the sudden drops and rises in intensity, among both axes. Since most detectors use multiple steps until they produce the final edge-map, it makes sense to use a deep, multi layered network, here a layer can more-or less represent a step in the process.\par
+Edges can occur in any direction on an image. The detectors often use derivatives and gradients to determine the sudden drops and rises in intensity, among both axes. Since most detectors use multiple steps until they produce the final edge map, it makes sense to use a deep, multi layered network, here a layer can more-or less represent a step in the process.\par
 Convolving an image with an appropriate mask is also used in edge-detection. A convolutional network is capable of learning and applying combinations of masks automatically.
 \subsection{Conventional edge detectors}
-
+\subsubsection{Sobel}
+The Sobel–Feldman operator, or Sobel filter consists of two discrete matrices to be convolved with the source image. This will result in two edge map images, or gradients, one for the horizontal and one for the vertical axis. Then the two matrices can be combined by calculating the geometric mean pixel-wise. The result is a continuous edge map.
+\subsubsection{Canny}
+The Canny edge detector is a more complex one, consisting of five steps, including filtering, gradient computing, which can be learned by the network using appropriate masks, and including non-maximal edge suppression, double thresholding, and hysteresis to suppress weak edges, which is not done using convolution, so it can't directly be learned by a convolutional network.\par
+This will force the network to find it's way around the problem, come up with alternative methods using convolutional masks in order to optimize the objective function.\
+The Canny edge detector as opposed to the Sobel operator will result in a discrete edge map.
+\subsubsection{What are they used for here}
+Te network will be trained with raw images, and images ran trough the Canny and Sobel edge detectors. The objective of the network will be to mimic the outcome of the detectors.\par
+First we will teach with the Sobel detector. This should be the easier task for the network, since everything can be done with convolutions with the correct masks.\par
+Then wi will use the Sobel detector, which is considered a harder task due to the multiple steps including different algorithms.
 \newpage
 \section{Implementation}
 \subsection{Tools}
 
+\subsection{Preparing the input images}
+
 \subsection{Network structure}
+
+\subsubsection{Image preprocessing}
+
+\subsubsection{The layers}
+
+\subsubsection{The objective function and output}
 
 \subsection{The code}
 
