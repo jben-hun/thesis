@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.7.10)  11 AUG 2018 16:55
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.7.10)  15 AUG 2018 20:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -416,7 +416,7 @@ LaTeX Font Info:    ... okay on input line 12.
 \openout3 = `ba-thesis.toc'.
 
 
-[2] [3] [4] [5] [6] [7] (./ba-thesis.lof)
+[2] [3] [4] [5] [6] [7] [8] (./ba-thesis.lof)
 \tf@lof=\write4
 \openout4 = `ba-thesis.lof'.
 
@@ -424,12 +424,12 @@ LaTeX Font Info:    ... okay on input line 12.
 \tf@lot=\write5
 \openout5 = `ba-thesis.lot'.
 
- [8]
+ [9]
 (./ba-thesis.aux) ) 
 Here is how much of TeX's memory you used:
  1166 strings out of 493029
  12153 string characters out of 6136234
- 70243 words of memory out of 5000000
+ 71243 words of memory out of 5000000
  4726 multiletter control sequences out of 15000+600000
  14435 words of font info for 37 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -441,10 +441,10 @@ uper/sfbx1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1440.pfb></
 usr/share/texmf/fonts/type1/public/cm-super/sfrm0900.pfb></usr/share/texmf/font
 s/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-su
 per/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1728.pfb>
-Output written on ba-thesis.pdf (8 pages, 147945 bytes).
+Output written on ba-thesis.pdf (9 pages, 153140 bytes).
 PDF statistics:
- 64 PDF objects out of 1000 (max. 8388607)
- 45 compressed objects within 1 object stream
+ 67 PDF objects out of 1000 (max. 8388607)
+ 47 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -43,11 +43,22 @@ The Canny edge detector as opposed to the Sobel operator will result in a discre
 \subsubsection{What are they used for here}
 Te network will be trained with raw images, and images ran trough the Canny and Sobel edge detectors. The objective of the network will be to mimic the outcome of the detectors.\par
 First we will teach with the Sobel detector. This should be the easier task for the network, since everything can be done with convolutions with the correct masks.\par
-Then wi will use the Sobel detector, which is considered a harder task due to the multiple steps including different algorithms.
+Then we will use the Canny detector, which is considered a harder task due to the multiple steps including different algorithms.\par
+So the input will be a raw image, encoded and compressed in png format, this is what the network will get to work on, and the sample output will be an edge map, made with either the Sobel operator or the Canny operator. The objective function will ensure that the actual output is as close to the sample output as possible, by producing a high penalty if they differ.
 \newpage
 \section{Implementation}
 \subsection{Tools}
-
+\subsubsection{Python}
+Python is an open source interpreted programming language, which is widely used in machine learning, or for writing simple tools, thanks to it's very fluent syntax, which is one of the closest to writing in plain english. Most major machine learning frameworks (tensorflow, Caffe, Caffe2, CNTK and so on) support Python, often as the main language.\par
+It's easy and fast to implement and test a new idea, due to it being a high level language, but the performance cost of it is negligible, because the most demanding part of machine learning isn't the network building part, which is the part Python is used for, but the training itself, repeatedly evaluating the network, calculating the error and propagating it backwards, and this part is usually made to be hardware accelerated by most frameworks.
+\subsubsection{Tensorflow}
+Tensorflow, being developed by the Google Brain team, is a framework for making and using computational graph, including deep neural networks. It is used both for research and as a backend for PC and mobile applications, or the core on which higher level frameworks build on.\par
+Tensorflow is based on Python, and it has limited support for C++. There are two ways to make graphs with the toolkit: high level and low level.\par
+In the higher level, there are several predefined layers available, these can be parametrized stacked on top of each other to produce a graph. The most common machine learning network layouts are supported by this method.\par
+In the lower level, exact operations (addition, convolution, transposing, etc.) and the flow of the data must be coded. This method is used to develop tools for higher level tensorflow, and for research, because of the freedom of configuration it provides. While being lower level, there are still numerous tools and helper functions available, even image file decoders and preprocessors for example.\par
+Another strength of tensorflow is hardware acceleration. With a supported Nvidia graphics card, graphs can be executed in GPU accelerated mode, which is often faster than CPU mode by a few magnitudes.
+\subsubsection{CUDA}
+\subsubsection{Hardware used}
 \subsection{Preparing the input images}
 
 \subsection{Network structure}
@@ -77,4 +88,5 @@ Then wi will use the Sobel detector, which is considered a harder task due to th
 	\listoffigures
 	\listoftables
 \end{appendix}
-\end{document}
+\end{document}W 
+
