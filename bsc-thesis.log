@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.7.10)  19 AUG 2018 16:12
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.7.10)  19 AUG 2018 16:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**ba-thesis.tex
-(./ba-thesis.tex
+**bsc-thesis.tex
+(./bsc-thesis.tex
 LaTeX2e <2016/02/01>
 Babel <3.9q> and hyphenation patterns for 81 language(s) loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
@@ -393,8 +393,8 @@ LaTeX Info: Redefining \] on input line 2736.
 )
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1enc.sty
 Package: t1enc 1994/06/01 Standard LaTeX package
-) (./ba-thesis.aux)
-\openout1 = `ba-thesis.aux'.
+) (./bsc-thesis.aux)
+\openout1 = `bsc-thesis.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
 LaTeX Font Info:    ... okay on input line 12.
@@ -411,37 +411,37 @@ LaTeX Font Info:    ... okay on input line 12.
 
 [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./ba-thesis.toc)
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./bsc-thesis.toc)
 \tf@toc=\write3
-\openout3 = `ba-thesis.toc'.
+\openout3 = `bsc-thesis.toc'.
 
 
-[2] [3] [4] [5] [6] [7] [8] (./ba-thesis.lof)
+[2] [3] [4] [5] [6] [7] [8] (./bsc-thesis.lof)
 \tf@lof=\write4
-\openout4 = `ba-thesis.lof'.
+\openout4 = `bsc-thesis.lof'.
 
- (./ba-thesis.lot)
+ (./bsc-thesis.lot)
 \tf@lot=\write5
-\openout5 = `ba-thesis.lot'.
+\openout5 = `bsc-thesis.lot'.
 
  [9]
-(./ba-thesis.aux) ) 
+(./bsc-thesis.aux) ) 
 Here is how much of TeX's memory you used:
  1166 strings out of 493029
- 12153 string characters out of 6136234
+ 12168 string characters out of 6136234
  71243 words of memory out of 5000000
  4726 multiletter control sequences out of 15000+600000
  14435 words of font info for 37 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 27i,6n,20p,878b,189s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}<
-/usr/share/texmf/fonts/type1/public/cm-super/sfbx0900.pfb></usr/share/texmf/fon
-ts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf/fonts/type1/public/cm-s
-uper/sfbx1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1440.pfb></
-usr/share/texmf/fonts/type1/public/cm-super/sfrm0900.pfb></usr/share/texmf/font
-s/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-su
-per/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1728.pfb>
-Output written on ba-thesis.pdf (9 pages, 157780 bytes).
+ 27i,6n,20p,879b,189s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}
+</usr/share/texmf/fonts/type1/public/cm-super/sfbx0900.pfb></usr/share/texmf/fo
+nts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf/fonts/type1/public/cm-
+super/sfbx1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1440.pfb><
+/usr/share/texmf/fonts/type1/public/cm-super/sfrm0900.pfb></usr/share/texmf/fon
+ts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-s
+uper/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1728.pfb>
+Output written on bsc-thesis.pdf (9 pages, 157780 bytes).
 PDF statistics:
  67 PDF objects out of 1000 (max. 8388607)
  47 compressed objects within 1 object stream
