@@ -59,8 +59,12 @@ In the lower level, exact operations (addition, convolution, transposing, etc.) 
 Another strength of tensorflow is hardware acceleration. With a supported Nvidia graphics card, graphs can be executed in GPU accelerated mode, which is often faster than CPU mode by a few magnitudes.
 \subsubsection{CUDA}
 \subsubsection{Hardware used}
+Initially a relatively low performance notebook was used to perform all the training. The main benefit of using this notebook was it's built-in dedicated GPU, the Nvidia Geforce 840M. It has 384 CUDA cores with compute capability version 5.0, which means it is able to run tensorflow in GPU-mode. Tensorflow demands compute capability to be 3.0 or higher to run in GPU-mode, 3.0 and 3.5 are common among machine learning toolkits. The notebook had 4GB RAM, and 2GB VRAM.\par
+Later, severe test were run remotely at a higher performance desktop computer, while the notebook was used to develop the models and check if they work as intended. These runs were often longer than a week, depending on the sample size.
 \subsection{Preparing the input images}
-
+The Visual Object Classes Challenge 2012 (VOC2012) dataset was used as input images. The VOC dataset contains colored pictures of 20 classes in different settings, classes include aeroplane, people, bicycle, horse and so on.\par
+These are fine for simple image processing tasks, there are a wide variety of objects in various distances and quantities. The classes are not needed for us, since we are outputting an image the same dimensions as the input, instead of performing classification. Ditching the classes, the expected output for teaching had to be generate from the input images, this was done with matlab scripts and built-in image processing functions.\par
+The images and edge-maps are fed to the network during training. The images must be preprocessed to be in an efficient format for training. The goal is to have matrices whose can run trough the neurons, and produce an output. First the center of the images are cropped, because the input pipeline uses a fixed structure, and the dataset has pictures of varying size. Then the images are decoded to pure matrices containing floating point values. After this we'll have five dimensional images due to the RGB color palette, this is reduced to two dimensions by converting the image matrices to grayscale. This way the color information is lost, but color edge detection is a whole different area. Finally, a number of images are batched together to enable bulk processing of inputs, leaving us with BATCH SIZE x WIDTH x HEIGHT dimensions for a single input object.
 \subsection{Network structure}
 
 \subsubsection{Image preprocessing}
@@ -69,7 +73,7 @@ Another strength of tensorflow is hardware acceleration. With a supported Nvidia
 
 \subsubsection{The objective function and output}
 
-\subsection{The code}
+\subsection{Code snippets}
 
 \subsection{Methods}
 
