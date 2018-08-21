@@ -1,13 +1,14 @@
 \contentsline {section}{\numberline {1}Introduction}{3}
 \contentsline {subsection}{\numberline {1.1}Problem definition}{3}
-\contentsline {section}{\numberline {2}The goal of the network}{4}
+\contentsline {subsection}{\numberline {1.2}Fully convolutional networks}{4}
+\contentsline {section}{\numberline {2}Tasks the network will perform}{4}
 \contentsline {subsection}{\numberline {2.1}Edge detection}{4}
 \contentsline {subsubsection}{\numberline {2.1.1}Edges}{4}
 \contentsline {subsubsection}{\numberline {2.1.2}Detecting edges}{4}
-\contentsline {subsection}{\numberline {2.2}Conventional edge detectors}{4}
-\contentsline {subsubsection}{\numberline {2.2.1}Sobel}{4}
-\contentsline {subsubsection}{\numberline {2.2.2}Canny}{4}
-\contentsline {subsubsection}{\numberline {2.2.3}What are they used for here}{5}
+\contentsline {subsection}{\numberline {2.2}Conventional edge detectors}{5}
+\contentsline {subsubsection}{\numberline {2.2.1}Sobel}{5}
+\contentsline {subsubsection}{\numberline {2.2.2}Canny}{5}
+\contentsline {subsubsection}{\numberline {2.2.3}How are they used here}{5}
 \contentsline {section}{\numberline {3}Implementation}{6}
 \contentsline {subsection}{\numberline {3.1}Tools}{6}
 \contentsline {subsubsection}{\numberline {3.1.1}Python}{6}
@@ -19,7 +20,7 @@
 \contentsline {subsubsection}{\numberline {3.3.1}Image preprocessing}{7}
 \contentsline {subsubsection}{\numberline {3.3.2}The layers}{7}
 \contentsline {subsubsection}{\numberline {3.3.3}The objective function and output}{7}
-\contentsline {subsection}{\numberline {3.4}Code snippets}{7}
+\contentsline {subsection}{\numberline {3.4}Additional code snippets}{7}
 \contentsline {subsection}{\numberline {3.5}Methods}{7}
 \contentsline {section}{\numberline {4}Results}{8}
 \contentsline {subsection}{\numberline {4.1}Metrics}{8}
