@@ -1,17 +1,15 @@
-\documentclass[a4paper]{article}
+\documentclass[a4paper,12pt]{article}
 \frenchspacing
 \sloppy
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
 \usepackage{t1enc}
-
 %opening
 \title{BSc Thesis:\\Self-minimizing deep convolutional\\neural network for image processing}
-%\author{Jenei Bendegúz}
 \author{Author\\Jenei Bendegúz \and Supervisor\\Varga László Gábor \and Supervisor\\Berend Gábor}
-
 \begin{document}
 \maketitle
+\newpage
 \begin{abstract}
 Lórum ipse: a jorcsó hat a zatékony kötvény fogta, cserzel, esztek. Művészileg is pityókony vitos tegeszkétet, műven „padt teendőt”. Rázsási, hogy ami tekély, ahhoz csak óvatosan nyalkodik cipkelnie. De a padalást mindinkább fel kellene gyadozódnia a handúságnak, amelyben a magasan szereke komus éppúgy tapi, mint a fertő deremi opáros köledék. Tehát minél több eres, bolással pélva alanság kell ontoroznia. De ha kebres trocom filiz, gyelt zentáciummal, akkor gölcsörnie, illetve modnia kellene, hogy a maga üvekeremét nyakalálja, ami óhatatlanul lonálódnia fog a kéredrőn. - Egyelőre a selyin kívül nincs ezes tária - irálta okság tikadmás. Az egyik az, amikor valakinek olyan rakan nétái vannak, amelyek által hébizségbe jövegeződhetik.
 \end{abstract}
@@ -65,8 +63,10 @@ In the lower level, exact operations (addition, convolution, transposing, etc.) 
 Another strength of tensorflow is hardware acceleration. With a supported Nvidia graphics card, graphs can be executed in GPU accelerated mode, which is often faster than CPU mode by a few magnitudes.
 \subsubsection{CUDA and cuDNN}
 \paragraph{CUDA}
+CUDA by Nvidia is required to utilize the computing capacity of a supported GPU, and run tensorflow in GPU accelerated mode. CUDA is crossplatform, available for 	Windows, macOS and Linux, and it is downloadable freely.
 \paragraph{cuDNN} \label{sec:1}
-CUDA Deep Neural Network library provides GPU-accelerated routines for common machine learning tasks. Tensorflow, when used in GPU mode, relies on this library. One negative effect of this is the non-deterministic nature of some routines, and tensorflow provides no way around it. This way, getting the same exact outcome within two different runs are not possible. Using seeding to achieve this would produce more comparable result, without this technique more testing is required. The exact operation which is affected will be described at section \ref{sec:2}.
+CUDA Deep Neural Network library provides GPU-accelerated routines for common machine learning tasks. Tensorflow, when used in GPU mode, relies on this library. One negative effect of this is the non-deterministic nature of some routines, and tensorflow provides no way around it. This way, getting the same exact outcome within two different runs are not possible. Using seeding to achieve this would produce more comparable result, without this technique more testing is required. The exact operation which is affected will be described at section \ref{sec:2}.\par
+cuDNN is also available for free, but a registration is required, specifying the plan of usage and associated institutes as well.
 \subsubsection{Hardware used}
 Initially a relatively low performance notebook was used to perform all the training. The main benefit of using this notebook was it's built-in dedicated GPU, the Nvidia Geforce 840M. It has 384 CUDA cores with compute capability version 5.0, which means it is able to run tensorflow in GPU-mode. Tensorflow demands compute capability to be 3.0 or higher to run in GPU-mode, 3.0 and 3.5 are common among machine learning toolkits. The notebook had 4GB RAM, and 2GB VRAM.\par
 Later, severe test were run remotely at a higher performance desktop computer, while the notebook was used to develop the models and check if they work as intended. These runs were often longer than a week, depending on the sample size.
@@ -94,24 +94,24 @@ For teaching with the Canny edge map dataset, we have o continuous output, but a
 The training operation comes last after all the layers, right after the operation that calculates the error from the output. It computes the gradients of all the operations in the graph, and then changes the trainable variables weighted by their contribution to the error.\par
 One of the tensorflow built-in optimizers, \textbf{Adam} is used. It features momentum-based dynamic learning rate, which promises improved convergence time. This optimizer has two built-in running variables, which change over time, resulting in smaller likelihood as time progresses during training. Because of cuDNN, as mentioned in section \ref{sec:1}, Adam is slightly non-deterministic even when used with the same parameters and random-seed.
 \subsection{The training process and steps}
-
+\textbf{Training} and \textbf{evaluation} steps are alternating during a training session. Training steps take up the majority of the time, while evaluation or validation steps are around ten or more times less frequent during a run.
+\paragraph{Steps}
+A step during training consist of producing one error value from the input and output, and performing back-propagation once to modify the trainable variables, or weights. This does'nt mean that one step takes exactly one image, since batching is used, so one step deals with a batch of images. The processing time a resources needed for a step depends on the batch size.
+\paragraph{Training}
+With each training step, the error is calculated and back-propagation is performed. A training step only gets data fed from the training dataset, which is the largest dataset out of the two. For both the Sobel and Canny tasks, we use 20000 images for training and roughly 14000 images for evaluation.
+\paragraph{Evaluation}
+An evaluation step stops right before calculating the error, and only produces the output image, so no back-propagation is happening here. This leaves the network untouched. The purpose of this is to measure the accuracy on the evaluation set, which is invisible to the network during training. Evaluation is also used to produce more and prettier metrics for the human observer. Evaluation runs more rarely than training, so heavier computation on metrics are possible without slowing down the training process.
 \subsection{Additional code snippets}
-
 \subsection{Minimization methods}
-
 \newpage
 \section{Results}
 \subsection{Metrics}
-
 \subsection{Tests}
-
 \subsection{Strategies}
-
 \newpage
 \section{Conclusion}
-
 \begin{appendix}
-	\listoffigures
-	\listoftables
+\listoffigures
+\listoftables
 \end{appendix}
 \end{document}
