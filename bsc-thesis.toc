@@ -23,6 +23,7 @@
 \contentsline {subsubsection}{\numberline {3.3.2}Layers}{10}
 \contentsline {paragraph}{Convolution}{10}
 \contentsline {paragraph}{Initialization}{10}
+\contentsline {paragraph}{Activation}{10}
 \contentsline {subsubsection}{\numberline {3.3.3}The objective function and output}{10}
 \contentsline {subsubsection}{\numberline {3.3.4}Training and error back-propagation}{11}
 \contentsline {subsection}{\numberline {3.4}The training process and steps}{11}
@@ -30,9 +31,13 @@
 \contentsline {paragraph}{Training}{11}
 \contentsline {paragraph}{Evaluation}{12}
 \contentsline {subsection}{\numberline {3.5}Additional code snippets}{12}
-\contentsline {subsection}{\numberline {3.6}Minimization methods}{12}
-\contentsline {section}{\numberline {4}Results}{13}
-\contentsline {subsection}{\numberline {4.1}Metrics}{13}
-\contentsline {subsection}{\numberline {4.2}Tests}{13}
-\contentsline {subsection}{\numberline {4.3}Strategies}{13}
-\contentsline {section}{\numberline {5}Conclusion}{14}
+\contentsline {subsection}{\numberline {3.6}Minimization}{12}
+\contentsline {subsubsection}{\numberline {3.6.1}Neglecting neurons}{12}
+\contentsline {subsubsection}{\numberline {3.6.2}Freezing neurons}{12}
+\contentsline {subsubsection}{\numberline {3.6.3}Stepping back}{12}
+\contentsline {subsubsection}{\numberline {3.6.4}Testing a neuron's worth}{13}
+\contentsline {section}{\numberline {4}Results}{14}
+\contentsline {subsection}{\numberline {4.1}Metrics}{14}
+\contentsline {subsection}{\numberline {4.2}Tests}{14}
+\contentsline {subsection}{\numberline {4.3}Strategies}{14}
+\contentsline {section}{\numberline {5}Conclusion}{15}
