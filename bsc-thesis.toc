@@ -1,43 +1,47 @@
-\contentsline {section}{\numberline {1}Introduction}{4}
-\contentsline {subsection}{\numberline {1.1}Problem definition}{4}
-\contentsline {subsection}{\numberline {1.2}Fully convolutional networks}{4}
-\contentsline {section}{\numberline {2}Tasks the network will perform}{5}
-\contentsline {subsection}{\numberline {2.1}Edge detection}{5}
-\contentsline {subsubsection}{\numberline {2.1.1}Edges}{5}
-\contentsline {subsubsection}{\numberline {2.1.2}Detecting edges}{5}
-\contentsline {subsection}{\numberline {2.2}Conventional edge detectors}{6}
-\contentsline {subsubsection}{\numberline {2.2.1}Sobel}{6}
-\contentsline {subsubsection}{\numberline {2.2.2}Canny}{6}
-\contentsline {subsubsection}{\numberline {2.2.3}How are they used here}{6}
-\contentsline {section}{\numberline {3}Implementation}{7}
-\contentsline {subsection}{\numberline {3.1}Tools}{7}
-\contentsline {subsubsection}{\numberline {3.1.1}Python}{7}
-\contentsline {subsubsection}{\numberline {3.1.2}Tensorflow}{7}
-\contentsline {subsubsection}{\numberline {3.1.3}CUDA and cuDNN}{8}
-\contentsline {paragraph}{CUDA}{8}
-\contentsline {paragraph}{cuDNN}{8}
-\contentsline {subsubsection}{\numberline {3.1.4}Hardware used}{8}
-\contentsline {subsection}{\numberline {3.2}Preparing the input images}{9}
-\contentsline {subsection}{\numberline {3.3}Network structure}{9}
-\contentsline {subsubsection}{\numberline {3.3.1}Image preprocessing}{9}
-\contentsline {subsubsection}{\numberline {3.3.2}Layers}{10}
-\contentsline {paragraph}{Convolution}{10}
-\contentsline {paragraph}{Initialization}{10}
-\contentsline {paragraph}{Activation}{10}
-\contentsline {subsubsection}{\numberline {3.3.3}The objective function and output}{10}
-\contentsline {subsubsection}{\numberline {3.3.4}Training and error back-propagation}{11}
-\contentsline {subsection}{\numberline {3.4}The training process and steps}{11}
-\contentsline {paragraph}{Steps}{11}
-\contentsline {paragraph}{Training}{11}
-\contentsline {paragraph}{Evaluation}{12}
-\contentsline {subsection}{\numberline {3.5}Additional code snippets}{12}
-\contentsline {subsection}{\numberline {3.6}Minimization}{12}
-\contentsline {subsubsection}{\numberline {3.6.1}Neglecting neurons}{12}
-\contentsline {subsubsection}{\numberline {3.6.2}Freezing neurons}{12}
-\contentsline {subsubsection}{\numberline {3.6.3}Stepping back}{12}
-\contentsline {subsubsection}{\numberline {3.6.4}Testing a neuron's worth}{13}
-\contentsline {section}{\numberline {4}Results}{14}
-\contentsline {subsection}{\numberline {4.1}Metrics}{14}
-\contentsline {subsection}{\numberline {4.2}Tests}{14}
-\contentsline {subsection}{\numberline {4.3}Strategies}{14}
-\contentsline {section}{\numberline {5}Conclusion}{15}
+\contentsline {section}{\numberline {1}Introduction}{5}
+\contentsline {subsection}{\numberline {1.1}Problem definition}{5}
+\contentsline {subsection}{\numberline {1.2}Fully convolutional networks}{5}
+\contentsline {section}{\numberline {2}Tasks the network will perform}{6}
+\contentsline {subsection}{\numberline {2.1}Edge detection}{6}
+\contentsline {subsubsection}{\numberline {2.1.1}Edges}{6}
+\contentsline {subsubsection}{\numberline {2.1.2}Detecting edges}{6}
+\contentsline {subsection}{\numberline {2.2}Conventional edge detectors}{7}
+\contentsline {subsubsection}{\numberline {2.2.1}Sobel}{7}
+\contentsline {subsubsection}{\numberline {2.2.2}Canny}{7}
+\contentsline {subsubsection}{\numberline {2.2.3}How are they used here}{7}
+\contentsline {section}{\numberline {3}Implementation}{8}
+\contentsline {subsection}{\numberline {3.1}Tools}{8}
+\contentsline {subsubsection}{\numberline {3.1.1}Python}{8}
+\contentsline {subsubsection}{\numberline {3.1.2}Tensorflow}{8}
+\contentsline {subsubsection}{\numberline {3.1.3}CUDA and cuDNN}{9}
+\contentsline {paragraph}{CUDA}{9}
+\contentsline {paragraph}{cuDNN}{9}
+\contentsline {subsubsection}{\numberline {3.1.4}Hardware used}{9}
+\contentsline {subsection}{\numberline {3.2}Preparing the input images}{10}
+\contentsline {subsection}{\numberline {3.3}Network structure}{10}
+\contentsline {subsubsection}{\numberline {3.3.1}Image preprocessing}{10}
+\contentsline {subsubsection}{\numberline {3.3.2}Layers}{11}
+\contentsline {paragraph}{Convolution}{11}
+\contentsline {paragraph}{Initialization}{11}
+\contentsline {paragraph}{Activation}{11}
+\contentsline {subsubsection}{\numberline {3.3.3}The objective function and output}{11}
+\contentsline {subsubsection}{\numberline {3.3.4}Training and error back-propagation}{12}
+\contentsline {subsection}{\numberline {3.4}The training process and steps}{12}
+\contentsline {paragraph}{Steps}{12}
+\contentsline {paragraph}{Training}{12}
+\contentsline {paragraph}{Evaluation}{13}
+\contentsline {subsection}{\numberline {3.5}Additional code snippets}{13}
+\contentsline {subsection}{\numberline {3.6}Minimization}{13}
+\contentsline {subsubsection}{\numberline {3.6.1}Neglecting neurons}{13}
+\contentsline {subsubsection}{\numberline {3.6.2}Freezing neurons}{14}
+\contentsline {subsubsection}{\numberline {3.6.3}Reinitializing neurons}{14}
+\contentsline {subsubsection}{\numberline {3.6.4}Stepping back}{14}
+\contentsline {subsubsection}{\numberline {3.6.5}Testing a neuron's worth}{14}
+\contentsline {paragraph}{One disabled}{15}
+\contentsline {paragraph}{One disabled and frozen}{15}
+\contentsline {paragraph}{One disabled, others frozen}{15}
+\contentsline {section}{\numberline {4}Results}{16}
+\contentsline {subsection}{\numberline {4.1}Metrics}{16}
+\contentsline {subsection}{\numberline {4.2}Tests}{16}
+\contentsline {subsection}{\numberline {4.3}Strategies}{16}
+\contentsline {section}{\numberline {5}Conclusion}{17}
