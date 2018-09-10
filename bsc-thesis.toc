@@ -42,6 +42,7 @@
 \contentsline {paragraph}{One disabled, others frozen}{15}
 \contentsline {section}{\numberline {4}Results}{16}
 \contentsline {subsection}{\numberline {4.1}Metrics}{16}
+\contentsline {paragraph}{Universal Image Quality Index}{16}
 \contentsline {subsection}{\numberline {4.2}Tests}{16}
 \contentsline {subsection}{\numberline {4.3}Successful strategies}{16}
 \contentsline {section}{\numberline {5}Conclusion}{17}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.7.10)  8 SEP 2018 11:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.9.8)  10 SEP 2018 18:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -428,8 +428,8 @@ LaTeX Font Info:    ... okay on input line 10.
  [17] (./bsc-thesis.aux) ) 
 Here is how much of TeX's memory you used:
  1171 strings out of 493029
- 12249 string characters out of 6136234
- 72278 words of memory out of 5000000
+ 12249 string characters out of 6136235
+ 72276 words of memory out of 5000000
  4731 multiletter control sequences out of 15000+600000
  15366 words of font info for 40 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -442,7 +442,7 @@ ic/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1728
 mf/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/publi
 c/cm-super/sfrm1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm2074.
 pfb>
-Output written on bsc-thesis.pdf (17 pages, 169021 bytes).
+Output written on bsc-thesis.pdf (17 pages, 170318 bytes).
 PDF statistics:
  92 PDF objects out of 1000 (max. 8388607)
  64 compressed objects within 1 object stream
