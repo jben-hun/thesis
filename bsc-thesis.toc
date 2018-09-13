@@ -40,9 +40,11 @@
 \contentsline {paragraph}{One disabled}{15}
 \contentsline {paragraph}{One disabled and frozen}{15}
 \contentsline {paragraph}{One disabled, others frozen}{15}
+\contentsline {subsubsection}{\numberline {3.6.6}The minimization process}{16}
+\contentsline {paragraph}{Selection}{16}
 \contentsline {section}{\numberline {4}Results}{16}
 \contentsline {subsection}{\numberline {4.1}Metrics}{16}
 \contentsline {paragraph}{Universal Image Quality Index}{16}
-\contentsline {subsection}{\numberline {4.2}Tests}{16}
-\contentsline {subsection}{\numberline {4.3}Successful strategies}{16}
-\contentsline {section}{\numberline {5}Conclusion}{17}
+\contentsline {subsection}{\numberline {4.2}Tests}{17}
+\contentsline {subsection}{\numberline {4.3}Successful strategies}{17}
+\contentsline {section}{\numberline {5}Conclusion}{18}

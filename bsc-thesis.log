@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.9.8)  10 SEP 2018 18:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.9.8)  13 SEP 2018 18:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -416,7 +416,7 @@ LaTeX Font Info:    ... okay on input line 10.
 \openout3 = `bsc-thesis.toc'.
 
 
-[3] [4] [5] [6] [7] [8] [9] [10] [11] [12] [13] [14] [15] [16]
+[3] [4] [5] [6] [7] [8] [9] [10] [11] [12] [13] [14] [15] [16] [17]
 (./bsc-thesis.lof)
 \tf@lof=\write4
 \openout4 = `bsc-thesis.lof'.
@@ -425,15 +425,15 @@ LaTeX Font Info:    ... okay on input line 10.
 \tf@lot=\write5
 \openout5 = `bsc-thesis.lot'.
 
- [17] (./bsc-thesis.aux) ) 
+ [18] (./bsc-thesis.aux) ) 
 Here is how much of TeX's memory you used:
  1171 strings out of 493029
  12249 string characters out of 6136235
- 72276 words of memory out of 5000000
+ 73276 words of memory out of 5000000
  4731 multiletter control sequences out of 15000+600000
  15366 words of font info for 40 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 27i,6n,20p,992b,201s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 27i,6n,20p,1005b,201s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t
 1.enc}</usr/share/texmf/fonts/type1/public/cm-super/sfbx1095.pfb></usr/share/te
 xmf/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf/fonts/type1/publ
@@ -442,10 +442,10 @@ ic/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1728
 mf/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/publi
 c/cm-super/sfrm1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm2074.
 pfb>
-Output written on bsc-thesis.pdf (17 pages, 170318 bytes).
+Output written on bsc-thesis.pdf (18 pages, 171558 bytes).
 PDF statistics:
- 92 PDF objects out of 1000 (max. 8388607)
- 64 compressed objects within 1 object stream
+ 95 PDF objects out of 1000 (max. 8388607)
+ 66 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
