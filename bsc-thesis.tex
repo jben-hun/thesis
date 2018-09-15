@@ -125,17 +125,26 @@ There are a few ways to utilize freezing and disabling to determine how much a s
 \newpage
 \subsubsection{The minimization process}
 This process encapsulates multiple training sessions, and uses the tools and methods described above between them in hope of determining a minimal configuration.\par
-First, a training session is invoked, this is the longer than the later ones, to produce a working network that is close to convergence and is capable of inference. When this happens can be measured by checking when the error stagnates. The network is then evaluated and saved to disk. Then one or more masks are selected and altered. Altering includes freezing and disabling masks, and there are multiple strategies for selection, they are described below. After this, another training session and evaluation is performed with the altered network. This is usually shorter, because the network is already semi-converged. The results of the new evaluation and the old one are compared, and if the new one is significantly weaker, the old network is reloaded from disk. Then comes another selection, which makes sure to select different masks if the network was restored from disk. The sequence of training, evaluation, comparison and selection is repeated until a stopping criteria is met. We are left with the final network, and a one-hot matrix which describes which masks are to be removed to get the minimal structure.
+First, a training session is invoked, this is the longer than the later ones, to produce a working network that is close to convergence and is capable of inference. When this happens can be measured by checking when the error stagnates. The network is then evaluated and saved to disk. Then one or more masks are \textbf{selected} and altered. Altering includes freezing and disabling masks, and there are multiple strategies for \textbf{selection}, they are described below. After this, another training session and evaluation is performed with the altered network. This is usually shorter, because the network is already semi-converged. The results of the new evaluation and the old one are compared, and if the new one is significantly weaker, the old network is reloaded from disk. Then comes another selection, which makes sure to select different masks if the network was restored from disk. The sequence of training, evaluation, comparison and \textbf{selection} is repeated until a stopping criteria is met. We are left with the final network, and a one-hot matrix which describes which masks are to be removed to get the minimal structure.
 \paragraph{Selection}
-...
+Masks have to be selected, for freezing or disabling, the choice should reflect the contribution of the selected mask to the overall performance, or in other words, the least important mask should be the one that gets selected, so the network could possibly perform with one less mask.
+\paragraph{Cosine-similarity}Cosine similarity  tries to represent how similar two n-dimensional vectors are. A mask is a set of two-dimensional matrices plus scalar biases, so they are reshaped to a vector format, with the bias appended to the end of the vector. Then all the vectors are compared to each other using cosine similarity, and the end result is stored in a matrix, where the i,j element represents the cosine similarity between the the mask in the i. place and the mask in the j. place. These value range from -1 to 1, 1 is most similar (same), while negative numbers mean opposites, vectors in the opposite direction. This is done for each layer, producing a matrix for each layer.\par
+Using the matrices, selection could be done by selecting the mask which is most similar to the others, so it has the highest average similarity, or the one which has the maximal single similarity. Absolute value could be used on the similarity values, sine negative similarity could still mean similarity in the FCN.\par
+An extension to this method is to use the second, or n-th maximal mask after the previous one failed and produced a significant decrease in performance.
+\paragraph{Simpler, unintelligent selection strategies}
+\subparagraph{Sequential}This method simply goes through every mask in a sequential order. This is mostly useful for comparison for smarter strategies.
+\subparagraph{Random}
+Randomly picks a mask. Also useful for comparison, but it also could be a viable strategy.
 \section{Results}
 \subsection{Metrics}
 In addition to the objective function, or error, which is a metric itself the following metrics were used to judge the performance. These were used in the validation steps, or separately from training to benchmark the network.
 \paragraph{Universal Image Quality Index}This metric is used to rank the similarity of two images. It is produced from three components, measuring the correlation, luminance difference and contrast difference between the two input images. It works by splitting the images into sections with a chosen size, and calculating the metric on those. We calculate an average of these to get a single value. When used alongside the simpler MAE and f1 score, this could provide an alternative metric and view on accuracy. A matlab implementation was provided by the authors, which was then converted to python so it can be integrated into the training process.
-\subsection{Tests}
-\subsection{Successful strategies}
+\paragraph{Visualization}Visual representation of the masks, and the input images it travels through the stages of the FCN are printed as pictures to disk. This way the inner workings of the net are somewhat observable. Masks, and the image apart from the final output can include negative values. The negative values are red, and the positive ones are green, and their intensity represents the absolute value.
+\newpage
+\section{Test runs}
 \newpage
 \section{Conclusion}
+\subsection{Successful strategies}
 \begin{appendix}
 \listoffigures
 \listoftables
