@@ -46,10 +46,11 @@
 \contentsline {paragraph}{Simpler, unintelligent selection strategies}{17}
 \contentsline {subparagraph}{Sequential}{17}
 \contentsline {subparagraph}{Random}{17}
-\contentsline {section}{\numberline {4}Results}{17}
+\contentsline {section}{\numberline {4}Test runs}{17}
 \contentsline {subsection}{\numberline {4.1}Metrics}{17}
 \contentsline {paragraph}{Universal Image Quality Index}{17}
 \contentsline {paragraph}{Visualization}{17}
-\contentsline {section}{\numberline {5}Test runs}{18}
-\contentsline {section}{\numberline {6}Conclusion}{19}
-\contentsline {subsection}{\numberline {6.1}Successful strategies}{19}
+\contentsline {subsection}{\numberline {4.2}test run 1, blah blah bleh ...}{18}
+\contentsline {subsection}{\numberline {4.3}test run 2 ...}{18}
+\contentsline {section}{\numberline {5}Conclusion}{19}
+\contentsline {subsection}{\numberline {5.1}Successful strategies}{19}

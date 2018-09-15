@@ -135,13 +135,13 @@ An extension to this method is to use the second, or n-th maximal mask after the
 \subparagraph{Sequential}This method simply goes through every mask in a sequential order. This is mostly useful for comparison for smarter strategies.
 \subparagraph{Random}
 Randomly picks a mask. Also useful for comparison, but it also could be a viable strategy.
-\section{Results}
+\section{Test runs}
 \subsection{Metrics}
 In addition to the objective function, or error, which is a metric itself the following metrics were used to judge the performance. These were used in the validation steps, or separately from training to benchmark the network.
 \paragraph{Universal Image Quality Index}This metric is used to rank the similarity of two images. It is produced from three components, measuring the correlation, luminance difference and contrast difference between the two input images. It works by splitting the images into sections with a chosen size, and calculating the metric on those. We calculate an average of these to get a single value. When used alongside the simpler MAE and f1 score, this could provide an alternative metric and view on accuracy. A matlab implementation was provided by the authors, which was then converted to python so it can be integrated into the training process.
 \paragraph{Visualization}Visual representation of the masks, and the input images it travels through the stages of the FCN are printed as pictures to disk. This way the inner workings of the net are somewhat observable. Masks, and the image apart from the final output can include negative values. The negative values are red, and the positive ones are green, and their intensity represents the absolute value.
-\newpage
-\section{Test runs}
+\subsection{test run 1, blah blah bleh ...}
+\subsection{test run 2 ...}
 \newpage
 \section{Conclusion}
 \subsection{Successful strategies}
