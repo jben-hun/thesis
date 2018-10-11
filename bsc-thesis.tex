@@ -124,8 +124,11 @@ The framework was coded in the \textit{Python} language, utilizing the \textit{t
 \chapter*{Introduction}
 \addcontentsline{toc}{section}{Introduction}
 
-\todo{TODO: rizsa}
-
+\todo{TODO: rizsa} In this thesis, a special computer program will be written, which uses a convolutional neural network. It will be special because with the use of a neural network it will be able to learn and be taught. While classical algorithms are created using human intuition or mathematical formulation, learning algorithms are given examples of the right answers it should produce with the given data, allowing it to automatically develop ways of solving a specific problem based on feedback about its own performance.\par
+Integrating the technique of convolution into these networks, they will not only be able to work with numbers, like they normally do, but also with images. This opens up new possibilities, like face recognition, object detection or image reconstruction. Convolutional neural networks are already used for these tasks in areas like security or industrial automation.\par
+Because images contain large amounts of pixels, convolutional neural networks are computationally demanding, requiring expensive hardware and long training times. A larger neural network has more neurons, so it must perform more operations, making it more demanding than a smaller one. This is why it is important to use a network which has just enough neurons to perform the task accurately, but no more, to avoid unnecessary calculations and computing time.\par
+This thesis attempts to come up with automatic ways of determining the right neuron count and network size for a given problem. This way, no repeated testing and trial-and-error is required, while manually trying different network sizes, because the network will try to find a fitting size for the given problem automatically without requiring human intervention.\par
+The benefits of using properly sized neural networks include portability and resource efficiency. With less demanding networks, cheaper hardware such as mobile devices will be capable of running a convolutional neural networks, making them more widely available. The computational costs can also be reduced, producing results faster and with more modest hardware.
 \chapter{Technical overview}
 \section{Minimal fully convolutional networks}
 The goal of this thesis is to create a framework which is capable of training a deep convolutional neural network for simple two-dimensional image processing tasks, to provide ways to make this network as small as possible without sacrificing a considerable amount of its accuracy.\par
