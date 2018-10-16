@@ -47,7 +47,7 @@
 %A TÖBBI OLDAL FEJ ÉS LÁBLÉCE:
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[L]{Implementing a self-sizing convolutional neural network}
+\fancyhead[L]{Implementing a self-scaling convolutional neural network}
 \fancyfoot[R]{\thepage}
 
 %A címoldalra se fej- se lábléc nem kell:
@@ -64,7 +64,7 @@
 	\vspace*{3.8cm}
 
 
-	{\LARGE\bf Implementing a self-sizing\\
+	{\LARGE\bf Implementing a self-scaling\\
 		convolutional neural network}
 
 
@@ -220,7 +220,7 @@ Randomly picks a mask. Also useful for comparison, but it also could be a viable
 \section{Metrics}
 In addition to the objective function, or error, which is a metric itself the following metrics were used to judge the performance. These were used in the validation steps, or separately from training to benchmark the network.
 \subsubsection{Universal Image Quality Index}This metric is used to rank the similarity of two images. It is produced from three components, measuring the correlation, luminance difference and contrast difference between the two input images. It works by splitting the images into sections with a chosen size, and calculating the metric on those. We calculate an average of these to get a single value. When used alongside the simpler MAE and f1 score, this could provide an alternative metric and view on accuracy. A matlab implementation was provided by the authors, which was then converted to python so it can be integrated into the training process.
-\subsubsection{Visualization}Visual representation of the masks, and the input images it travels through the stages of the FCN are printed as pictures to disk. This way the inner workings of the net are somewhat observable. Masks, and the image apart from the final output can include negative values. The negative values are red, and the positive ones are green, and their intensity represents the absolute value.
+\subsubsection{Visualization}Visual representation of the masks and snapshots of the inputs at each stage as they travel through the network are printed as image files to disk. This way the inner workings of the net are somewhat observable. Masks and images apart from the final output can contain negative values. To illustrate the whole range, negative values are visualized red, positive values are visualized green and color intensity represents absolute value.
 \chapter{Conclusion}
 \section{Successful strategies}
 
