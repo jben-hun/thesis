@@ -32,9 +32,11 @@
 \contentsline {section}{\numberline {3.1}Metrics}{19}
 \contentsline {subsubsection}{Universal Image Quality Index}{19}
 \contentsline {subsubsection}{Visualization}{19}
-\contentsline {chapter}{\numberline {4}Conclusion}{20}
-\contentsline {section}{\numberline {4.1}Successful strategies}{20}
-\contentsline {chapter}{\numberline {5}Appendix}{21}
+\contentsline {section}{\numberline {3.2}Runs}{20}
+\contentsline {subsection}{\numberline {3.2.1}1}{20}
+\contentsline {subsection}{\numberline {3.2.2}2}{20}
+\contentsline {section}{\numberline {3.3}Conclusion}{20}
+\contentsline {chapter}{\numberline {4}Appendix}{21}
 \ 
 \contentsline {section}{Statement}{22}
 \contentsline {section}{Acknowledgments}{23}
