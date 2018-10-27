@@ -17,6 +17,9 @@
 \usepackage{color}
 \usepackage{mathtools}
 
+%%JB
+\usepackage{hyperref}
+
 %Margók:
 \hoffset -1in
 \voffset -1in
@@ -26,7 +29,10 @@
 \headheight 10mm
 \headsep 5mm
 \textheight 237mm
+
+%%JB 
 \linespread{1.3}
+\usepackage{url}
 
 \newcommand\todo[1]{\textcolor{red}{#1}}
 %\renewcommand\todo[1]{}
@@ -101,25 +107,33 @@
 \end{center}
 
 %A tartalomjegyzék:
-\tableofcontents
+\begingroup
+	\hypersetup{hidelinks}
+	\tableofcontents
+\endgroup
 
 %A \chapter* parancs nem ad a fejezetnek sorszámot
+
+\chapter*{Tartalmi összefoglaló\\(content summary in Hungarian)}
+\addcontentsline{toc}{section}{Tartalmi összefoglaló (content summary in Hungarian)}
+
+\todo{TODO: fordítás}
 
 \chapter*{Task proposal}
 %A tartalomjegyzékben mégis szerepeltetni kell, mint szakasz(section) szerepeljen:
 \addcontentsline{toc}{section}{Task proposal}
-
-\todo{TODO: DUMMY TODO}
 
 The task of the candidate is to create a framework in which convolutional neural networks can be trained, and the size of these networks are determined automatically. The framework should be able to perform the following:\par
 
 - Training of a fully convolutional neural network to solve a simple image processing task (ex.: edge detection, automatic thresholding, etc.).\par
 
 - Determining the size of the ideal neural network. An ideal sized neural network solves the problem with a given layer count and structure with the maximum possible accuracy, while keeping the neuron count minimal among layers.
+
 \chapter*{Content summary}
 \addcontentsline{toc}{section}{Content summary}
 
-This thesis falls into the topics of \textit{machine learning} and \textit{digital image processing}. It uses a machine learning technique of training a \textit{fully convolutional network} to perform \textit{edge detection}, which is an image processing task. The focus is not on the training or task itself, instead it is about optimizing the parameters of the network, specifically minimizing the number of layers and the number of masks in the layers, while not sacrificing the accuracy of the network.\par
+This thesis falls into the topics of \textit{machine learning} and \textit{digital image processing}. It uses a machine learning technique of training a \textit{fully convolutional network} to perform \textit{edge detection}, which is an image processing task. The focus is not on the training or task itself, instead it is about optimizing the parameters of the network, specifically minimizing the number of layers and the number of masks in the layers, while not sacrificing the accuracy of the network. Similar topics are already researched before, such as the articles \cite{pruning_web}, \cite{pruning_arxiv} and \cite{understanding}.
+\par
 
 The beneficial size for the network is determined by a training process which is capable of saving its state and returning to it later. It is also capable of altering the inner workings of the network temporarily. This is used to test and compare different configurations. The previous techniques are combined with different metrics The training stops when an exiting criterion is met. This results in a network configuration that is determined optimal by the current strategy.\par
 
@@ -155,7 +169,7 @@ The size of a deep neural network is defined by two parameters: \textit{number o
 
 The network needs a task which gets an image as input and gives back another image. This leads us to a simple non-trivial two-dimensional image processing task that can be learned in feasible times. Meanwhile the quality of the edge maps are somewhat subjective, each method having its strong and weak areas. Below are the the two chosen image processing tasks. Other, very different tasks could have been chosen, which is a possible direction for further experimentation.
 \section{Edge detection}
-An \textit{edge} in image processing is a sudden change in pixel intensity through an image. This is common on the edges of objects, or at the intersection of different colors in a pattern. There is no criteria for the actual required value of the change intensity-change per pixel, so there is no single right solution for edge detecting an image. There are multiple techniques available for detecting edges, each having its own strengths and weaknesses.\par
+An \textit{edge} in image processing is a sudden change in pixel intensity through an image. This is common on the edges of objects, or at the intersection of different colors in a pattern. There is no criteria for the actual required value of the intensity-change per pixel, so there is no single right solution for edge detection. There are multiple techniques available for detecting edges, each having its own strengths and weaknesses.\par
 
 There are two classes of edge detection, based on their output format: \textit{continuous} and \textit{discrete}.\par
 
@@ -163,52 +177,52 @@ There are two classes of edge detection, based on their output format: \textit{c
 
 \textit{Discrete} detection uses boolean values to tell if an edge is present or not. Continuous detections can be converted to discrete with thresholding, or using adaptive thresholding on parts of a continuous edge map.\par
 
-Edges can occur in any direction on an image. The detectors often use derivatives and gradients to determine the sudden drops and rises in intensity, among both axes. Since most detectors use multiple steps until they produce the final edge map, it makes sense to use a deep, multi-layered network, where a layer can more-or-less represent a step in the process. \textit{Convolving} an image with an appropriate mask is also used in edge detection. A \textit{convolutional network} is capable of learning and applying combinations of masks automatically.
+Edges can occur in any direction on an image. The detectors often use derivatives and gradients to determine the sudden drops and rises in intensity, among both axes. Since most detectors use multiple steps until they produce the final edge map, it could make sense to use a deep, multi-layered network to see if a layer could more-or-less represent a step in the process. \textit{Convolving} an image with an appropriate mask is also used in edge detection. A \textit{convolutional network} is capable of learning and applying combinations of masks automatically.
 \subsection{Conventional algorithmic edge detectors}
-The following two edge detectors are important, as they are widely used algorithms, their output will serve as examples of edge maps.\\\par
+The following two edge detectors are important, as they are widely used algorithms, their output will serve as examples of edge maps.\par
 
-The \textit{Sobel–Feldman operator}, or \textit{Sobel filter} consists of two discrete matrices to be convolved with the source image. This will result in two edge map images, or gradients, one for the horizontal and one for the vertical axis. Then the two matrices can be combined by calculating the geometric mean pixel-wise. The result is a continuous edge map.\\\par
+The \textit{Sobel–Feldman operator}, or \textit{Sobel filter} consists of two discrete matrices to be convolved with the source image. This will result in two edge map images, or gradients, one for the horizontal and one for the vertical axis. Then the two matrices can be combined by calculating the geometric mean pixel-wise. The result is a continuous edge map.\par
 
-The \textit{Canny edge detector} is a more complex one, consisting of five steps, including filtering, gradient computing, which can be learned by the network using appropriate masks, and including non-maximal edge suppression, double thresholding, and hysteresis to suppress weak edges, which is not done using convolution, so it cannot directly be learned by a convolutional network. This will force the network to find its way around the problem, come up with alternative methods using convolutional masks in order to optimize the objective function. The Canny edge detector as opposed to the Sobel operator will result in a discrete edge map.\\\par
+The \textit{Canny edge detector} is a more complex one, consisting of five steps, including filtering, gradient computing, which can be learned by the network using appropriate masks, and including non-maximal edge suppression, double thresholding, and hysteresis to suppress weak edges, which is not done using convolution, so it cannot directly be learned by a convolutional network. This will force the network to find its way around the problem, come up with alternative methods using convolutional masks in order to optimize the objective function. The Canny edge detector as opposed to the Sobel operator will result in a discrete edge map.\par
 
-The network will be trained with raw images, and images ran trough the Canny and Sobel edge detectors. The objective of the network will be to mimic the outcome of the detectors. First, we will teach with the Sobel detector. This should be the easier task for the network, since everything can be done with convolutions with the correct masks. Then we will use the Canny detector, which is considered a harder task due to the multiple steps including different algorithms.\par
+The network will be trained with raw images, and images ran trough the Canny and Sobel edge detectors. The objective of the network will be to mimic the outcome of the detectors. First, we will teach with the Sobel detector. This should be the easier task for the network, since everything can be done with convolutions with the correct masks. Then, we will use the Canny detector, which is considered a harder task due to the multiple steps including different algorithms.\par
 
-So the input will be a raw image, encoded and compressed in png format, this is what the network will get to work on, and the sample output will be an edge map, made with either the Sobel operator or the Canny operator. The objective function will ensure that the actual output is as close to the sample output as possible, by producing a high penalty if they differ.
+The input will be a raw image, encoded and compressed in png format, this is what the network will get to work on, and the sample output will be an edge map, made with either the Sobel operator or the Canny operator. The objective function will ensure that the actual output is as close to the sample output as possible, by producing a high penalty if they differ.
 \section{Tools}
 \subsection{Software}
 There are a variety of machine learning toolkits and frameworks to choose from. Some of the major criteria is the ability to freely customize as much aspects as possible, while also being able to quickly produce a working implementation for fast experimentation. These seemingly conflicting points ask for a framework which is not too high or too low-level. The physical tools, the hardware, must be chosen as well, based heavily on availability and possession.\par
 
-\textit{Python} is an open source interpreted programming language, which is widely used in machine learning, or for writing simple tools, thanks to its very fluent syntax, which can feel similar to writing in plain English. Most major machine learning frameworks (tensorflow, Caffe, Caffe2, CNTK and so on) support Python, often as the main language. It is easy and fast to implement and test a new idea, due to it being a high level language, but the performance cost of it is negligible, because the most demanding part of machine learning is not the network building part, which is the part Python is used for, but the training itself, repeatedly evaluating the network, calculating the error and propagating it backwards, and this part is usually made to be hardware accelerated by most frameworks.\par
+\textit{Python} is an open source interpreted programming language, which is widely used in machine learning, or for writing simple tools, thanks to its very fluent syntax, which can feel similar to writing in plain English. Most major machine learning frameworks (tensorflow, Caffe, Caffe2, CNTK and so on) support Python, often as the main language. It is easy and fast to implement and test a new idea, due to it being a high level language, but the performance cost of it is negligible. The most demanding part of machine learning is not the network building part, which is the part Python is used for. It is the training itself, repeatedly evaluating the network, calculating the error and propagating it backwards. This part is usually made to be hardware accelerated by most frameworks.\par
 
 \textit{Tensorflow}, being developed by Google, is a framework for making and using computational graph, supporting the creation of deep neural networks. It is used both for research and as a backend for PC and mobile applications, or the core on which higher level frameworks build on. Tensorflow is based on Python, and it has limited support for C++. There are two ways to make graphs with the toolkit: high level and low level. In the higher level, there are several predefined layers available, these can be parametrized stacked on top of each other to produce a graph. The most common machine learning network layouts are supported by this method. In the lower level, exact operations (addition, convolution, transposing, etc.) and the flow of the data must be coded. This method is used to develop tools for higher level tensorflow, and for research, because of the freedom of configuration it provides. While being lower level, there are still numerous tools and helper functions available, even image file decoders and preprocessors for example. Another strength of tensorflow is hardware acceleration. With a supported NVIDIA graphics card, computational graphs can be executed in GPU accelerated mode, which is often faster than CPU mode by several magnitudes.\par
 
 \textit{CUDA} by \textit{NVIDIA} is required to utilize the computing capacity of a supported GPU, and run tensorflow in GPU accelerated mode. CUDA is crossplatform, available for Windows, macOS and Linux, and it is downloadable freely.\par
 
 \label{cudnn}
-\textit{cuDNN}, the \textit{CUDA Deep Neural Network} library provides GPU-accelerated routines for common machine learning tasks. It is also available for free, but a registration is required, specifying the plan of usage and associated institutes as well. Tensorflow, when used in GPU mode, relies on this library. One negative effect of this is the non-deterministic nature of some routines, and tensorflow provides no way around it. This way, getting the same exact outcome within two different runs are not possible. Using seeding to achieve this would produce more comparable result, without this technique more testing is required. The exact operation which is affected will be described at section \ref{train}.
+\textit{cuDNN}, the \textit{CUDA Deep Neural Network} library provides GPU-accelerated routines for common machine learning tasks. It is also available for free, but a registration is required, specifying the plan of usage and associated institutes as well. Tensorflow, when used in GPU mode, relies on this library. One negative effect of this is the non-deterministic nature of some routines, and tensorflow provides no way around it. This way, getting the same exact outcome in two different runs is not possible. Using seeding to achieve this would produce more comparable result, without this technique more testing is required. The exact operation which is affected will be described at section \ref{train}.
 \subsection{Hardware}
 Initially a relatively low performance notebook was used to perform all the training. The main benefit of using this notebook was its built-in dedicated GPU, the NVIDIA GeForce 840M. It has 384 CUDA cores with compute capability version 5.0, which means it is able to run tensorflow in GPU-mode. Tensorflow demands compute capability to be 3.0 or higher to run in GPU-mode, 3.0 and 3.5 are common among machine learning toolkits. The notebook had 4GB RAM, and 2GB VRAM.\par
 
-Later, several tests were run remotely at a higher performance desktop computer, while the notebook was used to develop the models and check if they work as intended. These runs were often longer than a week, depending on the sample size. This PC was an Intel Core i7-6700 with 16GB RAM, and it had an NVIDIA Tesla K40 GPU with 12GB VRAM and 2880 CUDA cores.
+Later, several tests were ran remotely at a higher performance desktop computer, while the notebook was used to develop the models and check if they work as intended. These runs were often longer than a week, depending on the sample size. This PC was an Intel Core i7-6700 with 16GB RAM, and it had an NVIDIA Tesla K40 GPU with 12GB VRAM and 2880 CUDA cores.
 \chapter{Implementation}
 \section{Preparing the input images}
-The Visual Object Classes Challenge 2012 (VOC2012) dataset was used as input images. The VOC dataset contains colored pictures of 20 classes in different settings. Classes include aeroplane, people, bicycle, horse and so on. These are fine for simple image processing tasks, there are a wide variety of objects in various distances and quantities. The classes are not needed for us, since we are outputting an image the same dimensions as the input, instead of performing classification. Without the classes, the expected output for teaching had to be generated from the input images, this was done with matlab scripts and built-in image processing functions.\par
+A large and openly available set of images were needed as input for the training. The Visual Object Classes Challenge 2012 (VOC2012) dataset \cite{pascal-voc-2012} was chosen for this purpose. The VOC dataset contains colored pictures of 20 classes in different settings. Classes include aeroplane, people, bicycle, horse and so on. These are fine for simple image processing tasks, there are a wide variety of objects in various distances and quantities. The classes are not needed for us, since we are outputting an image the same dimensions as the input, instead of performing classification. Without the classes, the expected output for teaching had to be generated from the input images, this was done with matlab scripts and built-in image processing functions.\par
 
-The images and edge maps are fed to the network during training. The images must be preprocessed to be in an efficient format for training. The goal is to have matrices which can run trough the FCN and produce an output. First the center of the images are cropped, because the input pipeline uses a fixed structure, and the dataset has pictures of varying size. The size of the area to be cropped is $256×256$, meaning this is the dimension of the images the network will work on. Then the images are decoded to pure matrices containing floating point values. After this we will have three dimensional images due to the RGB color palette, this is reduced to two dimensions by converting the image matrices to grayscale. This way the color information is lost, but color edge detection is a whole different area. Finally, a number of images are batched together to enable bulk processing of inputs, leaving us with $ BATCH SIZE × WIDTH × HEIGHT $ dimensions for a single input object.
+The images and edge maps are fed to the network during training. The images must be preprocessed to be in an efficient format for training. The goal is to have matrices which can run trough the FCN and produce an output. First the center of the images are cropped, because the input pipeline uses a fixed structure, and the dataset has pictures of varying size. The size of the area to be cropped is $256×256$, meaning this is the dimension of the images the network will work on. Then, the images are decoded to pure matrices containing floating point values. After this we will have three dimensional images due to the RGB color palette, this is reduced to two dimensions by converting the image matrices to grayscale. This way the color information is lost, but color edge detection is a whole different area. Finally, a number of images are batched together to enable bulk processing of inputs, leaving us with $ BATCH SIZE × WIDTH × HEIGHT $ dimensions for a single input object.
 \section{Network structure}
 This section explains the parameters of the FCN, including the types and sizes of the layers, the objective functions and the metrics used.\par
 
-In tensorflow, the network we build is a computational graph. The vertices are operation, like computations and the edges are the data flowing in one direction, joined to one or more vertices. The edges are also called tensors, they can be simple numbers or multidimensional matrices, like images or groups of images.
+In tensorflow, the network we build is a computational graph. The vertices are operations and the edges are the data flowing in one direction, joined to one or more vertices. The edges are also called tensors, they can be simple numbers or multidimensional matrices, images or groups of images for example.
 When defining multi-dimensional variables, the tensorflow-recommended \textit{NHWC} format is used where possible:\\
- \textit{N}: batch, \textit{H}: height, \textit{W}: width, \textit{C}: channels. This forces some consistency into the code and structure, most built-in tensorflow functions expect this format, so no reshaping is required, and there is also a benefit in performance, since this is the optimal format for CUDA operations as well.\par
+ \textit{N}: batch, \textit{H}: height, \textit{W}: width, \textit{C}: channels. This forces some consistency into the code and structure. Most built-in tensorflow functions expect this format, so no reshaping is required, and there is also a benefit in performance, since this is the optimal format for CUDA operations as well.\par
  
 Our FCN is made up by three layers, the first layer gets the reprocessed image from the previous section, while the third layer produces the output image. The layers are convolutional with an added bias, initialized randomly with a predefined distribution.\par
 
-Each \textit{convolutional layer} has its own set of five masks sized $5×5$. Strides and dilations are set to one in all dimensions, this means no pixels are skipped when convolving the whole image. A 5x5 mask allows for more complexity than a $3×3$ mask, while being able to produce the same results if the weights on the edges are small enough. After a convolution is performed with a mask, a scalar bias is added elementwise to the resulting pixel.\par
+Each \textit{convolutional layer} has its own set of five masks sized $5×5$. Strides and dilations are set to one in all dimensions, this means no pixels are skipped when convolving the whole image. A 5x5 mask allows for more complexity than a $3×3$ mask, while being able to produce the same results if the weights on the edges are small enough. After a convolution is performed with a mask, a scalar bias is added elementwise to the resulting pixels.\par
 
 \textit{Truncated normal initialization} is used before the first training. The values are derived from a general normal distribution parametrized by the given mean and deviation. Truncated means that values with more than two standard deviations distance from the mean are redrawn, this will chop off the edges of the histogram, producing a more even distribution with fewer outliers.\par
 
-The \textit{activation function} is \textit{ReLu} (rectified linear unit) across the whole network. ReLu is a simple linear rectifier, returning zero for negative values and the original value otherwise. It is a convenient choice because doe to its linearity it does not deform the images. It is also fast to compute and widely used for convolutional networks. Since ReLu has no upper limit, the final output must be scaled down and possibly rounded to fit an image format standard, usually $0-255$ or $0-1$, in our case $0-255$ png.
+The \textit{activation function} is \textit{ReLu} (rectified linear unit) across the whole network. ReLu is a simple linear rectifier, returning zero for negative values and the original value otherwise. It is a convenient choice because due to its linearity it does not deform the images. It is also fast to compute and widely used for convolutional networks. Since ReLu has no upper limit, the final output must be scaled down and possibly rounded to fit an image format standard, usually $0-255$ or $0-1$, in our case $0-255$ png.
 \subsection{The objective function and output}
 The objective function must return a single number which the optimizer will try to minimize or maximize. In our case this will be minimization, the tensorflow optimizers default to this. The framework being made for this thesis has some options to specify the objective function before training, so testing different losses can be automatized. A few fitting objective functions were tested, and the ones which produce high accuracy the faster were kept.\par
 
@@ -216,11 +230,11 @@ The error-calculating operation lives between the output and training operation 
 
 For teaching with the Sobel edge map dataset, we have a continuous output and a set of continuous example images, so the objective function must take two batches of continuous matrices to calculate the error. L1 and L2 losses work with the difference of the matrices. L1 loss or mean absolute error (MAE) calculates the mean of the absolute difference matrix, L2 loss or mean squared error (MSE) calculates the average of the squared values of the difference matrix. These losses are common with regression. The reason behind squaring the values is to achieve shorter training times, because bigger errors are penalized exponentially more.\par
 
-For teaching with the Canny edge map dataset, we have a continuous output, but a discrete expected output, matrices that containing either ones or zeros. L1 and L2 loss can be also used here. To account for false positives and negatives, and true positives and negatives, a modification of confusion metrics are also used, namely F1 score operates on purely discrete (positive and negative) values, and here only the expected output is discrete, this will not be true f1 loss, but it will follow the same principles. The result must also be negated, meaning subtracted from one, to get a loss instead of a score, which is proportional to the accuracy.
+For teaching with the Canny edge map dataset, we have a continuous output, but a discrete expected output, matrices that containing either ones or zeros. L1 and L2 loss can be also used here. To account for false positives and negatives, and true positives and negatives, a modification of confusion metrics are also used, namely F1 score operates on purely discrete (positive and negative) values, and here only the expected output is discrete, this will not be true F1 score, but it will follow the same principles. The result must also be negated, meaning subtracted from one, to get a loss instead of a score, which is proportional to the accuracy.
 \subsection{Training and error back-propagation} \label{train}
-The training operation comes last after all the layers, right after the operation that calculates the error from the output. It computes the gradients of all the operations in the graph, and then changes the trainable variables weighted by their contribution to the error.\par
+The training operation is joined last after the layers, right after the operation that calculates the error from the output, but it reads and manipulates almost the whole graph. It computes the gradients of all the operations in the graph, and then changes the trainable variables weighted by their contribution to the error.\par
 
-One of the tensorflow built-in optimizers, \textit{Adam} is used. It features momentum-based dynamic learning rate, which promises improved convergence time. This optimizer has two built-in running variables, which change over time, resulting in smaller likelihood as time progresses during training. Because of cuDNN, as mentioned in section \ref{cudnn}, Adam is slightly non-deterministic even when used with the same parameters and random-seed.\par
+One of the tensorflow built-in optimizers, \textit{Adam} \cite{adam} is used. It features momentum-based dynamic learning rate, which promises improved convergence time. This optimizer has two built-in running variables, which change over time, resulting in smaller likelihood as time progresses during training. Because of cuDNN, as mentioned in section \ref{cudnn}, Adam is slightly non-deterministic even when used with the same parameters and random-seed.\par
 
 \textit{Training} and \textit{evaluation} steps are alternating during a training session. Training steps take up the majority of the time, while evaluation or validation steps are around ten or more times less frequent during a run.\par
 
@@ -255,7 +269,7 @@ There are a few ways to utilize freezing and disabling to determine how much a s
 \subsection{The minimization process}
 This process encapsulates multiple training sessions, and uses the tools and methods described above between them in hope of determining a minimal configuration.\par
 
-First, a training session is invoked, this is the longer than the later ones, to produce a working network that is close to convergence and is capable of inference. When this happens can be measured by checking when the error stagnates. The network is then evaluated and saved to disk. Then one or more masks are \textit{selected} and altered. Altering includes freezing and disabling masks, and there are multiple strategies for \textit{selection}, they are described below. After this, another training session and evaluation is performed with the altered network. This is usually shorter, because the network is already semi-converged. The results of the new evaluation and the old one are compared, and if the new one is significantly weaker, the old network is reloaded from disk. Then comes another selection, which makes sure to select different masks if the network was restored from disk. The sequence of training, evaluation, comparison and \textit{selection} is repeated until a stopping criteria is met. We are left with the final network, and a one-hot matrix which describes which masks are to be removed to get the minimal structure.
+First, a training session is invoked, this is longer than the later ones, to produce a working network that is close to convergence and is capable of inference. We are ready to stop the training when error stagnates. The network is then evaluated and saved to disk. Then one or more masks are \textit{selected} and altered. Altering includes freezing and disabling masks, and there are multiple strategies for \textit{selection}, they are described below. After this, another training session and evaluation is performed with the altered network. This is usually shorter, because the network is already semi-converged. The results of the new evaluation and the old one are compared, and if the new one is significantly weaker, the old network is reloaded from disk. Then comes another selection, which makes sure to select different masks if the network was restored from disk. The sequence of training, evaluation, comparison and \textit{selection} is repeated until a stopping criteria is met. We are left with the final network, and a one-hot matrix which describes which masks are to be removed to get the minimal structure.
 \subsection{Selection}
 Masks have to be selected, for freezing or disabling, the choice should reflect the contribution of the selected mask to the overall performance, or in other words, the least important mask should be the one that gets selected, so the network could possibly perform with one less mask.
 \subsubsection{Cosine-similarity}Cosine similarity  tries to represent how similar two n-dimensional vectors are. A mask is a set of two-dimensional matrices plus scalar biases, so they are reshaped to a vector format, with the bias appended to the end of the vector. Then all the vectors are compared to each other using cosine similarity, and the end result is stored in a matrix, where the i,j element represents the cosine similarity between the the mask in the i. place and the mask in the j. place. These value range from -1 to 1, 1 is most similar (same), while negative numbers mean opposites, vectors in the opposite direction. This is done for each layer, producing a matrix for each layer.\par
@@ -270,7 +284,7 @@ Randomly picks a mask. Also useful for comparison, but it also could be a viable
 \chapter{Results}
 \section{Metrics}
 In addition to the objective function, or error, which is a metric itself the following metrics were used to judge the performance. These were used in the validation steps, or separately from training to benchmark the network.
-\subsubsection{Universal Image Quality Index}This metric is used to rank the similarity of two images. It is produced from three components, measuring the correlation, luminance difference and contrast difference between the two input images. It works by splitting the images into sections with a chosen size, and calculating the metric on those. We calculate an average of these to get a single value. When used alongside the simpler MAE and f1 score, this could provide an alternative metric and view on accuracy. A matlab implementation was provided by the authors, which was then converted to python so it can be integrated into the training process.
+\subsubsection{Universal Image Quality Index}This metric is used to rank the similarity of two images. It is produced from three components, measuring the correlation, luminance difference and contrast difference between the two input images. It works by splitting the images into sections with a chosen size, and calculating the metric on those. We calculate an average of these to get a single value. When used alongside the simpler MAE and F1 score, this could provide an alternative metric and view on accuracy. A matlab implementation was provided by the authors, which was then converted to python so it can be integrated into the training process.
 \subsubsection{Visualization}Visual representation of the masks and snapshots of the inputs at each stage as they travel through the network are printed as image files to disk. This way the inner workings of the net are somewhat observable. Masks and images apart from the final output can contain negative values. To illustrate the whole range, negative values are visualized red, positive values are visualized green and color intensity represents absolute value.t
 \section{Runs}
 \subsection{1}
@@ -315,7 +329,7 @@ Tudomásul veszem, hogy szakdolgozatomat / diplomamunkámat a Szegedi Tudománye
 Ezúton szeretnék köszönetet mondani \textit{X. Y-nak} ezért és ezért \ldots
 
 %% Az itrodalomjegyzek keszitheto a BibTeX segedprogrammal:
-%\bibliography{diploma}
-%\bibliographystyle{plain}
+\bibliography{references} 
+\bibliographystyle{unsrt}
 
 \end{document}

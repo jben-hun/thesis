@@ -1,0 +1,22 @@
+\begin{thebibliography}{1}
+
+\bibitem{WEBSITE:2}
+Ari Morcos & David~Barrett (DeepMind).
+\newblock Understanding deep learning through neuron deletion.
+\newblock
+  \url{https://deepmind.com/blog/understanding-deep-learning-through-neuron-deletion/},
+  Mar 2018.
+
+\bibitem{WEBSITE:1}
+Jacob Gildenblat.
+\newblock Pruning deep neural networks to make them fast and small.
+\newblock \url{https://jacobgil.github.io/deeplearning/pruning-deep-learning},
+  2016.
+
+\bibitem{WEBSITE:3}
+Intel.
+\newblock Pruning convolutional neural networks for resource efficient
+  iference.
+\newblock \url{https://arxiv.org/pdf/1611.06440.pdf}, Dec 1988.
+
+\end{thebibliography}
