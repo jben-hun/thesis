@@ -19,11 +19,27 @@ Ari Morcos and David Barrett.
   \url{https://deepmind.com/blog/understanding-deep-learning-through-neuron-deletion/},
   Mar 2018.
 
+\bibitem{sobel}
+Sobel operator.
+\newblock \url{https://en.wikipedia.org/wiki/Sobel_operator}.
+
+\bibitem{canny}
+Canny edge detector.
+\newblock \url{https://en.wikipedia.org/wiki/Canny_edge_detector}.
+
 \bibitem{pascal-voc-2012}
 M.~Everingham, L.~Van~Gool, C.~K.~I. Williams, J.~Winn, and A.~Zisserman.
 \newblock The {PASCAL} {V}isual {O}bject {C}lasses {C}hallenge 2012
   {(VOC2012)}.
 \newblock \url{http://host.robots.ox.ac.uk/pascal/VOC/voc2012/}.
+
+\bibitem{trunc}
+Truncated normal distribution.
+\newblock \url{https://en.wikipedia.org/wiki/Truncated_normal_distribution}.
+
+\bibitem{relu}
+Rectifier (neural networks).
+\newblock \url{https://en.wikipedia.org/wiki/Rectifier_(neural_networks)}.
 
 \bibitem{adam}
 Diederik~P. Kingma and Jimmy Ba.

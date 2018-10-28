@@ -14,11 +14,14 @@
 %A fejléc láblécek kialakításához:
 \usepackage{fancyhdr}
 
-\usepackage{color}
+%\usepackage{color}
 \usepackage{mathtools}
 
 %%JB
 \usepackage{hyperref}
+\usepackage{commath}
+\usepackage{listings}
+\usepackage{xcolor}
 
 %Margók:
 \hoffset -1in
@@ -32,7 +35,22 @@
 
 %%JB 
 \linespread{1.3}
-\usepackage{url}
+
+\lstdefinestyle{py}{
+	xleftmargin=\parindent,
+	basicstyle=\linespread{1.0}\footnotesize\ttfamily,
+	keywordstyle=\bfseries\color{green!40!black},
+	commentstyle=\itshape\color{purple!40!black},
+	identifierstyle=\color{blue},
+	stringstyle=\color{orange},
+	showstringspaces=false,
+	frame=single,
+	language=Python,
+	breaklines=true
+}
+
+\lstset{style=py}
+
 
 \newcommand\todo[1]{\textcolor{red}{#1}}
 %\renewcommand\todo[1]{}
@@ -181,9 +199,9 @@ Edges can occur in any direction on an image. The detectors often use derivative
 \subsection{Conventional algorithmic edge detectors}
 The following two edge detectors are important, as they are widely used algorithms, their output will serve as examples of edge maps.\par
 
-The \textit{Sobel–Feldman operator}, or \textit{Sobel filter} consists of two discrete matrices to be convolved with the source image. This will result in two edge map images, or gradients, one for the horizontal and one for the vertical axis. Then the two matrices can be combined by calculating the geometric mean pixel-wise. The result is a continuous edge map.\par
+The \textit{Sobel–Feldman operator}, or \textit{Sobel filter} \cite{sobel} consists of two discrete matrices to be convolved with the source image. This will result in two edge map images, or gradients, one for the horizontal and one for the vertical axis. Then the two matrices can be combined by calculating the geometric mean pixel-wise. The result is a continuous edge map.\par
 
-The \textit{Canny edge detector} is a more complex one, consisting of five steps, including filtering, gradient computing, which can be learned by the network using appropriate masks, and including non-maximal edge suppression, double thresholding, and hysteresis to suppress weak edges, which is not done using convolution, so it cannot directly be learned by a convolutional network. This will force the network to find its way around the problem, come up with alternative methods using convolutional masks in order to optimize the objective function. The Canny edge detector as opposed to the Sobel operator will result in a discrete edge map.\par
+The \textit{Canny edge detector} \cite{canny} is a more complex one, consisting of five steps, including filtering, gradient computing, which can be learned by the network using appropriate masks, and including non-maximal edge suppression, double thresholding, and hysteresis to suppress weak edges, which is not done using convolution, so it cannot directly be learned by a convolutional network. This will force the network to find its way around the problem, come up with alternative methods using convolutional masks in order to optimize the objective function. The Canny edge detector as opposed to the Sobel operator will result in a discrete edge map.\par
 
 The network will be trained with raw images, and images ran trough the Canny and Sobel edge detectors. The objective of the network will be to mimic the outcome of the detectors. First, we will teach with the Sobel detector. This should be the easier task for the network, since everything can be done with convolutions with the correct masks. Then, we will use the Canny detector, which is considered a harder task due to the multiple steps including different algorithms.\par
 
@@ -208,7 +226,7 @@ Later, several tests were ran remotely at a higher performance desktop computer,
 \section{Preparing the input images}
 A large and openly available set of images were needed as input for the training. The Visual Object Classes Challenge 2012 (VOC2012) dataset \cite{pascal-voc-2012} was chosen for this purpose. The VOC dataset contains colored pictures of 20 classes in different settings. Classes include aeroplane, people, bicycle, horse and so on. These are fine for simple image processing tasks, there are a wide variety of objects in various distances and quantities. The classes are not needed for us, since we are outputting an image the same dimensions as the input, instead of performing classification. Without the classes, the expected output for teaching had to be generated from the input images, this was done with matlab scripts and built-in image processing functions.\par
 
-The images and edge maps are fed to the network during training. The images must be preprocessed to be in an efficient format for training. The goal is to have matrices which can run trough the FCN and produce an output. First the center of the images are cropped, because the input pipeline uses a fixed structure, and the dataset has pictures of varying size. The size of the area to be cropped is $256×256$, meaning this is the dimension of the images the network will work on. Then, the images are decoded to pure matrices containing floating point values. After this we will have three dimensional images due to the RGB color palette, this is reduced to two dimensions by converting the image matrices to grayscale. This way the color information is lost, but color edge detection is a whole different area. Finally, a number of images are batched together to enable bulk processing of inputs, leaving us with $ BATCH SIZE × WIDTH × HEIGHT $ dimensions for a single input object.
+The images and edge maps are fed to the network during training. The images must be preprocessed to be in an efficient format for training. The goal is to have matrices which can run trough the FCN and produce an output. First the center of the images are cropped, because the input pipeline uses a fixed structure, and the dataset has pictures of varying size. The size of the area to be cropped is $256×256$, meaning this is the dimension of the images the network will work on. Then, the images are decoded to pure matrices containing floating point values. After this we will have three dimensional images due to the RGB color palette, this is reduced to two dimensions by converting the image matrices to grayscale. This way the color information is lost, but color edge detection is a whole different area. Finally, a number of images are batched together to enable bulk processing of inputs, leaving us with $ batch\ size × image\ height × image\ width $ dimensions for a single input object.
 \section{Network structure}
 This section explains the parameters of the FCN, including the types and sizes of the layers, the objective functions and the metrics used.\par
 
@@ -220,17 +238,71 @@ Our FCN is made up by three layers, the first layer gets the reprocessed image f
 
 Each \textit{convolutional layer} has its own set of five masks sized $5×5$. Strides and dilations are set to one in all dimensions, this means no pixels are skipped when convolving the whole image. A 5x5 mask allows for more complexity than a $3×3$ mask, while being able to produce the same results if the weights on the edges are small enough. After a convolution is performed with a mask, a scalar bias is added elementwise to the resulting pixels.\par
 
-\textit{Truncated normal initialization} is used before the first training. The values are derived from a general normal distribution parametrized by the given mean and deviation. Truncated means that values with more than two standard deviations distance from the mean are redrawn, this will chop off the edges of the histogram, producing a more even distribution with fewer outliers.\par
+\textit{Truncated normal initialization} \cite{trunc} is used before the first training. The values are derived from a general normal distribution parametrized by the given mean and deviation. Truncated means that values with more than two standard deviations distance from the mean are redrawn, this will chop off the edges of the histogram, producing a more even distribution with fewer outliers.\par
 
-The \textit{activation function} is \textit{ReLu} (rectified linear unit) across the whole network. ReLu is a simple linear rectifier, returning zero for negative values and the original value otherwise. It is a convenient choice because due to its linearity it does not deform the images. It is also fast to compute and widely used for convolutional networks. Since ReLu has no upper limit, the final output must be scaled down and possibly rounded to fit an image format standard, usually $0-255$ or $0-1$, in our case $0-255$ png.
+The \textit{activation function} is \textit{ReLu} (rectified linear unit) \cite{relu} across the whole network. ReLu is a simple linear rectifier, returning zero for negative values and the original value otherwise. It is a convenient choice because due to its linearity it does not deform the images. It is also fast to compute and widely used for convolutional networks. Since ReLu has no upper limit, the final output must be scaled down and possibly rounded to fit an image format standard, usually $0-255$ or $0-1$, in our case $0-255$ png.
 \subsection{The objective function and output}
 The objective function must return a single number which the optimizer will try to minimize or maximize. In our case this will be minimization, the tensorflow optimizers default to this. The framework being made for this thesis has some options to specify the objective function before training, so testing different losses can be automatized. A few fitting objective functions were tested, and the ones which produce high accuracy the faster were kept.\par
 
 The error-calculating operation lives between the output and training operation in the graph.\par
 
-For teaching with the Sobel edge map dataset, we have a continuous output and a set of continuous example images, so the objective function must take two batches of continuous matrices to calculate the error. L1 and L2 losses work with the difference of the matrices. L1 loss or mean absolute error (MAE) calculates the mean of the absolute difference matrix, L2 loss or mean squared error (MSE) calculates the average of the squared values of the difference matrix. These losses are common with regression. The reason behind squaring the values is to achieve shorter training times, because bigger errors are penalized exponentially more.\par
+For teaching with the Sobel edge map dataset, we have a continuous output and a set of continuous example images, so the objective function must take two batches of continuous matrices to calculate the error. L1 and L2 losses (equation \ref{l1} and \ref{l2}) work with the difference of the matrices. L1 loss or mean absolute error (MAE) calculates the mean of the absolute difference matrix, L2 loss or mean squared error (MSE) calculates the average of the squared values of the difference matrix. These losses are common with regression. The reason behind squaring the values is to achieve shorter training times, because bigger errors are penalized exponentially more.
+\begin{equation} \label{l1}
+MAE = \frac{1}{N}\sum_{i=1}^{N}\abs{E_{i}}
+\end{equation}
+\begin{equation} \label{l2}
+MSE = \frac{1}{N}\sum_{i=1}^{N}E_{i}^{2}
+\end{equation}
+\begin{equation*}
+E:set\ of\ errors;\ N:batch\ size
+\end{equation*}
+\par
 
-For teaching with the Canny edge map dataset, we have a continuous output, but a discrete expected output, matrices that containing either ones or zeros. L1 and L2 loss can be also used here. To account for false positives and negatives, and true positives and negatives, a modification of confusion metrics are also used, namely F1 score operates on purely discrete (positive and negative) values, and here only the expected output is discrete, this will not be true F1 score, but it will follow the same principles. The result must also be negated, meaning subtracted from one, to get a loss instead of a score, which is proportional to the accuracy.
+For teaching with the Canny edge map dataset, we have a continuous output, but a discrete expected output, matrices that containing either ones or zeros. L1 and L2 loss can be also used here. To account for false positives and negatives (\textit{FP} and \textit{FN}), and true positives and negatives (\textit{TP} and \textit{TN}), a modification of the confusion metric F1 score is also used. F1 score originally operates on discrete values, and here only the expected output is discrete, this will not be true F1 score, but it will follow the same principles. The result must also be negated (subtracted from one) to get a loss, which is inversely proportional to the accuracy. The definition of F1 score is $ \frac{2TP}{2TP + FP + FN} $, which can be simplified to $ \frac{2TP}{2TP + E} $, where $ E $ is the error of the current example. The negated version to produce a loss instead of a score becomes $ 1 - \frac{2TP}{2TP + E} = \frac{2TP + E - 2TP}{2TP + E} = \frac{E}{2TP + E} $.\par
+
+Defining F1 score and loss for the model in tensorflow:
+\begin{center}
+	\begin{minipage}{0.95\textwidth}
+		\begin{lstlisting}[title=fcn\_model.py]
+...
+def f1_loss(output_image, output_image_train):
+	difference = tf.reduce_sum(tf.abs(output_image - output_image_train), [1,2,3])
+	TP = tf.reduce_sum(output_image * output_image_train, [1,2,3])
+	f1 = tf.reduce_mean(difference / (difference + 2 * TP))
+
+	return f1
+
+def f1_score(output_image, output_image_train):
+	difference = tf.reduce_sum(tf.abs(output_image - output_image_train), [1,2,3])
+	TP = tf.reduce_sum(output_image * output_image_train, [1,2,3])
+	f1 = tf.reduce_mean(2 * TP / (2 * TP + difference))
+
+	return f1
+...
+		\end{lstlisting}
+	\end{minipage}
+\end{center}
+And outside of tensorflow with NumPy as a metric to use during validation:
+\begin{center}
+	\begin{minipage}{0.95\textwidth}
+		\begin{lstlisting}[title=metrics.py]
+...
+def f1_score(output_image, output_image_train):
+	if output_image.shape != output_image_train.shape:
+		print('f1_score: image sizes not equal, exiting')
+		import sys
+		sys.exit()
+
+	difference = np.sum(np.abs(output_image - output_image_train))
+	TP = np.sum(output_image * output_image_train)
+	f1 = np.mean(2 * TP / (2 * TP + difference), dtype=np.float64)
+
+	return f1
+...
+		\end{lstlisting}
+	\end{minipage}
+\end{center}
+
 \subsection{Training and error back-propagation} \label{train}
 The training operation is joined last after the layers, right after the operation that calculates the error from the output, but it reads and manipulates almost the whole graph. It computes the gradients of all the operations in the graph, and then changes the trainable variables weighted by their contribution to the error.\par
 
