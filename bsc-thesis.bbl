@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{pruning_web}
 Jacob Gildenblat.
@@ -18,6 +18,17 @@ Ari Morcos and David Barrett.
 \newblock
   \url{https://deepmind.com/blog/understanding-deep-learning-through-neuron-deletion/},
   Mar 2018.
+
+\bibitem{tensorflow2015-whitepaper}
+Mart\'{\i}n~Abadi et~al.
+\newblock {TensorFlow}: Large-scale machine learning on heterogeneous systems.
+\newblock \url{http://tensorflow.org/}, 2015.
+\newblock Software available from tensorflow.org.
+
+\bibitem{applications}
+Convolutional neural network\#{Applications}.
+\newblock
+  \url{https://en.wikipedia.org/wiki/Convolutional_neural_network#Applications}.
 
 \bibitem{sobel}
 Sobel operator.
