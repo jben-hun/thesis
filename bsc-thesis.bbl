@@ -57,4 +57,16 @@ Diederik~P. Kingma and Jimmy Ba.
 \newblock Adam: A method for stochastic optimization.
 \newblock \url{https://arxiv.org/pdf/1412.6980.pdf}, Dec 2014.
 
+\bibitem{sgd}
+Stochastic gradient descent.
+\newblock \url{https://en.wikipedia.org/wiki/Stochastic_gradient_descent}.
+
+\bibitem{nondet1}
+Backward pass of broadcasting on gpu is non-deterministic.
+\newblock \url{https://github.com/tensorflow/tensorflow/issues/2652}.
+
+\bibitem{nondet2}
+Mention that gpu reductions are nondeterministic in docs.
+\newblock \url{https://github.com/tensorflow/tensorflow/issues/2732}.
+
 \end{thebibliography}

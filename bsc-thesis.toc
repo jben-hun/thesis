@@ -14,19 +14,19 @@
 \contentsline {section}{\numberline {2.1}Preparing the input images}{14}{section.2.1}
 \contentsline {section}{\numberline {2.2}Network structure}{15}{section.2.2}
 \contentsline {subsection}{\numberline {2.2.1}The objective function and output}{16}{subsection.2.2.1}
-\contentsline {subsection}{\numberline {2.2.2}Training and error back-propagation}{17}{subsection.2.2.2}
-\contentsline {section}{\numberline {2.3}Minimization}{18}{section.2.3}
+\contentsline {subsection}{\numberline {2.2.2}Training and error back-propagation}{18}{subsection.2.2.2}
+\contentsline {section}{\numberline {2.3}Minimization}{19}{section.2.3}
 \contentsline {subsubsection}{Neglecting neurons}{19}{section*.6}
 \contentsline {subsubsection}{Freezing neurons}{19}{section*.7}
-\contentsline {subsubsection}{Reinitializing neurons}{19}{section*.8}
-\contentsline {subsubsection}{Stepping back}{19}{section*.9}
+\contentsline {subsubsection}{Reinitializing neurons}{20}{section*.8}
+\contentsline {subsubsection}{Stepping back}{20}{section*.9}
 \contentsline {subsection}{\numberline {2.3.1}Testing the worth of a neuron}{20}{subsection.2.3.1}
 \contentsline {subsubsection}{One disabled}{20}{section*.10}
-\contentsline {subsubsection}{One disabled and frozen}{20}{section*.11}
-\contentsline {subsubsection}{One disabled, others frozen}{20}{section*.12}
-\contentsline {subsection}{\numberline {2.3.2}The minimization process}{20}{subsection.2.3.2}
+\contentsline {subsubsection}{One disabled and frozen}{21}{section*.11}
+\contentsline {subsubsection}{One disabled, others frozen}{21}{section*.12}
+\contentsline {subsection}{\numberline {2.3.2}The minimization process}{21}{subsection.2.3.2}
 \contentsline {subsection}{\numberline {2.3.3}Selection}{21}{subsection.2.3.3}
-\contentsline {subsubsection}{Cosine-similarity}{21}{section*.13}
+\contentsline {subsubsection}{Cosine-similarity}{22}{section*.13}
 \contentsline {subsubsection}{Naive selection strategies}{22}{section*.14}
 \contentsline {paragraph}{Sequential}{22}{section*.15}
 \contentsline {paragraph}{Random}{22}{section*.16}
