@@ -19,13 +19,14 @@
 \BOOKMARK [2][-]{subsection.2.3.1}{Testing the worth of a neuron}{section.2.3}% 19
 \BOOKMARK [2][-]{subsection.2.3.2}{The minimization process}{section.2.3}% 20
 \BOOKMARK [2][-]{subsection.2.3.3}{Selection}{section.2.3}% 21
-\BOOKMARK [0][-]{chapter.3}{Results}{}% 22
-\BOOKMARK [1][-]{section.3.1}{Metrics}{chapter.3}% 23
-\BOOKMARK [1][-]{section.3.2}{Runs}{chapter.3}% 24
-\BOOKMARK [2][-]{subsection.3.2.1}{1}{section.3.2}% 25
-\BOOKMARK [2][-]{subsection.3.2.2}{2}{section.3.2}% 26
-\BOOKMARK [2][-]{subsection.3.2.3}{3}{section.3.2}% 27
-\BOOKMARK [0][-]{chapter.4}{Conclusion}{}% 28
-\BOOKMARK [0][-]{chapter.5}{Appendix}{}% 29
-\BOOKMARK [1][-]{chapter*.19}{Statement}{chapter.5}% 30
-\BOOKMARK [1][-]{chapter*.20}{Acknowledgments}{chapter.5}% 31
+\BOOKMARK [0][-]{chapter.3}{Metrics}{}% 22
+\BOOKMARK [1][-]{section.3.1}{Universal Image Quality Index}{chapter.3}% 23
+\BOOKMARK [1][-]{section.3.2}{Visualization}{chapter.3}% 24
+\BOOKMARK [0][-]{chapter.4}{Results}{}% 25
+\BOOKMARK [1][-]{section.4.1}{Run 1}{chapter.4}% 26
+\BOOKMARK [1][-]{section.4.2}{Run 2}{chapter.4}% 27
+\BOOKMARK [1][-]{section.4.3}{Run 3}{chapter.4}% 28
+\BOOKMARK [0][-]{chapter.5}{Conclusion}{}% 29
+\BOOKMARK [0][-]{chapter.6}{Appendix}{}% 30
+\BOOKMARK [1][-]{chapter*.20}{Statement}{chapter.6}% 31
+\BOOKMARK [1][-]{chapter*.21}{Acknowledgments}{chapter.6}% 32

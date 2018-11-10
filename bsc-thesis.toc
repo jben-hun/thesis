@@ -30,16 +30,15 @@
 \contentsline {subsubsection}{Naive selection strategies}{22}{section*.14}
 \contentsline {paragraph}{Sequential}{22}{section*.15}
 \contentsline {paragraph}{Random}{22}{section*.16}
-\contentsline {chapter}{\numberline {3}Results}{23}{chapter.3}
-\contentsline {section}{\numberline {3.1}Metrics}{23}{section.3.1}
-\contentsline {subsubsection}{Universal Image Quality Index}{23}{section*.17}
-\contentsline {subsubsection}{Visualization}{23}{section*.18}
-\contentsline {section}{\numberline {3.2}Runs}{24}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}1}{24}{subsection.3.2.1}
-\contentsline {subsection}{\numberline {3.2.2}2}{24}{subsection.3.2.2}
-\contentsline {subsection}{\numberline {3.2.3}3}{24}{subsection.3.2.3}
-\contentsline {chapter}{\numberline {4}Conclusion}{25}{chapter.4}
-\contentsline {chapter}{\numberline {5}Appendix}{26}{chapter.5}
+\contentsline {chapter}{\numberline {3}Metrics}{23}{chapter.3}
+\contentsline {section}{\numberline {3.1}Universal Image Quality Index}{23}{section.3.1}
+\contentsline {section}{\numberline {3.2}Visualization}{23}{section.3.2}
+\contentsline {chapter}{\numberline {4}Results}{26}{chapter.4}
+\contentsline {section}{\numberline {4.1}Run 1}{26}{section.4.1}
+\contentsline {section}{\numberline {4.2}Run 2}{26}{section.4.2}
+\contentsline {section}{\numberline {4.3}Run 3}{26}{section.4.3}
+\contentsline {chapter}{\numberline {5}Conclusion}{27}{chapter.5}
+\contentsline {chapter}{\numberline {6}Appendix}{28}{chapter.6}
 \ 
-\contentsline {section}{Statement}{27}{chapter*.19}
-\contentsline {section}{Acknowledgments}{28}{chapter*.20}
+\contentsline {section}{Statement}{29}{chapter*.20}
+\contentsline {section}{Acknowledgments}{30}{chapter*.21}
