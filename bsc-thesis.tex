@@ -24,6 +24,9 @@
 \usepackage{xcolor}
 \usepackage{graphicx}
 \usepackage{subcaption}
+\usepackage[inline]{enumitem}
+\usepackage{tasks}
+\usepackage{wrapfig}
 
 %Margók:
 \hoffset -1in
@@ -48,11 +51,11 @@
 	showstringspaces=false,
 	frame=single,
 	language=Python,
-	breaklines=true
+	breaklines=true,
+	tabsize=4
 }
 
 \lstset{style=py}
-
 
 \newcommand\todo[1]{\textcolor{red}{#1}}
 %\renewcommand\todo[1]{}
@@ -137,7 +140,13 @@
 \chapter*{Tartalmi összefoglaló\\(content summary in Hungarian)}
 \addcontentsline{toc}{section}{Tartalmi összefoglaló (content summary in Hungarian)}
 
-\todo{TODO: fordítás}
+Ez a dolgozat a \textit{gépi tanulás} és a \textit{digitális képfeldolgozás} kategóriákhoz tartozik. Egy \textit{teljesen konvolúciós hálózatot} alkalmaz, ami a gépi tanulásban haszlálatos technika, hogy \textit{éldetektálást} végezzen, ami egy digitális képfeldolgozásbeli feladat. A hangsúly nem a tanításon vagy a feladaton van, hanem a hálózat paramétereinek optimalizálásán, konkrétabban a rétegek és a rétegbeli konvolúciós maszkok számának csökkentésén, miközben a hálózat pontossága változatlan marad. Már léteznek írások hasonló témával, lásd a \cite{pruning_web}, \cite{pruning_arxiv} és \cite{understanding} hivatkozásokat.
+
+A hálózat előnyös méretének meghatározását egy tantási folyamat végzi, ami képes elmenteni állapotát és később visszatölteni azt. Ezen kívül képes ideiglenesen módosítani a belső struktúráján. Ez különböző konfigurációk tesztelésére és összehasonlítására van használva. Ezek a technikák különböző mértékekkel együtt vannak alkalmazva. A tanítás akkor áll meg, amikor egy kilépési feltétel teljesül. Az eredmény egy olyan konfiguráció, amit az alkalmazott stratégia optimálisnak talált.
+
+Naív és intelligens stratégiák is tervezve lettek annak érdekében, hogy kiderüljön melyik működik jobban. Egy egyszerű stratégia véletlenszerűen választ a maszkok közül, és ideiglenesen letiltja a kiválasztottakat. Ezután ellenőrzi, hogy folytatódhat-e a tanítás nélkülük az addigihoz hasonló pontossággal. Egy intelligens stratégia különböző mértékek alapján dönt. Mindkét stratégia bizonyulhat hasznosnak bizonyos esetekben.
+
+A keretrendszer \textit{Python}-ban lett kódolva a \textit{tensorflow} könyvtár \cite{tensorflow2015-whitepaper} használatával. A teljesítmény növelése érdekében \textit{CUDA} magokat tartalmazó \textit{NVIDIA} típusú videókártya segítségével hardveresen gyorsított tanítás volt alkalmazva. Ezt a tensorflow teszi lehetővé a \textit{CUDA} és \textit{cuDNN} könyvtárakkal.
 
 \chapter*{Task proposal}
 %A tartalomjegyzékben mégis szerepeltetni kell, mint szakasz(section) szerepeljen:
@@ -223,6 +232,17 @@ Initially a relatively low performance notebook was used to perform all the trai
 
 Later, several tests were ran remotely at a higher performance desktop computer, while the notebook was used to develop the models and check if they work as intended. These runs were often longer than a week, depending on the sample size. This PC was an Intel Core i7-6700 with 16GB RAM, and it had an NVIDIA Tesla K40 GPU with 12GB VRAM and 2880 CUDA cores.
 \chapter{Implementation}
+\section{Code structure}
+The framework is spread across multiple source files dividing the code into groups based on roles.
+\begin{alignat*}{3}
+	&fcn\_run.py\          &&: the\ interface\ of\ the\ framework \\
+	&fcn\_train.py\        &&: training\ session\ management \\
+	&fcn\_model.py\        &&: network\ definition \\
+	&fcn\_input.py\        &&: data\ reading\ \& \ preprocessing \\
+	&metrics.py\           &&: evaluation\ \&\ visualization\ metrics \\
+	&shrink\_functions.py\ &&: selection\ strategies
+\end{alignat*}
+A training run must be defined and initiated in \textit{fcn\_run.py}. It uses high level code to define the parameters of the run, usually in a few lines. It is an interface to \textit{fcn\_train.py}, where the main functionality is implemented. The model creation is implemented in \textit{fcn\_model.py}, code in this file takes care of building a model on the input prepared in \textit{fcn\_input.py}, where the input is read, and the images are preprocessed. Helper functions are kept in \textit{metrics.py}, these are called during evaluation, and in \textit{shrink\_functions.py}, where the selection strategies are realized for minimization. The minimization process is described later in \ref{min}.
 \section{Preparing the input images}
 A large and openly available set of images were needed as input for the training. The Visual Object Classes Challenge 2012 (VOC2012) dataset \cite{pascal-voc-2012} was chosen for this purpose. The VOC dataset contains colored pictures of 20 classes in different settings. Classes include aeroplane, people, bicycle, horse and so on. These are fine for simple image processing tasks, there are a wide variety of objects in various distances and quantities. The classes are not needed for us, since we are outputting an image the same dimensions as the input, instead of performing classification. Without the classes, the expected output for training had to be generated from the input images, this was done with matlab scripts and built-in image processing functions.
 
@@ -232,8 +252,13 @@ This section explains the parameters of the FCN, including the types and sizes o
 
 In tensorflow, the network we build is a computational graph. The vertices are operations or placeholders while the edges are the data flowing in one direction, joined to one or more vertices. The edges are also called tensors, they can be simple numbers or multidimensional matrices, images or groups of images for example.
 When defining multi-dimensional variables, the tensorflow-recommended \textit{NHWC} format is used where possible: $ N:batch,\ H:height,\ W:width,\ C:channels. $ This forces some consistency into the code and structure. Most built-in tensorflow functions expect this format, so no reshaping is required, and there is also a benefit in performance, since this is the optimal format for CUDA operations as well.
- 
-Our FCN is made up by three layers, the first layer gets the reprocessed image from the previous section, while the third layer produces the output image. The layers are convolutional with an added bias, initialized randomly with a predefined distribution.
+
+\begin{wrapfigure}{r}{0.35\textwidth}
+	\includegraphics[width=0.35\textwidth]{images/net.png}
+	\caption{ }
+	\label{net}
+\end{wrapfigure}
+Our FCN, as seen on figure \ref{net} (created with \cite{netscope}), is made up by three layers, the first layer gets the reprocessed image from the previous section, while the third layer produces the output image. The layers are convolutional with an added bias, initialized randomly with a predefined distribution.
 
 Each \textit{convolutional layer} has its own set of five masks sized $5\times5$. Strides and dilations are set to one in all dimensions, this means no pixels are skipped when convolving the whole image. A 5x5 mask allows for more complexity than a $3\times3$ mask, while being able to produce the same results if the weights on the edges are small enough. After a convolution is performed with a mask, a scalar bias is added elementwise to the resulting pixels.
 
@@ -317,10 +342,34 @@ One of the tensorflow built-in optimizers, \textit{Adam} \cite{adam} is used. It
 A \textit{step} during training consist of producing one error value from the input and output, and performing back-propagation once to modify the trainable variables, or weights. This does not mean that one step takes exactly one image, since batching is used, so one step deals with a batch of images. The processing time a resources needed for a step depends on the batch size.
 
 With each \textit{training step}, the error is calculated and back-propagation is performed. An \textit{evaluation step} stops right before calculating the error, and only produces the output image, so no back-propagation is happening here. This leaves the network untouched. The purpose of this is to measure the accuracy on the evaluation set, which is invisible to the network during training. Evaluation is also used to produce more and prettier metrics for the human observer. Evaluation runs less rarely than training, so heavier computation on metrics are possible without slowing down the training process.
-\section{Minimization}
+\section{Minimization}\label{min}
 Minimization refers to reduction in the size of the FCN. This section is about the methods and tricks which make it possible to change the network during training, step back to an earlier state and compare states. This way determining the minimal size for the FCN can be automatized.
 
-After each change in the network, including all of the methods described below, additional steps are necessary. The Adam \cite{adam} optimizer uses parameters that change over time. It has accumulators, and also a variable storing the step number, which represents the passing of time. The greater these variables, the less likely that the trainable variables receive big updates. When they are reset, we are giving each network configuration equal chances. We reset these parameters every time the network is altered or reverted to give the modified network a fresh start in training. \todo{TODO: kódrészlet} These variables are not easily accessible, there are no helper methods provided. We must manually reach into the graph and reinitialize them.
+After each change in the network, including all of the methods described below, additional steps are necessary. The Adam \cite{adam} optimizer uses parameters that change over time. It has accumulators, and also a variable storing the step number, which represents the passing of time. The greater these variables, the less likely that the trainable variables receive big updates. When they are reset, we are giving each network configuration equal chances. We reset these parameters every time the network is altered or reverted to give the modified network a fresh start in training. These variables are not easily accessible, there are no helper methods provided. We must manually reach into the graph and reinitialize them, as seen in the following code sample.
+\begin{center}
+	\begin{minipage}{0.95\textwidth}
+		\begin{lstlisting}[title=fcn\_train.py]
+...
+if zero is not None or reinit is not None or freeze is not None:
+	optimizer_vars = [
+		var for var in tf.global_variables() if 'train' in var.name
+	]
+	optimizer_vars.append(restore_variable('global_step:0'))
+	optimizer_vars.append(restore_variable('beta1_power:0'))
+	optimizer_vars.append(restore_variable('beta2_power:0'))
+	sess.run(tf.variables_initializer(optimizer_vars))
+...
+def restore_variable(name):
+	variables = tf.get_collection(tf.GraphKeys.GLOBAL_VARIABLES)
+	for e in variables:
+		if e.name == name:
+			return e
+	return None
+		\end{lstlisting}
+	\end{minipage}
+\end{center}
+
+
 \subsubsection{Neglecting neurons}
 To simulate a graph with fewer masks, or ,,neurons'', the masks can be disabled any time during training. Masks are contained in multidimensional matrices, one mask for each edge or input that the vertex or operation receives. Since the structure of the cannot be modified, we include switches into it, which tell exactly which neurons are disabled. The disabled masks always produce an output of zeros, whatever their input might be. Disabling masks provides no performance advantage, since they are still in the graph, taking up memory, but if we find that the results are still accurate with a few masks disabled, it means that the problem is solvable with fewer masks.
 \subsubsection{Freezing neurons}
@@ -335,13 +384,20 @@ This is not hassle free. Tensorflow stores the absolute paths of the meta-graph 
 Another problem is that by default, tensorflow automatically saves every variable it can find, and constant values are incorporated into the graph. The graph cannot be touched after it was reloaded, so everything what needs changing later must be a variable. In order to prevent the saver from incorporating the input file list into te graph, and bloating it with thousands of file paths on each resume, the input pipeline must be set up separately from the rest of the graph, which needs to be feedable with the filenames. This way the saved model can be resumed and initialized with a new set of inputs, without storing them in the graph.
 \subsection{Testing the worth of a neuron}
 There are a few ways to utilize freezing and disabling to determine how much a single mask contributes to the overall accuracy, and see how the network performs without it.
-\subsubsection{One disabled}One selected mask is disabled. This is useful to test the accuracy without that mask, and also observe what the optimizer will train this mask the next time.
-\subsubsection{One disabled and frozen}The same as the above, plus the mask is frozen as well. This would provide insight to how the rest of the network will change when this mask is removed, whether it will learn to take its role, or remain unchanged.
-\subsubsection{One disabled, others frozen}The rest of the net is frozen, this will prevent the net from compensating the absence of the mask, but lets the mask relearn.
+\begin{description}
+	\item[One disabled] One selected mask is disabled. This is useful to test the accuracy without that mask, and also observe what the optimizer will train this mask the next time.
+	\item[One disabled and frozen] The same as the above, plus the mask is frozen as well. This would provide insight to how the rest of the network will change when this mask is removed, whether it will learn to take its role, or remain unchanged.
+	\item[One disabled, others frozen] The rest of the net is frozen, this will prevent the net from compensating the absence of the mask, but lets the mask relearn.
+\end{description}
 \subsection{The minimization process}
 This process encapsulates multiple training sessions, and uses the tools and methods described above between them in hope of determining a minimal configuration.
 
-First, a training session is invoked to produce a working network that is close to convergence and is capable of inference. This is longer than the later sessions, $10000$ steps in most runs. We are ready to stop the training when error stagnates. The network is then evaluated and saved to disk. Then one or more masks are \textit{selected} and altered. Altering includes freezing and disabling masks, and there are multiple strategies for \textit{selection}, they are described below. After this, another training session and evaluation is performed with the altered network. This is shorter because the network is already semi-converged, $2000$ steps exactly. The results of the new evaluation and the old one are compared, and if the new one is weaker, the old network is reloaded from disk. The strength of the new network compared to the old one is determined by a threshold over the ratio of their evaluation performance. Evaluation performance is measured by computing the mean F1 score over the evaluation dataset. Multiple thresholds were tested: $ 85\%,\ 90\%,\ 95\%,\ 98\%$ and $100\%$. Then comes another selection, which makes sure to select different masks if the network was restored. The sequence of training, evaluation, comparison and \textit{selection} is repeated until the stopping criteria are met. We are left with the final network, and a one-hot matrix which describes which masks ca be removed to get the minimal structure.
+\begin{wrapfigure}{r}{0.45\textwidth}
+	\includegraphics[width=0.45\textwidth]{dia/flow.eps}
+	\caption{ }
+	\label{flow}
+\end{wrapfigure}
+First, a training session is invoked to produce a working network that is close to convergence and is capable of inference. This is longer than the later sessions, $10000$ steps in most runs. We are ready to stop the training when error stagnates. The network is then evaluated and saved to disk. Then one or more masks are \textit{selected} and altered. Altering includes freezing and disabling masks, and there are multiple strategies for \textit{selection}, they are described below. After this, another training session and evaluation is performed with the altered network. This is shorter because the network is already semi-converged, $2000$ steps exactly. The results of the new evaluation and the old one are compared, and if the new one is weaker, the old network is reloaded from disk. The strength of the new network compared to the old one is determined by a threshold over the ratio of their evaluation performance. Evaluation performance is measured by computing the mean F1 score over the evaluation dataset. Multiple thresholds were tested: $ 85\%,\ 90\%,\ 95\%,\ 98\%$ and $100\%$. Then comes another selection, which makes sure to select different masks if the network was restored. The sequence of training, evaluation, comparison and \textit{selection} is repeated until the stopping criteria are met. We are left with the final network, and a one-hot matrix which describes which masks ca be removed to get the minimal structure. This process is illustrated by the flowchart at \ref{flow}.
 \subsection{Selection}
 Masks have to be selected, for freezing or disabling, the choice should reflect the contribution of the selected mask to the overall performance, or in other words, the least important mask should be the one that gets selected, so the network could possibly perform with one less mask.
 \subsubsection{Cosine-similarity}Cosine similarity  tries to represent how similar two n-dimensional vectors are. A mask is a set of two-dimensional matrices plus scalar biases, so they are reshaped to a vector format, with the bias appended to the end of the vector. Then all the vectors are compared to each other using cosine similarity, and the end result is stored in a matrix, where the element at indices $i$ and $j$ represents the cosine similarity between the the mask in place $i$ and the mask in place $j$. These values have a range of $\left[-1;1\right] $, where $1$ represent the greatest similarity (vectors facing the same direction), while negative numbers represent opposites (vectors facing the opposite direction). This is done for each layer, producing a matrix for each layer.
@@ -350,9 +406,10 @@ Using the matrices, selection could be done by selecting the mask which is most 
 
 An extension to this method is to use the second, or n-th maximal mask after the previous one failed and produced a significant decrease in performance.
 \subsubsection{Naive selection strategies}
-\paragraph{Sequential}This method simply goes through every mask in a sequential order. This is mostly useful for comparison for smarter strategies.
-\paragraph{Random}
-Randomly picks a mask. Also useful for comparison, but it also could be a viable strategy.
+\begin{description}
+	\item[Sequential] This method simply goes through every mask in a sequential order. This is mostly useful for comparison for smarter strategies.
+	\item[Random] Randomly picks a mask. Also useful for comparison, but it also could be a viable strategy.
+\end{description}
 \chapter{Metrics}
 In addition to the objective function, or error, which is a metric itself the following metrics were used to judge the performance. These were used in the validation steps, or separately from training to benchmark the network.
 \section{Universal Image Quality Index}This metric is used to rank the similarity of two images. It is produced from three components, measuring the correlation, luminance difference and contrast difference between the two input images. It works by splitting the images into sections with a chosen size, and calculating the metric on those. We calculate an average of these to get a single value. When used alongside the simpler MAE and F1 score, this could provide an alternative metric and view on accuracy. A matlab implementation was provided by the authors, which was then converted to python so it can be integrated into the training process.

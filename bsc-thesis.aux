@@ -16,6 +16,10 @@
 \gdef\HyperFirstAtBeginDocument#1{#1}
 \providecommand\HyField@AuxAddToFields[1]{}
 \providecommand\HyField@AuxAddToCoFields[2]{}
+\citation{pruning_web}
+\citation{pruning_arxiv}
+\citation{understanding}
+\citation{tensorflow2015-whitepaper}
 \@writefile{toc}{\contentsline {section}{Tartalmi \IeC {\"o}sszefoglal\IeC {\'o} (content summary in Hungarian)}{4}{chapter*.2}}
 \@writefile{toc}{\contentsline {section}{Task proposal}{5}{chapter*.3}}
 \citation{pruning_web}
@@ -43,60 +47,63 @@
 \@writefile{toc}{\contentsline {chapter}{\numberline {2}Implementation}{14}{chapter.2}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {2.1}Preparing the input images}{14}{section.2.1}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.1}Code structure}{14}{section.2.1}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.2}Preparing the input images}{14}{section.2.2}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.3}Network structure}{15}{section.2.3}}
+\citation{netscope}
 \citation{trunc}
 \citation{relu}
-\@writefile{toc}{\contentsline {section}{\numberline {2.2}Network structure}{15}{section.2.2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.1}The objective function and output}{16}{subsection.2.2.1}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.1}{\ignorespaces  \relax }}{16}{figure.caption.6}}
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{net}{{2.1}{16}{\relax }{figure.caption.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.1}The objective function and output}{16}{subsection.2.3.1}}
 \citation{adam}
 \citation{sgd}
 \citation{nondet1}
 \citation{nondet2}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.2}Training and error back-propagation}{18}{subsection.2.2.2}}
-\newlabel{train}{{2.2.2}{18}{Training and error back-propagation}{subsection.2.2.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.2}Training and error back-propagation}{18}{subsection.2.3.2}}
+\newlabel{train}{{2.3.2}{18}{Training and error back-propagation}{subsection.2.3.2}{}}
 \citation{adam}
-\@writefile{toc}{\contentsline {section}{\numberline {2.3}Minimization}{19}{section.2.3}}
-\@writefile{toc}{\contentsline {subsubsection}{Neglecting neurons}{19}{section*.6}}
-\@writefile{toc}{\contentsline {subsubsection}{Freezing neurons}{19}{section*.7}}
-\@writefile{toc}{\contentsline {subsubsection}{Reinitializing neurons}{20}{section*.8}}
-\@writefile{toc}{\contentsline {subsubsection}{Stepping back}{20}{section*.9}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.1}Testing the worth of a neuron}{20}{subsection.2.3.1}}
-\@writefile{toc}{\contentsline {subsubsection}{One disabled}{20}{section*.10}}
-\@writefile{toc}{\contentsline {subsubsection}{One disabled and frozen}{21}{section*.11}}
-\@writefile{toc}{\contentsline {subsubsection}{One disabled, others frozen}{21}{section*.12}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.2}The minimization process}{21}{subsection.2.3.2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.3}Selection}{21}{subsection.2.3.3}}
-\@writefile{toc}{\contentsline {subsubsection}{Cosine-similarity}{22}{section*.13}}
-\@writefile{toc}{\contentsline {subsubsection}{Naive selection strategies}{22}{section*.14}}
-\@writefile{toc}{\contentsline {paragraph}{Sequential}{22}{section*.15}}
-\@writefile{toc}{\contentsline {paragraph}{Random}{22}{section*.16}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.4}Minimization}{19}{section.2.4}}
+\newlabel{min}{{2.4}{19}{Minimization}{section.2.4}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Neglecting neurons}{20}{section*.7}}
+\@writefile{toc}{\contentsline {subsubsection}{Freezing neurons}{20}{section*.8}}
+\@writefile{toc}{\contentsline {subsubsection}{Reinitializing neurons}{21}{section*.9}}
+\@writefile{toc}{\contentsline {subsubsection}{Stepping back}{21}{section*.10}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.1}Testing the worth of a neuron}{21}{subsection.2.4.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.2}The minimization process}{22}{subsection.2.4.2}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.2}{\ignorespaces  \relax }}{22}{figure.caption.11}}
+\newlabel{flow}{{2.2}{22}{\relax }{figure.caption.11}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.3}Selection}{23}{subsection.2.4.3}}
+\@writefile{toc}{\contentsline {subsubsection}{Cosine-similarity}{23}{section*.12}}
+\@writefile{toc}{\contentsline {subsubsection}{Naive selection strategies}{23}{section*.13}}
 \citation{sobel}
-\@writefile{toc}{\contentsline {chapter}{\numberline {3}Metrics}{23}{chapter.3}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {3}Metrics}{24}{chapter.3}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {3.1}Universal Image Quality Index}{23}{section.3.1}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.2}Visualization}{23}{section.3.2}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces Mask visualizations, rows on the picture correspond to layers in the network. The first row represents the masks in the first layer. Three groups of five masks from the second layer are omitted.\relax }}{24}{figure.caption.17}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces An input and ground truth image\relax }}{24}{figure.caption.18}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.3}{\ignorespaces Output after a few iterations and after convergence\relax }}{24}{figure.caption.18}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.4}{\ignorespaces The output of the first mask in the first layer and the final output before activation, both after a few steps...\relax }}{25}{figure.caption.19}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.5}{\ignorespaces ...and the same after convergence\relax }}{25}{figure.caption.19}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {4}Results}{26}{chapter.4}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.1}Universal Image Quality Index}{24}{section.3.1}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.2}Visualization}{24}{section.3.2}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces Mask visualizations, rows on the picture correspond to layers in the network. The first row represents the masks in the first layer. Three groups of five masks from the second layer are omitted.\relax }}{25}{figure.caption.14}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces An input and ground truth image\relax }}{25}{figure.caption.15}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.3}{\ignorespaces Output after a few iterations and after convergence\relax }}{25}{figure.caption.15}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.4}{\ignorespaces The output of the first mask in the first layer and the final output before activation, both after a few steps...\relax }}{26}{figure.caption.16}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.5}{\ignorespaces ...and the same after convergence\relax }}{26}{figure.caption.16}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {4}Results}{27}{chapter.4}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {4.1}Run 1}{26}{section.4.1}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.2}Run 2}{26}{section.4.2}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.3}Run 3}{26}{section.4.3}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {5}Conclusion}{27}{chapter.5}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.1}Run 1}{27}{section.4.1}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.2}Run 2}{27}{section.4.2}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.3}Run 3}{27}{section.4.3}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}Conclusion}{28}{chapter.5}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {chapter}{\numberline {6}Appendix}{28}{chapter.6}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {6}Appendix}{29}{chapter.6}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{toc}{\ }
-\@writefile{toc}{\contentsline {section}{Statement}{29}{chapter*.20}}
+\@writefile{toc}{\contentsline {section}{Statement}{30}{chapter*.17}}
 \bibdata{references}
-\@writefile{toc}{\contentsline {section}{Acknowledgments}{30}{chapter*.21}}
+\@writefile{toc}{\contentsline {section}{Acknowledgments}{31}{chapter*.18}}
 \bibcite{pruning_web}{1}
 \bibcite{pruning_arxiv}{2}
 \bibcite{understanding}{3}
@@ -105,10 +112,11 @@
 \bibcite{sobel}{6}
 \bibcite{canny}{7}
 \bibcite{pascal-voc-2012}{8}
-\bibcite{trunc}{9}
-\bibcite{relu}{10}
-\bibcite{adam}{11}
-\bibcite{sgd}{12}
-\bibcite{nondet1}{13}
-\bibcite{nondet2}{14}
+\bibcite{netscope}{9}
+\bibcite{trunc}{10}
+\bibcite{relu}{11}
+\bibcite{adam}{12}
+\bibcite{sgd}{13}
+\bibcite{nondet1}{14}
+\bibcite{nondet2}{15}
 \bibstyle{unsrt}

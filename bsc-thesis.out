@@ -11,22 +11,23 @@
 \BOOKMARK [2][-]{subsection.1.3.1}{Software}{section.1.3}% 11
 \BOOKMARK [2][-]{subsection.1.3.2}{Hardware}{section.1.3}% 12
 \BOOKMARK [0][-]{chapter.2}{Implementation}{}% 13
-\BOOKMARK [1][-]{section.2.1}{Preparing the input images}{chapter.2}% 14
-\BOOKMARK [1][-]{section.2.2}{Network structure}{chapter.2}% 15
-\BOOKMARK [2][-]{subsection.2.2.1}{The objective function and output}{section.2.2}% 16
-\BOOKMARK [2][-]{subsection.2.2.2}{Training and error back-propagation}{section.2.2}% 17
-\BOOKMARK [1][-]{section.2.3}{Minimization}{chapter.2}% 18
-\BOOKMARK [2][-]{subsection.2.3.1}{Testing the worth of a neuron}{section.2.3}% 19
-\BOOKMARK [2][-]{subsection.2.3.2}{The minimization process}{section.2.3}% 20
-\BOOKMARK [2][-]{subsection.2.3.3}{Selection}{section.2.3}% 21
-\BOOKMARK [0][-]{chapter.3}{Metrics}{}% 22
-\BOOKMARK [1][-]{section.3.1}{Universal Image Quality Index}{chapter.3}% 23
-\BOOKMARK [1][-]{section.3.2}{Visualization}{chapter.3}% 24
-\BOOKMARK [0][-]{chapter.4}{Results}{}% 25
-\BOOKMARK [1][-]{section.4.1}{Run 1}{chapter.4}% 26
-\BOOKMARK [1][-]{section.4.2}{Run 2}{chapter.4}% 27
-\BOOKMARK [1][-]{section.4.3}{Run 3}{chapter.4}% 28
-\BOOKMARK [0][-]{chapter.5}{Conclusion}{}% 29
-\BOOKMARK [0][-]{chapter.6}{Appendix}{}% 30
-\BOOKMARK [1][-]{chapter*.20}{Statement}{chapter.6}% 31
-\BOOKMARK [1][-]{chapter*.21}{Acknowledgments}{chapter.6}% 32
+\BOOKMARK [1][-]{section.2.1}{Code structure}{chapter.2}% 14
+\BOOKMARK [1][-]{section.2.2}{Preparing the input images}{chapter.2}% 15
+\BOOKMARK [1][-]{section.2.3}{Network structure}{chapter.2}% 16
+\BOOKMARK [2][-]{subsection.2.3.1}{The objective function and output}{section.2.3}% 17
+\BOOKMARK [2][-]{subsection.2.3.2}{Training and error back-propagation}{section.2.3}% 18
+\BOOKMARK [1][-]{section.2.4}{Minimization}{chapter.2}% 19
+\BOOKMARK [2][-]{subsection.2.4.1}{Testing the worth of a neuron}{section.2.4}% 20
+\BOOKMARK [2][-]{subsection.2.4.2}{The minimization process}{section.2.4}% 21
+\BOOKMARK [2][-]{subsection.2.4.3}{Selection}{section.2.4}% 22
+\BOOKMARK [0][-]{chapter.3}{Metrics}{}% 23
+\BOOKMARK [1][-]{section.3.1}{Universal Image Quality Index}{chapter.3}% 24
+\BOOKMARK [1][-]{section.3.2}{Visualization}{chapter.3}% 25
+\BOOKMARK [0][-]{chapter.4}{Results}{}% 26
+\BOOKMARK [1][-]{section.4.1}{Run 1}{chapter.4}% 27
+\BOOKMARK [1][-]{section.4.2}{Run 2}{chapter.4}% 28
+\BOOKMARK [1][-]{section.4.3}{Run 3}{chapter.4}% 29
+\BOOKMARK [0][-]{chapter.5}{Conclusion}{}% 30
+\BOOKMARK [0][-]{chapter.6}{Appendix}{}% 31
+\BOOKMARK [1][-]{chapter*.17}{Statement}{chapter.6}% 32
+\BOOKMARK [1][-]{chapter*.18}{Acknowledgments}{chapter.6}% 33

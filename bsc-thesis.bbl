@@ -44,6 +44,10 @@ M.~Everingham, L.~Van~Gool, C.~K.~I. Williams, J.~Winn, and A.~Zisserman.
   {(VOC2012)}.
 \newblock \url{http://host.robots.ox.ac.uk/pascal/VOC/voc2012/}.
 
+\bibitem{netscope}
+Netscope.
+\newblock \url{http://ethereon.github.io/netscope/quickstart.html}.
+
 \bibitem{trunc}
 Truncated normal distribution.
 \newblock \url{https://en.wikipedia.org/wiki/Truncated_normal_distribution}.
