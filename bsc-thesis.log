@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.9.8)  11 NOV 2018 16:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.9.8)  11 NOV 2018 16:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -822,14 +822,14 @@ File: images/masks_before.png Graphic file (type png)
 
 <use images/masks_before.png>
 Package pdftex.def Info: images/masks_before.png used on input line 420.
-(pdftex.def)             Requested size: 170.71393pt x 85.35973pt.
+(pdftex.def)             Requested size: 209.1301pt x 104.56825pt.
 
 <images/masks_after.png, id=384, 301.125pt x 150.5625pt>
 File: images/masks_after.png Graphic file (type png)
 
 <use images/masks_after.png>
 Package pdftex.def Info: images/masks_after.png used on input line 424.
-(pdftex.def)             Requested size: 170.71393pt x 85.35973pt.
+(pdftex.def)             Requested size: 209.1301pt x 104.56825pt.
  <images/out1.png, id=385, 385.44pt x 192.72pt>
 File: images/out1.png Graphic file (type png)
 

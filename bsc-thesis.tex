@@ -416,11 +416,11 @@ In addition to the objective function, or error, which is a metric itself the fo
 \section{Visualization}Visual representation of the masks and snapshots of the inputs at each stage as they travel through the network are printed as image files to disk. This way the inner workings of the net are somewhat observable. Masks and images apart from the final output can contain negative values. To illustrate the whole range, negative values are visualized red, positive values are visualized green and color intensity represents absolute value. Examples of these visualizations are shown below. Note that some of the top masks resemble edge detector operators (see \cite{sobel}), and the output of the very first mask resembles a diagonal edge map.
 \begin{figure}[h!]
 	\centering
-	\begin{subfigure}[b]{0.4\linewidth}
+	\begin{subfigure}[b]{0.49\linewidth}
 		\includegraphics[width=\linewidth]{images/masks_before.png}
 		\caption{Masks after a few steps...}
 	\end{subfigure}
-	\begin{subfigure}[b]{0.4\linewidth}
+	\begin{subfigure}[b]{0.49\linewidth}
 		\includegraphics[width=\linewidth]{images/masks_after.png}
 		\caption{...and after convergence}
 	\end{subfigure}
