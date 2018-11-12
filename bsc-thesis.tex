@@ -25,7 +25,6 @@
 \usepackage{graphicx}
 \usepackage{subcaption}
 \usepackage[inline]{enumitem}
-\usepackage{tasks}
 \usepackage{wrapfig}
 
 %Margók:
@@ -414,7 +413,7 @@ An extension to this method is to use the second, or n-th maximal mask after the
 In addition to the objective function, or error, which is a metric itself the following metrics were used to judge the performance. These were used in the validation steps, or separately from training to benchmark the network.
 \section{Universal Image Quality Index}This metric is used to rank the similarity of two images. It is produced from three components, measuring the correlation, luminance difference and contrast difference between the two input images. It works by splitting the images into sections with a chosen size, and calculating the metric on those. We calculate an average of these to get a single value. When used alongside the simpler MAE and F1 score, this could provide an alternative metric and view on accuracy. A matlab implementation was provided by the authors, which was then converted to python so it can be integrated into the training process.
 \section{Visualization}Visual representation of the masks and snapshots of the inputs at each stage as they travel through the network are printed as image files to disk. This way the inner workings of the net are somewhat observable. Masks and images apart from the final output can contain negative values. To illustrate the whole range, negative values are visualized red, positive values are visualized green and color intensity represents absolute value. Examples of these visualizations are shown below. Note that some of the top masks resemble edge detector operators (see \cite{sobel}), and the output of the very first mask resembles a diagonal edge map.
-\begin{figure}[h!]
+\begin{figure}
 	\centering
 	\begin{subfigure}[b]{0.49\linewidth}
 		\includegraphics[width=\linewidth]{images/masks_before.png}
@@ -428,16 +427,16 @@ In addition to the objective function, or error, which is a metric itself the fo
 \end{figure}
 \begin{figure}
 	\centering
-	\includegraphics{images/out1.png}
+	\includegraphics[width=0.8\linewidth]{images/out1.png}
 	\caption{An input and ground truth image}
-	\includegraphics{images/out2.png}
+	\includegraphics[width=0.8\linewidth]{images/out2.png}
 	\caption{Output after a few iterations and after convergence}
 \end{figure}
 \begin{figure}
 	\centering
-	\includegraphics{images/layer1.png}
+	\includegraphics[width=0.8\linewidth]{images/layer1.png}
 	\caption{The output of the first mask in the first layer and the final output before activation, both after a few steps...}
-	\includegraphics{images/layer2.png}
+	\includegraphics[width=0.8\linewidth]{images/layer2.png}
 	\caption{...and the same after convergence}
 \end{figure}
 

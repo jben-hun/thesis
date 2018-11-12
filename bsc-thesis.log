@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.9.8)  11 NOV 2018 16:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.9.8)  12 NOV 2018 20:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -370,270 +370,12 @@ Package: enumitem 2011/09/28 v3.5.2 Customized lists
 \enit@inbox=\box30
 \enitdp@description=\count127
 )
-(/usr/share/texlive/texmf-dist/tex/latex/tasks/tasks.sty
-(/usr/share/texlive/texmf-dist/tex/latex/l3kernel/expl3.sty
-Package: expl3 2016/01/19 v6377 L3 programming layer (loader) 
-
-(/usr/share/texlive/texmf-dist/tex/latex/l3kernel/expl3-code.tex
-Package: expl3 2016/01/19 v6377 L3 programming layer (code)
-L3 Module: l3bootstrap 2016/01/01 v6339 L3 Bootstrap code
-L3 Module: l3names 2015/12/21 v6328 L3 Namespace for primitives
-L3 Module: l3basics 2015/11/22 v6315 L3 Basic definitions
-L3 Module: l3expan 2015/09/10 v5983 L3 Argument expansion
-L3 Module: l3tl 2015/09/29 v6121 L3 Token lists
-L3 Module: l3str 2016/01/03 v6357 L3 Strings
-L3 Module: l3seq 2015/08/05 v5777 L3 Sequences and stacks
-L3 Module: l3int 2016/01/05 v6366 L3 Integers
-\c_max_int=\count128
-\l_tmpa_int=\count129
-\l_tmpb_int=\count130
-\g_tmpa_int=\count131
-\g_tmpb_int=\count132
-L3 Module: l3quark 2015/08/17 v5855 L3 Quarks
-L3 Module: l3prg 2015/11/01 v6216 L3 Control structures
-\g__prg_map_int=\count133
-L3 Module: l3clist 2015/09/02 v5901 L3 Comma separated lists
-L3 Module: l3token 2015/11/11 v6249 L3 Experimental token manipulation
-L3 Module: l3prop 2016/01/05 v6366 L3 Property lists
-L3 Module: l3msg 2015/09/28 v6113 L3 Messages
-L3 Module: l3file 2015/12/03 v6317 L3 File and I/O operations
-\l_iow_line_count_int=\count134
-\l__iow_target_count_int=\count135
-\l__iow_current_line_int=\count136
-\l__iow_current_word_int=\count137
-\l__iow_current_indentation_int=\count138
-L3 Module: l3skip 2016/01/05 v6366 L3 Dimensions and skips
-\c_zero_dim=\dimen139
-\c_max_dim=\dimen140
-\l_tmpa_dim=\dimen141
-\l_tmpb_dim=\dimen142
-\g_tmpa_dim=\dimen143
-\g_tmpb_dim=\dimen144
-\c_zero_skip=\skip61
-\c_max_skip=\skip62
-\l_tmpa_skip=\skip63
-\l_tmpb_skip=\skip64
-\g_tmpa_skip=\skip65
-\g_tmpb_skip=\skip66
-\c_zero_muskip=\muskip12
-\c_max_muskip=\muskip13
-\l_tmpa_muskip=\muskip14
-\l_tmpb_muskip=\muskip15
-\g_tmpa_muskip=\muskip16
-\g_tmpb_muskip=\muskip17
-L3 Module: l3keys 2015/11/17 v6284 L3 Key-value interfaces
-\g__keyval_level_int=\count139
-\l_keys_choice_int=\count140
-L3 Module: l3fp 2015/08/25 v5890 L3 Floating points
-\c__fp_leading_shift_int=\count141
-\c__fp_middle_shift_int=\count142
-\c__fp_trailing_shift_int=\count143
-\c__fp_big_leading_shift_int=\count144
-\c__fp_big_middle_shift_int=\count145
-\c__fp_big_trailing_shift_int=\count146
-\c__fp_Bigg_leading_shift_int=\count147
-\c__fp_Bigg_middle_shift_int=\count148
-\c__fp_Bigg_trailing_shift_int=\count149
-L3 Module: l3box 2015/08/09 v5822 L3 Experimental boxes
-\c_empty_box=\box31
-\l_tmpa_box=\box32
-\l_tmpb_box=\box33
-\g_tmpa_box=\box34
-\g_tmpb_box=\box35
-L3 Module: l3coffins 2015/08/06 v5789 L3 Coffin code layer
-\l__coffin_internal_box=\box36
-\l__coffin_internal_dim=\dimen145
-\l__coffin_offset_x_dim=\dimen146
-\l__coffin_offset_y_dim=\dimen147
-\l__coffin_x_dim=\dimen148
-\l__coffin_y_dim=\dimen149
-\l__coffin_x_prime_dim=\dimen150
-\l__coffin_y_prime_dim=\dimen151
-\c_empty_coffin=\box37
-\l__coffin_aligned_coffin=\box38
-\l__coffin_aligned_internal_coffin=\box39
-\l_tmpa_coffin=\box40
-\l_tmpb_coffin=\box41
-\l__coffin_display_coffin=\box42
-\l__coffin_display_coord_coffin=\box43
-\l__coffin_display_pole_coffin=\box44
-\l__coffin_display_offset_dim=\dimen152
-\l__coffin_display_x_dim=\dimen153
-\l__coffin_display_y_dim=\dimen154
-L3 Module: l3color 2014/08/23 v5354 L3 Experimental color support
-L3 Module: l3sys 2015/09/25 v6087 L3 Experimental system/runtime functions
-L3 Module: l3candidates 2016/01/14 v6376 L3 Experimental additions to l3kernel
-\l__box_top_dim=\dimen155
-\l__box_bottom_dim=\dimen156
-\l__box_left_dim=\dimen157
-\l__box_right_dim=\dimen158
-\l__box_top_new_dim=\dimen159
-\l__box_bottom_new_dim=\dimen160
-\l__box_left_new_dim=\dimen161
-\l__box_right_new_dim=\dimen162
-\l__box_internal_box=\box45
-\l__coffin_bounding_shift_dim=\dimen163
-\l__coffin_left_corner_dim=\dimen164
-\l__coffin_right_corner_dim=\dimen165
-\l__coffin_bottom_corner_dim=\dimen166
-\l__coffin_top_corner_dim=\dimen167
-\l__coffin_scaled_total_height_dim=\dimen168
-\l__coffin_scaled_width_dim=\dimen169
-L3 Module: l3luatex 2015/11/11 v6250 L3 Experimental LuaTeX-specific functions
-)
-(/usr/share/texlive/texmf-dist/tex/latex/l3kernel/l3pdfmode.def
-File: l3pdfmode.def 2015/11/11 v6250 L3 Experimental driver: PDF mode
-\l__driver_color_stack_int=\count150
-))
-(/usr/share/texlive/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
-Package: xparse 2016/01/19 v6377 L3 Experimental document command parser
-\l__xparse_current_arg_int=\count151
-\l__xparse_m_args_int=\count152
-\l__xparse_mandatory_args_int=\count153
-\l__xparse_processor_int=\count154
-\l__xparse_v_nesting_int=\count155
-)
-(/usr/share/texlive/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty
-Package: l3keys2e 2016/01/19 v6377 LaTeX2e option processing using LaTeX3 keys
-)
-Package: tasks 2014/07/29 v0.10a Horizontal columned lists.
-
-(/usr/share/texlive/texmf-dist/tex/latex/eepic/epic.sty
-Enhancements to Picture Environment. Version 1.2 - Released June 1, 1986
-\@@multicnt=\count156
-\d@lta=\count157
-\@delta=\dimen170
-\@@delta=\dimen171
-\@gridcnt=\count158
-\@joinkind=\count159
-\@dotgap=\dimen172
-\@ddotgap=\dimen173
-\@x@diff=\count160
-\@y@diff=\count161
-\x@diff=\dimen174
-\y@diff=\dimen175
-\@dotbox=\box46
-\num@segments=\count162
-\num@segmentsi=\count163
-\@datafile=\read1
-) (/usr/share/texlive/texmf-dist/tex/latex/cntformats/cntformats.sty
-Package: cntformats 2014/07/20 v0.7 A different way to read counters. (CN)
-
-(/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty
-Package: etoolbox 2015/08/02 v2.2a e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count164
-)
-(/usr/share/texlive/texmf-dist/tex/latex/cnltx/cnltx-base.sty
-Package: cnltx-base 2015/08/17 v0.13 LaTeX tools and documenting facilities (CN
-)
-
-(/usr/share/texlive/texmf-dist/tex/latex/pgfopts/pgfopts.sty
-Package: pgfopts 2014/07/10 v2.1a LaTeX package options with pgfkeys
-
-(/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
-\pgfkeys@pathtoks=\toks27
-\pgfkeys@temptoks=\toks28
-
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeysfiltered.code.t
-ex
-\pgfkeys@tmptoks=\toks29
-)))
-\pgfopts@list@add@a@toks=\toks30
-\pgfopts@list@add@b@toks=\toks31
-)
-\c@cnltx@tmpa=\count165
-\c@cnltx@tmpb=\count166
-\c@cnltx@tmpc=\count167
-\cnltx@tmpa@length=\skip67
-\cnltx@tmpb@length=\skip68
-\cnltx@tmpc@length=\skip69
- (/usr/share/texlive/texmf-dist/tex/latex/trimspaces/trimspaces.sty
-Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
-)))
-(/usr/share/texlive/texmf-dist/tex/latex/l3packages/xtemplate/xtemplate.sty
-Package: xtemplate 2016/01/19 v6377 L3 Experimental prototype document function
-s
-\l__xtemplate_tmp_dim=\dimen176
-\l__xtemplate_tmp_int=\count168
-\l__xtemplate_tmp_muskip=\muskip18
-\l__xtemplate_tmp_skip=\skip70
-)
-(/usr/share/texlive/texmf-dist/tex/latex/environ/environ.sty
-Package: environ 2014/05/04 v0.3 A new way to define environments
-)
-\l__tasks_depth_int=\count169
-\g__tasks_int=\count170
-\g__tasks_total_items_int=\count171
-\l__tasks_columns_int=\count172
-\l__tasks_rows_int=\count173
-\g__tasks_current_col_num_int=\count174
-\g__tasks_current_row_num_int=\count175
-\l__tasks_item_columns_int=\count176
-\l__tasks_item_indent_dim=\dimen177
-\l__tasks_item_default_indent_dim=\dimen178
-\l__tasks_item_width_dim=\dimen179
-\l__tasks_label_width_dim=\dimen180
-\l__tasks_label_default_width_dim=\dimen181
-\l__tasks_label_offset_dim=\dimen182
-\l__tasks_label_default_offset_dim=\dimen183
-\l__tasks_column_sep_dim=\dimen184
-\l__tasks_after_item_skip=\skip71
-\l__tasks_custom_after_item_skip=\skip72
-\l__tasks_before_list_skip=\skip73
-\l__tasks_after_list_skip=\skip74
-\l__tasks_item_coffin=\box47
-\l__tasks_label_coffin=\box48
-\c@task=\count177
-\l__tasks_tmpa_int=\count178
-\l__tasks_tmpb_int=\count179
-\l__tasks_tmpa_coffin=\box49
-.................................................
-. xtemplate info: "declare-object-type"
-. 
-. Declaring object type 'tasks' taking 3 argument(s) on line 377.
-.................................................
-\l__tasks_choice_width_dim=\dimen185
-\l__tasks_choice_linewidth_dim=\dimen186
-\l__tasks_choice_checkwidth_dim=\dimen187
-\l__tasks_choice_raise_dim=\dimen188
-.................................................
-. LaTeX info: "xparse/define-command"
-. 
-. Defining command \startnewitemline with sig. '' on line 670.
-.................................................
-.................................................
-. LaTeX info: "xparse/define-command"
-. 
-. Defining command \NewTasks with sig. 'O{}mO{\task }D(){1}' on line 679.
-.................................................
-.................................................
-. LaTeX info: "xparse/define-command"
-. 
-. Defining command \RenewTasks with sig. 'O{}mO{\task }D(){1}' on line 686.
-.................................................
-.................................................
-. LaTeX info: "xparse/define-environment"
-. 
-. Defining environment 'tasks' with sig. 'O{}D(){1}' on line 694.
-.................................................
-\g__file_internal_ior=\read2
-
-(/usr/share/texlive/texmf-dist/tex/latex/tasks/tasks.cfg
-File: tasks.cfg 2014/07/29 v0.10a tasks instances
-)
-.................................................
-. LaTeX info: "xparse/define-command"
-. 
-. Defining command \settasks with sig. 'm' on line 710.
-.................................................
-)
 (/usr/share/texlive/texmf-dist/tex/latex/wrapfig/wrapfig.sty
-\wrapoverhang=\dimen189
-\WF@size=\dimen190
-\c@WF@wrappedlines=\count180
-\WF@box=\box50
-\WF@everypar=\toks32
+\wrapoverhang=\dimen139
+\WF@size=\dimen140
+\c@WF@wrappedlines=\count128
+\WF@box=\box31
+\WF@everypar=\toks27
 Package: wrapfig 2003/01/31  v 3.6
 )
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
@@ -642,29 +384,29 @@ File: lstlang1.sty 2015/06/04 1.6 listings language file
 (./bsc-thesis.aux)
 \openout1 = `bsc-thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Try loading font information for T1+ptm on input line 63.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Try loading font information for T1+ptm on input line 62.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ptm.fd
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 )
 (/usr/share/texlive/texmf-dist/tex/latex/ucs/ucsencs.def
 File: ucsencs.def 2011/01/21 Fixes to fontencodings LGR, T3
 )
-\AtBeginShipoutBox=\box51
-Package hyperref Info: Link coloring OFF on input line 63.
+\AtBeginShipoutBox=\box32
+Package hyperref Info: Link coloring OFF on input line 62.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -672,31 +414,31 @@ Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count181
+\c@section@level=\count129
 )
-LaTeX Info: Redefining \ref on input line 63.
-LaTeX Info: Redefining \pageref on input line 63.
-LaTeX Info: Redefining \nameref on input line 63.
+LaTeX Info: Redefining \ref on input line 62.
+LaTeX Info: Redefining \pageref on input line 62.
+LaTeX Info: Redefining \nameref on input line 62.
 
 (./bsc-thesis.out) (./bsc-thesis.out)
 \@outlinefile=\write3
 \openout3 = `bsc-thesis.out'.
 
-\c@lstlisting=\count182
+\c@lstlisting=\count130
 
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count183
-\scratchdimen=\dimen191
-\scratchbox=\box52
-\nofMPsegments=\count184
-\nofMParguments=\count185
-\everyMPshowfont=\toks33
-\MPscratchCnt=\count186
-\MPscratchDim=\dimen192
-\MPnumerator=\count187
-\makeMPintoPDFobject=\count188
-\everyMPtoPDFconversion=\toks34
+\scratchcounter=\count131
+\scratchdimen=\dimen141
+\scratchbox=\box33
+\nofMPsegments=\count132
+\nofMParguments=\count133
+\everyMPshowfont=\toks28
+\MPscratchCnt=\count134
+\MPscratchDim=\dimen142
+\MPnumerator=\count135
+\makeMPintoPDFobject=\count136
+\everyMPtoPDFconversion=\toks29
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
 
@@ -716,11 +458,11 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: wrapfig package is loaded.
 Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <17.28> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 87.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 86.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <20.74> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 96.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 95.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 111.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 110.
 
 (/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-0.def
 File: uni-0.def 2013/05/13 UCS: Unicode data U+0000..U+00FF
@@ -728,7 +470,7 @@ File: uni-0.def 2013/05/13 UCS: Unicode data U+0000..U+00FF
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <24.88> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 135.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 134.
  (./bsc-thesis.toc
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 5.
@@ -739,7 +481,7 @@ LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
 \openout4 = `bsc-thesis.toc'.
 
  [3]
-Overfull \hbox (8.7923pt too wide) in paragraph at lines 143--144
+Overfull \hbox (8.7923pt too wide) in paragraph at lines 142--143
 \T1/ptm/m/n/12 tanítá-son vagy a fe-lada-ton van, hanem a hálózat paramétere-in
 ek op-ti-mal-izálásán, konkrétab-
  []
@@ -747,13 +489,13 @@ ek op-ti-mal-izálásán, konkrétab-
 (/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-1.def
 File: uni-1.def 2013/05/13 UCS: Unicode data U+0100..U+01FF
 )
-Overfull \hbox (3.03279pt too wide) in paragraph at lines 147--148
+Overfull \hbox (3.03279pt too wide) in paragraph at lines 146--147
 \T1/ptm/m/n/12 nélkülük az ad-digi-hoz ha-sonló pon-tosság-gal. Egy in-tel-li-g
 ens straté-gia külön-böz® mértékek
  []
 
 
-Overfull \hbox (0.75185pt too wide) in paragraph at lines 149--150
+Overfull \hbox (0.75185pt too wide) in paragraph at lines 148--149
 \T1/ptm/m/n/12 segít-ségével hard-vere-sen gy-orsí-tott tanítás volt al-ka-lmaz
 va. Ezt a ten-sor-flow teszi lehet®vé
  []
@@ -780,19 +522,19 @@ Chapter 2.
 ] <images/net.png, id=258, 235.88126pt x 419.5675pt>
 File: images/net.png Graphic file (type png)
  <use images/net.png>
-Package pdftex.def Info: images/net.png used on input line 257.
+Package pdftex.def Info: images/net.png used on input line 256.
 (pdftex.def)             Requested size: 149.37956pt x 265.70537pt.
 
 [15] [16 <./images/net.png>]
-LaTeX Font Info:    Try loading font information for T1+pcr on input line 295.
+LaTeX Font Info:    Try loading font information for T1+pcr on input line 294.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )
 LaTeX Font Info:    Font shape `T1/pcr/bx/n' in size <10> not available
-(Font)              Font shape `T1/pcr/b/n' tried instead on input line 297.
+(Font)              Font shape `T1/pcr/b/n' tried instead on input line 296.
  [17] [18] [19]
-Overfull \hbox (1.2087pt too wide) in paragraph at lines 376--377
+Overfull \hbox (1.2087pt too wide) in paragraph at lines 375--376
 \T1/ptm/m/n/12 Freezing a mask means that the frozen mask will not re-ceive up-
 dates via back-propagation,
  []
@@ -806,13 +548,13 @@ Package epstopdf Info: Source file: <dia/flow.eps>
 (epstopdf)                    size: 34911 bytes
 (epstopdf)             Command: <repstopdf --outfile=dia/flow-eps-converted-to.
 pdf dia/flow.eps>
-(epstopdf)             \includegraphics on input line 396.
+(epstopdf)             \includegraphics on input line 395.
 Package epstopdf Info: Output file is already uptodate.
  <dia/flow-eps-converted-to.pdf, id=367, 522.95375pt x 1056.94875pt>
 File: dia/flow-eps-converted-to.pdf Graphic file (type pdf)
 
 <use dia/flow-eps-converted-to.pdf>
-Package pdftex.def Info: dia/flow-eps-converted-to.pdf used on input line 396.
+Package pdftex.def Info: dia/flow-eps-converted-to.pdf used on input line 395.
 (pdftex.def)             Requested size: 192.0548pt x 388.16193pt.
  [22 <./dia/flow-eps-converted-to.pdf>]
 [23]
@@ -821,44 +563,40 @@ Chapter 3.
 File: images/masks_before.png Graphic file (type png)
 
 <use images/masks_before.png>
-Package pdftex.def Info: images/masks_before.png used on input line 420.
+Package pdftex.def Info: images/masks_before.png used on input line 419.
 (pdftex.def)             Requested size: 209.1301pt x 104.56825pt.
 
 <images/masks_after.png, id=384, 301.125pt x 150.5625pt>
 File: images/masks_after.png Graphic file (type png)
 
 <use images/masks_after.png>
-Package pdftex.def Info: images/masks_after.png used on input line 424.
+Package pdftex.def Info: images/masks_after.png used on input line 423.
 (pdftex.def)             Requested size: 209.1301pt x 104.56825pt.
  <images/out1.png, id=385, 385.44pt x 192.72pt>
 File: images/out1.png Graphic file (type png)
 
 <use images/out1.png>
-Package pdftex.def Info: images/out1.png used on input line 431.
-(pdftex.def)             Requested size: 385.43906pt x 192.71951pt.
+Package pdftex.def Info: images/out1.png used on input line 430.
+(pdftex.def)             Requested size: 341.43436pt x 170.71744pt.
  <images/out2.png, id=386, 385.44pt x 192.72pt>
 File: images/out2.png Graphic file (type png)
 
 <use images/out2.png>
-Package pdftex.def Info: images/out2.png used on input line 433.
-(pdftex.def)             Requested size: 385.43906pt x 192.71951pt.
+Package pdftex.def Info: images/out2.png used on input line 432.
+(pdftex.def)             Requested size: 341.43436pt x 170.71744pt.
  <images/layer1.png, id=387, 385.44pt x 192.72pt>
 File: images/layer1.png Graphic file (type png)
 
 <use images/layer1.png>
-Package pdftex.def Info: images/layer1.png used on input line 438.
-(pdftex.def)             Requested size: 385.43906pt x 192.71951pt.
+Package pdftex.def Info: images/layer1.png used on input line 437.
+(pdftex.def)             Requested size: 341.43436pt x 170.71744pt.
  <images/layer2.png, id=388, 385.44pt x 192.72pt>
 File: images/layer2.png Graphic file (type png)
 
 <use images/layer2.png>
-Package pdftex.def Info: images/layer2.png used on input line 440.
-(pdftex.def)             Requested size: 385.43906pt x 192.71951pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[24
+Package pdftex.def Info: images/layer2.png used on input line 439.
+(pdftex.def)             Requested size: 341.43436pt x 170.71744pt.
+ [24
 
 ] [25 <./images/masks_before.png> <./images/masks_after.png> <./images/out1.png
 > <./images/out2.png>] [26 <./images/layer1.png> <./images/layer2.png>]
@@ -874,13 +612,13 @@ Chapter 6.
 [29
 
 ]
-Overfull \hbox (14.10042pt too wide) in paragraph at lines 468--470
+Overfull \hbox (14.10042pt too wide) in paragraph at lines 467--469
 \T1/ptm/m/n/12 Alulírott [] sza-kos hall-gató, ki-je-len-tem, hogy a dol-go-zat
 omat a Szegedi
  []
 
 
-Overfull \hbox (3.88242pt too wide) in paragraph at lines 473--474
+Overfull \hbox (3.88242pt too wide) in paragraph at lines 472--473
 []\T1/ptm/m/n/12 Tudomásul veszem, hogy sza-k-dol-go-zatomat / diplo-ma-munká-m
 at a Szegedi Tu-domány-
  []
@@ -946,24 +684,24 @@ Underfull \hbox (badness 10000) in paragraph at lines 65--67
  []
 
 )
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 494.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 493.
  [33]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 494.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 493.
  (./bsc-thesis.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 494.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 494.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 493.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 493.
 Package rerunfilecheck Info: File `bsc-thesis.out' has not changed.
 (rerunfilecheck)             Checksum: 87D6B85A93471B0765FD0B16D999E65B;2072.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 494.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 493.
  ) 
 Here is how much of TeX's memory you used:
- 20543 strings out of 493029
- 348931 string characters out of 6136235
- 527253 words of memory out of 5000000
- 23708 multiletter control sequences out of 15000+600000
+ 12036 strings out of 493029
+ 170941 string characters out of 6136235
+ 381434 words of memory out of 5000000
+ 15272 multiletter control sequences out of 15000+600000
  49860 words of font info for 65 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 61i,11n,52p,10367b,1397s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,11n,48p,1546b,1397s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist
@@ -976,7 +714,7 @@ sfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
 texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-d
 ist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1
 /urw/times/utmri8a.pfb>
-Output written on bsc-thesis.pdf (33 pages, 535085 bytes).
+Output written on bsc-thesis.pdf (33 pages, 535147 bytes).
 PDF statistics:
  539 PDF objects out of 1000 (max. 8388607)
  474 compressed objects within 5 object streams
