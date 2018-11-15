@@ -89,18 +89,18 @@
 
 	{\Large\bf Department of Informatics}
 
-	\vspace*{3.8cm}
+	\vspace*{3.0cm}
 
 
 	{\LARGE\bf Implementing a self-scaling\\
 		convolutional neural network}
 
 
-	\vspace*{3.6cm}
+	\vspace*{3.0cm}
 
 	{\Large Bachelor's thesis}
 
-	\vspace*{1.4cm}
+	\vspace*{2.5cm}
 
 	%Értelemszerűen megváltoztatandó:
 	{\large
@@ -108,17 +108,19 @@
 		\begin{center}
 			\emph{Author:} \\
 			\bf{Jenei Bendegúz}  \\
-			\normalfont{student} \\
+			\normalfont{BSc in Engineering \\
+				Information Technology \\
+				undergraduate}
 		\end{center}
 		\begin{tabular}{c@{\hspace{4cm}}c}
 			\emph{Supervisor:}      & \emph{Supervisor:} \\
-			\bf{Varga László Gábor} & \bf{Berend Gábor}  \\
-			Senior lecturer         & Senior lecturer           \\
+			\bf{Varga László Gábor} & \bf{Berend Gábor} \\
+			Senior lecturer         & Senior lecturer
 		\end{tabular}
 
 	}
 
-	\vspace*{2.3cm}
+	\vspace*{1.0cm}
 
 	{\Large
 		Szeged
@@ -139,7 +141,7 @@
 \chapter*{Tartalmi összefoglaló\\(content summary in Hungarian)}
 \addcontentsline{toc}{section}{Tartalmi összefoglaló (content summary in Hungarian)}
 
-Ez a dolgozat a \textit{gépi tanulás} és a \textit{digitális képfeldolgozás} kategóriákhoz tartozik. Egy \textit{teljesen konvolúciós hálózatot} alkalmaz, ami a gépi tanulásban haszlálatos technika, hogy \textit{éldetektálást} végezzen, ami egy digitális képfeldolgozásbeli feladat. A hangsúly nem a tanításon vagy a feladaton van, hanem a hálózat paramétereinek optimalizálásán, konkrétabban a rétegek és a rétegbeli konvolúciós maszkok számának csökkentésén, miközben a hálózat pontossága változatlan marad. Már léteznek írások hasonló témával, lásd a \cite{pruning_web}, \cite{pruning_arxiv} és \cite{understanding} hivatkozásokat.
+Ez a dolgozat a \textit{gépi tanulás} és a \textit{digitális képfeldolgozás} kategóriákhoz tartozik. Egy \textit{teljesen konvolúciós hálózatot} alkalmaz, ami a gépi tanulásban haszlálatos technika, hogy \textit{éldetektálást} végezzen, ami egy digitális képfeldolgozásbeli feladat. A hangsúly nem a tanításon vagy a feladaton van, hanem a hálózat paramétereinek optimalizálásán,  \hyphenation{kon-kré-tab-ban} a rétegek és a rétegbeli konvolúciós maszkok számának csökkentésén, miközben a hálózat pontossága változatlan marad. Már léteznek írások hasonló témával, lásd a \cite{pruning_web}, \cite{pruning_arxiv} és \cite{understanding} hivatkozásokat.
 
 A hálózat előnyös méretének meghatározását egy tantási folyamat végzi, ami képes elmenteni állapotát és később visszatölteni azt. Ezen kívül képes ideiglenesen módosítani a belső struktúráján. Ez különböző konfigurációk tesztelésére és összehasonlítására van használva. Ezek a technikák különböző mértékekkel együtt vannak alkalmazva. A tanítás akkor áll meg, amikor egy kilépési feltétel teljesül. Az eredmény egy olyan konfiguráció, amit az alkalmazott stratégia optimálisnak talált.
 
@@ -155,7 +157,7 @@ The task of the candidate is to create a framework in which convolutional neural
 
 - Training of a fully convolutional neural network to solve a simple image processing task (e.g., edge detection, automatic thresholding, etc.).
 
-- Determining the size of the ideal neural network. An ideal sized neural network solves the problem with a given layer count and structure with the maximum possible accuracy, while keeping the neuron count minimal among layers.
+- Determining the size of the ideal neural network. An ideal sized neural network solves the problem with a given layer number and structure with the maximum possible accuracy, while keeping the neuron count minimal among layers.
 
 \chapter*{Content summary}
 \addcontentsline{toc}{section}{Content summary}
@@ -163,16 +165,16 @@ The task of the candidate is to create a framework in which convolutional neural
 This thesis falls into the topics of \textit{machine learning} and \textit{digital image processing}. It uses a machine learning technique of training a \textit{fully convolutional network} to perform \textit{edge detection}, which is an image processing task. The focus is not on the training or task itself, instead it is on optimizing the parameters of the network, specifically minimizing the number of layers and the number of masks in the layers, while not sacrificing the accuracy of the network. Similar topics have already been researched before, e.g. in \cite{pruning_web}, \cite{pruning_arxiv} and \cite{understanding}.
 
 
-The beneficial size for the network is determined by a training process which is capable of saving its state and returning to it later. It is also capable of altering the inner structure of the network temporarily. This is used to test and compare different configurations. The previous techniques are combined with different metrics The training stops when an exiting criterion is met. This results in a network configuration that is regarded as optimal by the current strategy.
+The beneficial size for the network is determined by a training process which is capable of saving its state and returning to it later. It is also capable of altering the inner structure of the network temporarily. This is used to test and compare different configurations. The previous techniques are combined with different metrics. The training stops when an exiting criterion is met. This results in a network configuration that is regarded as optimal by the current strategy.
 
-Naive and more intelligent strategies were designed, to see which one performs best. A simple strategy would randomly select masks in the network and disable them temporarily. Then it would check if the training can continue without them with around the same accuracy. An intelligent strategy would choose based on various metrics and indicators. There might be use cases for both approaches.
+Naive and more intelligent strategies were designed, to see which one performs best. A simple strategy would randomly select masks in the network and disable them temporarily. Then it would check if the training can continue without them with approximately the same accuracy. An intelligent strategy would choose based on various metrics and indicators. There might be use cases for both approaches.
 
 The framework was coded in the \textit{Python} language, utilizing the \textit{tensorflow} library \cite{tensorflow2015-whitepaper}. To aid performance, the training was hardware-accelerated using \textit{NVIDIA} graphics cards with CUDA cores, which are operated by tensorflow through the \textit{CUDA} and \textit{cuDNN} libraries.
 
 \chapter*{Introduction}
 \addcontentsline{toc}{section}{Introduction}
 
-In this thesis, a special computer program will be written, which uses a convolutional neural network. It will be special because with the use of a neural network it will be able to dynamically refine how it works to produce a better result, i.e., learn. While classical algorithms are created using human intuition or mathematical formulation, machine learning algorithms are given examples of the right answers it should produce with the given data, allowing it to automatically develop ways of solving a specific problem based on feedback about its own performance.
+In this thesis a special computer program is introduced which uses a convolutional neural network. It will be special because with the use of a neural network it will be able to dynamically refine how it works to produce a better result, i.e., learn. While classical algorithms are created using human intuition or mathematical formulation, machine learning algorithms are given examples of the right answers it should produce with the given data, allowing it to automatically develop ways of solving a specific problem based on feedback about its own performance.
 
 Integrating the technique of convolution into these networks will make them especially efficient in working with images. This opens up new possibilities, like face recognition, object detection or image reconstruction. Convolutional neural networks are already used for these tasks in areas like security or industrial automation \cite{applications}.
 
@@ -185,7 +187,7 @@ The benefits of using properly sized neural networks include portability and res
 \section{Minimal fully convolutional networks}
 The goal of this thesis is to create a framework which is capable of training a deep convolutional neural network for simple two-dimensional image processing tasks and provide ways to make this network as small as possible without sacrificing a considerable amount of its accuracy.
 
-First is a short description of\textit{ artificial neural networks}, or \textit{NNs}, on which convolutional neural networks are based. Artificial neural networks are inspired by the biological neural networks in the brain. An artificial neuron is a simple model of a biological neuron. They can have any number of inputs, originating from other neurons, or directly from the input, sensory organs in case of real neurons. They have exactly one output, which can be connected to an input of another neuron, or channeled to the output. When a neuron gets its inputs, it produces a weighted sum of them, adds a bias, applies a function called activation function. Finally it puts the result on its output.
+First is a short description of\textit{ artificial neural networks}, or \textit{ANNs}, on which convolutional neural networks are based. Artificial neural networks are inspired by the biological neural networks in the brain. An artificial neuron is a simple model of a biological neuron. They can have any number of inputs, originating from other neurons, or directly from the input, sensory organs in case of real neurons. They have exactly one output, which can be connected to an input of another neuron, or channeled to the output. When a neuron gets its inputs, it produces a weighted sum of them, adds a bias, applies a function called activation function. Finally it puts the result on its output.
 
 The \textit{weights} and \textit{bias} within a neuron are its unique parameters that define is characteristics. The activation function is used to introduce some nonlinearity. It is usually a simple linear or exponential function, often cutting negative values, or values falling outside of a range, substituting them with zeros. Neurons are usually grouped into layers, where they do not connect to each other, only to other immediate (also called hidden), input or output layers. When an immediate layer passes its outputs to another immediate layer, we are speaking of a \textit{deep neural network (DNN)}.
 
@@ -254,7 +256,7 @@ When defining multi-dimensional variables, the tensorflow-recommended \textit{NH
 
 \begin{wrapfigure}{r}{0.35\textwidth}
 	\includegraphics[width=0.35\textwidth]{images/net.png}
-	\caption{ }
+	\caption{The basic structure of the network}
 	\label{net}
 \end{wrapfigure}
 Our FCN, as seen on figure \ref{net} (created with \cite{netscope}), is made up by three layers, the first layer gets the reprocessed image from the previous section, while the third layer produces the output image. The layers are convolutional with an added bias, initialized randomly with a predefined distribution.
@@ -338,9 +340,9 @@ One of the tensorflow built-in optimizers, \textit{Adam} \cite{adam} is used. It
 
 \textit{Training} and \textit{evaluation} steps are alternating during a training session. Training steps take up the majority of the time, while evaluation or validation steps are around ten or more times less frequent during a run. Both steps iterate on their own separate set of data. These two sets are sometimes created by splitting one large dataset by a ratio favoring the training split. For both the Sobel and Canny tasks, we use 20000 images for training and roughly 14000 images for evaluation.
 
-A \textit{step} during training consist of producing one error value from the input and output, and performing back-propagation once to modify the trainable variables, or weights. This does not mean that one step takes exactly one image, since batching is used, so one step deals with a batch of images. The processing time a resources needed for a step depends on the batch size.
+A \textit{step} during training consist of producing one error value from the input and output, and performing back-propagation once to modify the trainable variables, or weights. This does not mean that one step takes exactly one image, since batching is used, so one step deals with a batch of images, $3$ images in our case. The processing time a resources needed for a step depends on the batch size.
 
-With each \textit{training step}, the error is calculated and back-propagation is performed. An \textit{evaluation step} stops right before calculating the error, and only produces the output image, so no back-propagation is happening here. This leaves the network untouched. The purpose of this is to measure the accuracy on the evaluation set, which is invisible to the network during training. Evaluation is also used to produce more and prettier metrics for the human observer. Evaluation runs less rarely than training, so heavier computation on metrics are possible without slowing down the training process.
+With each \textit{training step}, the error is calculated and back-propagation is performed. An \textit{evaluation step} stops right before calculating the error, and only produces the output image, so no back-propagation is happening here. This leaves the network untouched. The purpose of this is to measure the accuracy on the evaluation set, which is invisible to the network during training. Evaluation is also used to produce more and prettier metrics for the human observer. Evaluation runs less frequently than training, so heavier computation on metrics are possible without slowing down the training process.
 \section{Minimization}\label{min}
 Minimization refers to reduction in the size of the FCN. This section is about the methods and tricks which make it possible to change the network during training, step back to an earlier state and compare states. This way determining the minimal size for the FCN can be automatized.
 
@@ -372,7 +374,7 @@ def restore_variable(name):
 \subsubsection{Neglecting neurons}
 To simulate a graph with fewer masks, or ,,neurons'', the masks can be disabled any time during training. Masks are contained in multidimensional matrices, one mask for each edge or input that the vertex or operation receives. Since the structure of the cannot be modified, we include switches into it, which tell exactly which neurons are disabled. The disabled masks always produce an output of zeros, whatever their input might be. Disabling masks provides no performance advantage, since they are still in the graph, taking up memory, but if we find that the results are still accurate with a few masks disabled, it means that the problem is solvable with fewer masks.
 \subsubsection{Freezing neurons}
-Freezing a mask means that the frozen mask will not receive updates via back-propagation, but will still produce an output. This is implemented similarly to disabled masks, providing switches that toggle between giving the mask zero-gradient, or retaining its value.
+Freezing a mask means that the frozen mask will not receive updates via back-propagation, but will still produce an output. This is implemented similarly to disabled masks, \hyphenation{pro-vi-ding} switches that toggle between giving the mask zero-gradient, or retaining its value.
 \subsubsection{Reinitializing neurons}
 Reinitializing the masks instead of giving them zero values is also considered. The reason is that before the first run, the masks were given initial values based on normal distribution, instead of zeros, which should provide accelerated learning speed.
 \subsubsection{Stepping back}
@@ -393,13 +395,17 @@ This process encapsulates multiple training sessions, and uses the tools and met
 
 \begin{wrapfigure}{r}{0.45\textwidth}
 	\includegraphics[width=0.45\textwidth]{dia/flow.eps}
-	\caption{ }
+	\caption{Flowchart of the minimization process}
 	\label{flow}
 \end{wrapfigure}
-First, a training session is invoked to produce a working network that is close to convergence and is capable of inference. This is longer than the later sessions, $10000$ steps in most runs. We are ready to stop the training when error stagnates. The network is then evaluated and saved to disk. Then one or more masks are \textit{selected} and altered. Altering includes freezing and disabling masks, and there are multiple strategies for \textit{selection}, they are described below. After this, another training session and evaluation is performed with the altered network. This is shorter because the network is already semi-converged, $2000$ steps exactly. The results of the new evaluation and the old one are compared, and if the new one is weaker, the old network is reloaded from disk. The strength of the new network compared to the old one is determined by a threshold over the ratio of their evaluation performance. Evaluation performance is measured by computing the mean F1 score over the evaluation dataset. Multiple thresholds were tested: $ 85\%,\ 90\%,\ 95\%,\ 98\%$ and $100\%$. Then comes another selection, which makes sure to select different masks if the network was restored. The sequence of training, evaluation, comparison and \textit{selection} is repeated until the stopping criteria are met. We are left with the final network, and a one-hot matrix which describes which masks ca be removed to get the minimal structure. This process is illustrated by the flowchart at \ref{flow}.
+First, a training session is invoked to produce a working network that is close to convergence and is capable of inference. This is longer than the later sessions, $10000$ steps in most runs. We are ready to stop the training when error stagnates. The network is then evaluated and saved to disk. Then one or more masks are \textit{selected} and altered. Altering includes freezing and disabling masks, and there are multiple strategies for \textit{selection}, they are described below. After this, another training session and evaluation is performed with the altered network. This is shorter because the network is already semi-converged, $2000$ steps exactly. The results of the new evaluation and the old one are compared, and if the new one is weaker, the old network is reloaded from disk. The strength of the new network compared to the old one is determined by a threshold over the ratio of their evaluation performance. Evaluation performance is measured by computing the mean F1 score over the evaluation dataset. Multiple thresholds were tested: $ 85\%,\ 90\%,\ 95\%,\ 98\%$ and $100\%$. Then comes another selection, which makes sure to select different masks if the network was restored. The sequence of training, evaluation, comparison and \textit{selection} is repeated until the stopping criteria are met. We are left with the final network, and a one-hot matrix which describes which masks ca be removed to get the minimal structure. This process is illustrated by the flowchart in \ref{flow}.
 \subsection{Selection}
 Masks have to be selected, for freezing or disabling, the choice should reflect the contribution of the selected mask to the overall performance, or in other words, the least important mask should be the one that gets selected, so the network could possibly perform with one less mask.
-\subsubsection{Cosine-similarity}Cosine similarity  tries to represent how similar two n-dimensional vectors are. A mask is a set of two-dimensional matrices plus scalar biases, so they are reshaped to a vector format, with the bias appended to the end of the vector. Then all the vectors are compared to each other using cosine similarity, and the end result is stored in a matrix, where the element at indices $i$ and $j$ represents the cosine similarity between the the mask in place $i$ and the mask in place $j$. These values have a range of $\left[-1;1\right] $, where $1$ represent the greatest similarity (vectors facing the same direction), while negative numbers represent opposites (vectors facing the opposite direction). This is done for each layer, producing a matrix for each layer.
+\subsubsection{Cosine-similarity}Cosine similarity  tries to represent how similar two n-dimensional vectors are. The definition of cosine similarity is the following:
+\begin{equation*}
+\cos{\theta} = \dfrac{\lVert\bar{a}\rVert\times\lVert\bar{b}\rVert\times\cos{\theta}}{\lVert\bar{a}\rVert\times\lVert\bar{b}\rVert} = \dfrac{\bar{a}\times\bar{b}}{\lVert\bar{a}\rVert\times\lVert\bar{b}\rVert}\ ,
+\end{equation*}
+where $\bar{a}$ and $\bar{b}$ are vectors with matching dimensions. A mask is a set of two-dimensional matrices plus scalar biases, so they are reshaped to a vector format, with the bias appended to the end of the vector. Then all the vectors are compared to each other using cosine similarity, and the end result is stored in a matrix, where the element at indices $i$ and $j$ represents the cosine similarity between the the mask in place $i$ and the mask in place $j$. These values have a range of $\left[-1;1\right] $, where $1$ represent the greatest similarity (vectors facing the same direction), while negative numbers represent opposites (vectors facing the opposite direction). This is done for each layer, producing a matrix for each layer.
 
 Using the matrices, selection could be done by selecting the mask which is most similar to the others, so it has the highest average similarity, or the one which has the maximal single similarity. These strategies hypothesize that a mask that is really similar to other masks is redundant, while unique masks play a key role in the inference. Absolute value could be used on the similarity values, since negative similarity could still mean similarity in the FCN.
 
@@ -465,11 +471,13 @@ final
 %nem kézzel helyettesítendők:
 
 \noindent
-Alulírott \makebox[4cm]{\dotfill} szakos hallgató, kijelentem, hogy a dolgozatomat a Szegedi Tudományegyetem, Informatikai Intézet \makebox[4cm]{\dotfill} Tanszékén készítettem, \makebox[4cm]{\dotfill} diploma megszerzése érdekében.
+Alulírott \makebox[4cm]{\dotfill} szakos hallgató, kijelentem, hogy a dolgozatomat \\
+a Szegedi Tudományegyetem, Informatikai Intézet \makebox[4cm]{\dotfill} Tanszékén készítettem, \makebox[4cm]{\dotfill} diploma megszerzése érdekében.
 
 Kijelentem, hogy a dolgozatot más szakon korábban nem védtem meg, saját munkám eredménye, és csak a hivatkozott forrásokat (szakirodalom, eszközök, stb.) használtam fel.
 
-Tudomásul veszem, hogy szakdolgozatomat / diplomamunkámat a Szegedi Tudományegyetem Informatikai Intézet könyvtárában, a helyben olvasható könyvek között helyezik el.
+Tudomásul veszem, hogy szakdolgozatomat / diplomamunkámat \\
+a Szegedi Tudományegyetem Informatikai Intézet könyvtárában, a helyben olvasható könyvek között helyezik el.
 
 \vspace*{2cm}
 

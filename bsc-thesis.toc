@@ -26,15 +26,15 @@
 \contentsline {subsection}{\numberline {2.4.3}Selection}{23}{subsection.2.4.3}
 \contentsline {subsubsection}{Cosine-similarity}{23}{section*.12}
 \contentsline {subsubsection}{Naive selection strategies}{23}{section*.13}
-\contentsline {chapter}{\numberline {3}Metrics}{24}{chapter.3}
-\contentsline {section}{\numberline {3.1}Universal Image Quality Index}{24}{section.3.1}
-\contentsline {section}{\numberline {3.2}Visualization}{24}{section.3.2}
-\contentsline {chapter}{\numberline {4}Results}{27}{chapter.4}
-\contentsline {section}{\numberline {4.1}Run 1}{27}{section.4.1}
-\contentsline {section}{\numberline {4.2}Run 2}{27}{section.4.2}
-\contentsline {section}{\numberline {4.3}Run 3}{27}{section.4.3}
-\contentsline {chapter}{\numberline {5}Conclusion}{28}{chapter.5}
-\contentsline {chapter}{\numberline {6}Appendix}{29}{chapter.6}
+\contentsline {chapter}{\numberline {3}Metrics}{25}{chapter.3}
+\contentsline {section}{\numberline {3.1}Universal Image Quality Index}{25}{section.3.1}
+\contentsline {section}{\numberline {3.2}Visualization}{25}{section.3.2}
+\contentsline {chapter}{\numberline {4}Results}{28}{chapter.4}
+\contentsline {section}{\numberline {4.1}Run 1}{28}{section.4.1}
+\contentsline {section}{\numberline {4.2}Run 2}{28}{section.4.2}
+\contentsline {section}{\numberline {4.3}Run 3}{28}{section.4.3}
+\contentsline {chapter}{\numberline {5}Conclusion}{29}{chapter.5}
+\contentsline {chapter}{\numberline {6}Appendix}{30}{chapter.6}
 \ 
-\contentsline {section}{Statement}{30}{chapter*.17}
-\contentsline {section}{Acknowledgments}{31}{chapter*.18}
+\contentsline {section}{Statement}{31}{chapter*.17}
+\contentsline {section}{Acknowledgments}{32}{chapter*.18}

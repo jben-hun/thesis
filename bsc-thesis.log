@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.9.8)  12 NOV 2018 20:42
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.9.8)  15 NOV 2018 20:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -470,7 +470,7 @@ File: uni-0.def 2013/05/13 UCS: Unicode data U+0000..U+00FF
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <24.88> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 134.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 136.
  (./bsc-thesis.toc
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 5.
@@ -481,21 +481,16 @@ LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
 \openout4 = `bsc-thesis.toc'.
 
  [3]
-Overfull \hbox (8.7923pt too wide) in paragraph at lines 142--143
-\T1/ptm/m/n/12 tanítá-son vagy a fe-lada-ton van, hanem a hálózat paramétere-in
-ek op-ti-mal-izálásán, konkrétab-
- []
-
 (/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-1.def
 File: uni-1.def 2013/05/13 UCS: Unicode data U+0100..U+01FF
 )
-Overfull \hbox (3.03279pt too wide) in paragraph at lines 146--147
+Overfull \hbox (3.03279pt too wide) in paragraph at lines 148--149
 \T1/ptm/m/n/12 nélkülük az ad-digi-hoz ha-sonló pon-tosság-gal. Egy in-tel-li-g
 ens straté-gia külön-böz® mértékek
  []
 
 
-Overfull \hbox (0.75185pt too wide) in paragraph at lines 148--149
+Overfull \hbox (0.75185pt too wide) in paragraph at lines 150--151
 \T1/ptm/m/n/12 segít-ségével hard-vere-sen gy-orsí-tott tanítás volt al-ka-lmaz
 va. Ezt a ten-sor-flow teszi lehet®vé
  []
@@ -522,21 +517,27 @@ Chapter 2.
 ] <images/net.png, id=258, 235.88126pt x 419.5675pt>
 File: images/net.png Graphic file (type png)
  <use images/net.png>
-Package pdftex.def Info: images/net.png used on input line 256.
+Package pdftex.def Info: images/net.png used on input line 258.
 (pdftex.def)             Requested size: 149.37956pt x 265.70537pt.
 
-[15] [16 <./images/net.png>]
-LaTeX Font Info:    Try loading font information for T1+pcr on input line 294.
+[15] [16 <./images/net.png>] [17]
+LaTeX Font Info:    Try loading font information for T1+pcr on input line 296.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )
 LaTeX Font Info:    Font shape `T1/pcr/bx/n' in size <10> not available
-(Font)              Font shape `T1/pcr/b/n' tried instead on input line 296.
- [17] [18] [19]
-Overfull \hbox (1.2087pt too wide) in paragraph at lines 375--376
+(Font)              Font shape `T1/pcr/b/n' tried instead on input line 298.
+ [18] [19]
+Overfull \hbox (1.2087pt too wide) in paragraph at lines 377--378
 \T1/ptm/m/n/12 Freezing a mask means that the frozen mask will not re-ceive up-
 dates via back-propagation,
+ []
+
+
+Overfull \hbox (0.37944pt too wide) in paragraph at lines 377--378
+\T1/ptm/m/n/12 but will still pro-duce an out-put. This is im-ple-mented sim-i-
+larly to dis-abled masks,  switches
  []
 
 [20] [21]
@@ -548,84 +549,72 @@ Package epstopdf Info: Source file: <dia/flow.eps>
 (epstopdf)                    size: 34911 bytes
 (epstopdf)             Command: <repstopdf --outfile=dia/flow-eps-converted-to.
 pdf dia/flow.eps>
-(epstopdf)             \includegraphics on input line 395.
+(epstopdf)             \includegraphics on input line 397.
 Package epstopdf Info: Output file is already uptodate.
  <dia/flow-eps-converted-to.pdf, id=367, 522.95375pt x 1056.94875pt>
 File: dia/flow-eps-converted-to.pdf Graphic file (type pdf)
 
 <use dia/flow-eps-converted-to.pdf>
-Package pdftex.def Info: dia/flow-eps-converted-to.pdf used on input line 395.
+Package pdftex.def Info: dia/flow-eps-converted-to.pdf used on input line 397.
 (pdftex.def)             Requested size: 192.0548pt x 388.16193pt.
  [22 <./dia/flow-eps-converted-to.pdf>]
-[23]
+[23] [24]
 Chapter 3.
-<images/masks_before.png, id=383, 301.125pt x 150.5625pt>
+<images/masks_before.png, id=387, 301.125pt x 150.5625pt>
 File: images/masks_before.png Graphic file (type png)
 
 <use images/masks_before.png>
-Package pdftex.def Info: images/masks_before.png used on input line 419.
+Package pdftex.def Info: images/masks_before.png used on input line 425.
 (pdftex.def)             Requested size: 209.1301pt x 104.56825pt.
 
-<images/masks_after.png, id=384, 301.125pt x 150.5625pt>
+<images/masks_after.png, id=388, 301.125pt x 150.5625pt>
 File: images/masks_after.png Graphic file (type png)
 
 <use images/masks_after.png>
-Package pdftex.def Info: images/masks_after.png used on input line 423.
+Package pdftex.def Info: images/masks_after.png used on input line 429.
 (pdftex.def)             Requested size: 209.1301pt x 104.56825pt.
- <images/out1.png, id=385, 385.44pt x 192.72pt>
+ <images/out1.png, id=389, 385.44pt x 192.72pt>
 File: images/out1.png Graphic file (type png)
 
 <use images/out1.png>
-Package pdftex.def Info: images/out1.png used on input line 430.
+Package pdftex.def Info: images/out1.png used on input line 436.
 (pdftex.def)             Requested size: 341.43436pt x 170.71744pt.
- <images/out2.png, id=386, 385.44pt x 192.72pt>
+ <images/out2.png, id=390, 385.44pt x 192.72pt>
 File: images/out2.png Graphic file (type png)
 
 <use images/out2.png>
-Package pdftex.def Info: images/out2.png used on input line 432.
+Package pdftex.def Info: images/out2.png used on input line 438.
 (pdftex.def)             Requested size: 341.43436pt x 170.71744pt.
- <images/layer1.png, id=387, 385.44pt x 192.72pt>
+ <images/layer1.png, id=391, 385.44pt x 192.72pt>
 File: images/layer1.png Graphic file (type png)
 
 <use images/layer1.png>
-Package pdftex.def Info: images/layer1.png used on input line 437.
+Package pdftex.def Info: images/layer1.png used on input line 443.
 (pdftex.def)             Requested size: 341.43436pt x 170.71744pt.
- <images/layer2.png, id=388, 385.44pt x 192.72pt>
+ <images/layer2.png, id=392, 385.44pt x 192.72pt>
 File: images/layer2.png Graphic file (type png)
 
 <use images/layer2.png>
-Package pdftex.def Info: images/layer2.png used on input line 439.
+Package pdftex.def Info: images/layer2.png used on input line 445.
 (pdftex.def)             Requested size: 341.43436pt x 170.71744pt.
- [24
+ [25
 
-] [25 <./images/masks_before.png> <./images/masks_after.png> <./images/out1.png
-> <./images/out2.png>] [26 <./images/layer1.png> <./images/layer2.png>]
+] [26 <./images/masks_before.png> <./images/masks_after.png> <./images/out1.png
+> <./images/out2.png>] [27 <./images/layer1.png> <./images/layer2.png>]
 Chapter 4.
-[27
-
-]
-Chapter 5.
 [28
 
 ]
-Chapter 6.
+Chapter 5.
 [29
 
 ]
-Overfull \hbox (14.10042pt too wide) in paragraph at lines 467--469
-\T1/ptm/m/n/12 Alulírott [] sza-kos hall-gató, ki-je-len-tem, hogy a dol-go-zat
-omat a Szegedi
- []
-
-
-Overfull \hbox (3.88242pt too wide) in paragraph at lines 472--473
-[]\T1/ptm/m/n/12 Tudomásul veszem, hogy sza-k-dol-go-zatomat / diplo-ma-munká-m
-at a Szegedi Tu-domány-
- []
-
+Chapter 6.
 [30
 
-] (./bsc-thesis.bbl [31
+] [31
+
+] (./bsc-thesis.bbl [32
 
 ]
 Underfull \hbox (badness 6396) in paragraph at lines 4--8
@@ -669,7 +658,7 @@ Underfull \hbox (badness 4899) in paragraph at lines 52--54
 / / en . wikipedia . org / wiki /
  []
 
-[32
+[33
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 56--58
@@ -684,23 +673,23 @@ Underfull \hbox (badness 10000) in paragraph at lines 65--67
  []
 
 )
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 493.
- [33]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 493.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 501.
+ [34]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 501.
  (./bsc-thesis.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 493.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 493.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 501.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 501.
 Package rerunfilecheck Info: File `bsc-thesis.out' has not changed.
 (rerunfilecheck)             Checksum: 87D6B85A93471B0765FD0B16D999E65B;2072.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 493.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 501.
  ) 
 Here is how much of TeX's memory you used:
- 12036 strings out of 493029
- 170941 string characters out of 6136235
- 381434 words of memory out of 5000000
+ 12039 strings out of 493029
+ 170971 string characters out of 6136235
+ 380434 words of memory out of 5000000
  15272 multiletter control sequences out of 15000+600000
  49860 words of font info for 65 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
+ 1143 hyphenation exceptions out of 8191
  42i,11n,48p,1546b,1397s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texm
@@ -714,10 +703,10 @@ sfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
 texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-d
 ist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1
 /urw/times/utmri8a.pfb>
-Output written on bsc-thesis.pdf (33 pages, 535147 bytes).
+Output written on bsc-thesis.pdf (34 pages, 537153 bytes).
 PDF statistics:
- 539 PDF objects out of 1000 (max. 8388607)
- 474 compressed objects within 5 object streams
- 142 named destinations out of 1000 (max. 500000)
+ 543 PDF objects out of 1000 (max. 8388607)
+ 477 compressed objects within 5 object streams
+ 143 named destinations out of 1000 (max. 500000)
  305 words of extra memory for PDF output out of 10000 (max. 10000000)
 
