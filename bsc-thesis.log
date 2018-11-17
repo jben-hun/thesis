@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.9.8)  15 NOV 2018 20:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.9.8)  17 NOV 2018 15:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -517,17 +517,17 @@ Chapter 2.
 ] <images/net.png, id=258, 235.88126pt x 419.5675pt>
 File: images/net.png Graphic file (type png)
  <use images/net.png>
-Package pdftex.def Info: images/net.png used on input line 258.
+Package pdftex.def Info: images/net.png used on input line 256.
 (pdftex.def)             Requested size: 149.37956pt x 265.70537pt.
 
 [15] [16 <./images/net.png>] [17]
-LaTeX Font Info:    Try loading font information for T1+pcr on input line 296.
+LaTeX Font Info:    Try loading font information for T1+pcr on input line 294.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )
 LaTeX Font Info:    Font shape `T1/pcr/bx/n' in size <10> not available
-(Font)              Font shape `T1/pcr/b/n' tried instead on input line 298.
+(Font)              Font shape `T1/pcr/b/n' tried instead on input line 296.
  [18] [19]
 Overfull \hbox (1.2087pt too wide) in paragraph at lines 377--378
 \T1/ptm/m/n/12 Freezing a mask means that the frozen mask will not re-ceive up-
@@ -549,72 +549,186 @@ Package epstopdf Info: Source file: <dia/flow.eps>
 (epstopdf)                    size: 34911 bytes
 (epstopdf)             Command: <repstopdf --outfile=dia/flow-eps-converted-to.
 pdf dia/flow.eps>
-(epstopdf)             \includegraphics on input line 397.
+(epstopdf)             \includegraphics on input line 406.
 Package epstopdf Info: Output file is already uptodate.
- <dia/flow-eps-converted-to.pdf, id=367, 522.95375pt x 1056.94875pt>
+ <dia/flow-eps-converted-to.pdf, id=368, 522.95375pt x 1056.94875pt>
 File: dia/flow-eps-converted-to.pdf Graphic file (type pdf)
 
 <use dia/flow-eps-converted-to.pdf>
-Package pdftex.def Info: dia/flow-eps-converted-to.pdf used on input line 397.
+Package pdftex.def Info: dia/flow-eps-converted-to.pdf used on input line 406.
 (pdftex.def)             Requested size: 192.0548pt x 388.16193pt.
- [22 <./dia/flow-eps-converted-to.pdf>]
-[23] [24]
+ [22] [23 <./dia/flow-eps-converted-to.pdf>] [24]
 Chapter 3.
 <images/masks_before.png, id=387, 301.125pt x 150.5625pt>
 File: images/masks_before.png Graphic file (type png)
 
 <use images/masks_before.png>
-Package pdftex.def Info: images/masks_before.png used on input line 425.
+Package pdftex.def Info: images/masks_before.png used on input line 433.
 (pdftex.def)             Requested size: 209.1301pt x 104.56825pt.
 
 <images/masks_after.png, id=388, 301.125pt x 150.5625pt>
 File: images/masks_after.png Graphic file (type png)
 
 <use images/masks_after.png>
-Package pdftex.def Info: images/masks_after.png used on input line 429.
+Package pdftex.def Info: images/masks_after.png used on input line 437.
 (pdftex.def)             Requested size: 209.1301pt x 104.56825pt.
  <images/out1.png, id=389, 385.44pt x 192.72pt>
 File: images/out1.png Graphic file (type png)
 
 <use images/out1.png>
-Package pdftex.def Info: images/out1.png used on input line 436.
+Package pdftex.def Info: images/out1.png used on input line 444.
 (pdftex.def)             Requested size: 341.43436pt x 170.71744pt.
  <images/out2.png, id=390, 385.44pt x 192.72pt>
 File: images/out2.png Graphic file (type png)
 
 <use images/out2.png>
-Package pdftex.def Info: images/out2.png used on input line 438.
+Package pdftex.def Info: images/out2.png used on input line 446.
 (pdftex.def)             Requested size: 341.43436pt x 170.71744pt.
  <images/layer1.png, id=391, 385.44pt x 192.72pt>
 File: images/layer1.png Graphic file (type png)
 
 <use images/layer1.png>
-Package pdftex.def Info: images/layer1.png used on input line 443.
+Package pdftex.def Info: images/layer1.png used on input line 451.
 (pdftex.def)             Requested size: 341.43436pt x 170.71744pt.
  <images/layer2.png, id=392, 385.44pt x 192.72pt>
 File: images/layer2.png Graphic file (type png)
 
 <use images/layer2.png>
-Package pdftex.def Info: images/layer2.png used on input line 445.
+Package pdftex.def Info: images/layer2.png used on input line 453.
 (pdftex.def)             Requested size: 341.43436pt x 170.71744pt.
  [25
 
 ] [26 <./images/masks_before.png> <./images/masks_after.png> <./images/out1.png
 > <./images/out2.png>] [27 <./images/layer1.png> <./images/layer2.png>]
 Chapter 4.
-[28
+Package epstopdf Info: Source file: <dia/all_all.eps>
+(epstopdf)                    date: 2018-11-17 15:00:08
+(epstopdf)                    size: 212623 bytes
+(epstopdf)             Output file: <dia/all_all-eps-converted-to.pdf>
+(epstopdf)                    date: 2018-11-17 15:25:57
+(epstopdf)                    size: 71924 bytes
+(epstopdf)             Command: <repstopdf --outfile=dia/all_all-eps-converted-
+to.pdf dia/all_all.eps>
+(epstopdf)             \includegraphics on input line 463.
+Package epstopdf Info: Output file is already uptodate.
+<dia/all_all-eps-converted-to.pdf, id=413, 289.08pt x 216.81pt>
+File: dia/all_all-eps-converted-to.pdf Graphic file (type pdf)
 
-]
+<use dia/all_all-eps-converted-to.pdf>
+Package pdftex.def Info: dia/all_all-eps-converted-to.pdf used on input line 46
+3.
+(pdftex.def)             Requested size: 202.35461pt x 151.76596pt.
+Package epstopdf Info: Source file: <dia/best_all.eps>
+(epstopdf)                    date: 2018-11-17 15:16:29
+(epstopdf)                    size: 70973 bytes
+(epstopdf)             Output file: <dia/best_all-eps-converted-to.pdf>
+(epstopdf)                    date: 2018-11-17 15:25:57
+(epstopdf)                    size: 34475 bytes
+(epstopdf)             Command: <repstopdf --outfile=dia/best_all-eps-converted
+-to.pdf dia/best_all.eps>
+(epstopdf)             \includegraphics on input line 468.
+Package epstopdf Info: Output file is already uptodate.
+
+<dia/best_all-eps-converted-to.pdf, id=414, 289.08pt x 216.81pt>
+File: dia/best_all-eps-converted-to.pdf Graphic file (type pdf)
+
+<use dia/best_all-eps-converted-to.pdf>
+Package pdftex.def Info: dia/best_all-eps-converted-to.pdf used on input line 4
+68.
+(pdftex.def)             Requested size: 202.35461pt x 151.76596pt.
+Package epstopdf Info: Source file: <dia/all_first.eps>
+(epstopdf)                    date: 2018-11-17 15:20:14
+(epstopdf)                    size: 134389 bytes
+(epstopdf)             Output file: <dia/all_first-eps-converted-to.pdf>
+(epstopdf)                    date: 2018-11-17 15:25:58
+(epstopdf)                    size: 52528 bytes
+(epstopdf)             Command: <repstopdf --outfile=dia/all_first-eps-converte
+d-to.pdf dia/all_first.eps>
+(epstopdf)             \includegraphics on input line 477.
+Package epstopdf Info: Output file is already uptodate.
+
+<dia/all_first-eps-converted-to.pdf, id=415, 289.08pt x 216.81pt>
+File: dia/all_first-eps-converted-to.pdf Graphic file (type pdf)
+
+<use dia/all_first-eps-converted-to.pdf>
+Package pdftex.def Info: dia/all_first-eps-converted-to.pdf used on input line 
+477.
+(pdftex.def)             Requested size: 202.35461pt x 151.76596pt.
+Package epstopdf Info: Source file: <dia/best_first.eps>
+(epstopdf)                    date: 2018-11-17 15:27:25
+(epstopdf)                    size: 71189 bytes
+(epstopdf)             Output file: <dia/best_first-eps-converted-to.pdf>
+(epstopdf)                    date: 2018-11-17 15:25:58
+(epstopdf)                    size: 36017 bytes
+(epstopdf)             Command: <repstopdf --outfile=dia/best_first-eps-convert
+ed-to.pdf dia/best_first.eps>
+(epstopdf)             \includegraphics on input line 482.
+runsystem(repstopdf --outfile=dia/best_first-eps-converted-to.pdf dia/best_firs
+t.eps)...executed safely (allowed).
+
+Package epstopdf Info: Result file: <dia/best_first-eps-converted-to.pdf>
+(epstopdf)                    date: 2018-11-17 15:27:44
+(epstopdf)                    size: 34673 bytes.
+
+<dia/best_first-eps-converted-to.pdf, id=416, 289.08pt x 216.81pt>
+File: dia/best_first-eps-converted-to.pdf Graphic file (type pdf)
+
+<use dia/best_first-eps-converted-to.pdf>
+Package pdftex.def Info: dia/best_first-eps-converted-to.pdf used on input line
+ 482.
+(pdftex.def)             Requested size: 202.35461pt x 151.76596pt.
+Package epstopdf Info: Source file: <dia/all_second.eps>
+(epstopdf)                    date: 2018-11-17 15:23:22
+(epstopdf)                    size: 133813 bytes
+(epstopdf)             Output file: <dia/all_second-eps-converted-to.pdf>
+(epstopdf)                    date: 2018-11-17 15:25:59
+(epstopdf)                    size: 52772 bytes
+(epstopdf)             Command: <repstopdf --outfile=dia/all_second-eps-convert
+ed-to.pdf dia/all_second.eps>
+(epstopdf)             \includegraphics on input line 491.
+Package epstopdf Info: Output file is already uptodate.
+
+<dia/all_second-eps-converted-to.pdf, id=417, 289.08pt x 216.81pt>
+File: dia/all_second-eps-converted-to.pdf Graphic file (type pdf)
+
+<use dia/all_second-eps-converted-to.pdf>
+Package pdftex.def Info: dia/all_second-eps-converted-to.pdf used on input line
+ 491.
+(pdftex.def)             Requested size: 202.35461pt x 151.76596pt.
+Package epstopdf Info: Source file: <dia/best_second.eps>
+(epstopdf)                    date: 2018-11-17 15:23:50
+(epstopdf)                    size: 70953 bytes
+(epstopdf)             Output file: <dia/best_second-eps-converted-to.pdf>
+(epstopdf)                    date: 2018-11-17 15:25:59
+(epstopdf)                    size: 34485 bytes
+(epstopdf)             Command: <repstopdf --outfile=dia/best_second-eps-conver
+ted-to.pdf dia/best_second.eps>
+(epstopdf)             \includegraphics on input line 496.
+Package epstopdf Info: Output file is already uptodate.
+
+<dia/best_second-eps-converted-to.pdf, id=418, 289.08pt x 216.81pt>
+File: dia/best_second-eps-converted-to.pdf Graphic file (type pdf)
+
+<use dia/best_second-eps-converted-to.pdf>
+Package pdftex.def Info: dia/best_second-eps-converted-to.pdf used on input lin
+e 496.
+(pdftex.def)             Requested size: 202.35461pt x 151.76596pt.
+ [28
+
+] [29 <./dia/all_all-eps-converted-to.pdf> <./dia/best_all-eps-converted-to.pdf
+> <./dia/all_first-eps-converted-to.pdf> <./dia/best_first-eps-converted-to.pdf
+> <./dia/all_second-eps-converted-to.pdf> <./dia/best_second-eps-converted-to.p
+df>]
 Chapter 5.
-[29
+[30
 
 ]
 Chapter 6.
-[30
+[31
 
-] [31
+] [32
 
-] (./bsc-thesis.bbl [32
+] (./bsc-thesis.bbl [33
 
 ]
 Underfull \hbox (badness 6396) in paragraph at lines 4--8
@@ -658,7 +772,7 @@ Underfull \hbox (badness 4899) in paragraph at lines 52--54
 / / en . wikipedia . org / wiki /
  []
 
-[33
+[34
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 56--58
@@ -673,24 +787,24 @@ Underfull \hbox (badness 10000) in paragraph at lines 65--67
  []
 
 )
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 501.
- [34]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 501.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 553.
+ [35]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 553.
  (./bsc-thesis.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 501.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 501.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 553.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 553.
 Package rerunfilecheck Info: File `bsc-thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 87D6B85A93471B0765FD0B16D999E65B;2072.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 501.
+(rerunfilecheck)             Checksum: F170F4364F50E91BD02B4529CD7AEEB5;2072.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 553.
  ) 
 Here is how much of TeX's memory you used:
- 12039 strings out of 493029
- 170971 string characters out of 6136235
- 380434 words of memory out of 5000000
- 15272 multiletter control sequences out of 15000+600000
+ 12073 strings out of 493029
+ 172042 string characters out of 6136235
+ 379434 words of memory out of 5000000
+ 15296 multiletter control sequences out of 15000+600000
  49860 words of font info for 65 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
- 42i,11n,48p,1546b,1397s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,12n,48p,1379b,1397s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist
@@ -703,10 +817,10 @@ sfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
 texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-d
 ist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1
 /urw/times/utmri8a.pfb>
-Output written on bsc-thesis.pdf (34 pages, 537153 bytes).
+Output written on bsc-thesis.pdf (35 pages, 806928 bytes).
 PDF statistics:
- 543 PDF objects out of 1000 (max. 8388607)
- 477 compressed objects within 5 object streams
- 143 named destinations out of 1000 (max. 500000)
- 305 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 570 PDF objects out of 1000 (max. 8388607)
+ 497 compressed objects within 5 object streams
+ 147 named destinations out of 1000 (max. 500000)
+ 335 words of extra memory for PDF output out of 10000 (max. 10000000)
 
