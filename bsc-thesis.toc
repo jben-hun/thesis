@@ -31,10 +31,10 @@
 \contentsline {section}{\numberline {3.2}Visualization}{25}{section.3.2}
 \contentsline {chapter}{\numberline {4}Results}{28}{chapter.4}
 \contentsline {section}{\numberline {4.1}Run 1}{28}{section.4.1}
-\contentsline {section}{\numberline {4.2}Run 2}{28}{section.4.2}
-\contentsline {section}{\numberline {4.3}Run 3}{28}{section.4.3}
-\contentsline {chapter}{\numberline {5}Conclusion}{30}{chapter.5}
-\contentsline {chapter}{\numberline {6}Appendix}{31}{chapter.6}
+\contentsline {section}{\numberline {4.2}Run 2}{29}{section.4.2}
+\contentsline {section}{\numberline {4.3}Run 3}{30}{section.4.3}
+\contentsline {chapter}{\numberline {5}Conclusion}{31}{chapter.5}
+\contentsline {chapter}{\numberline {6}Appendix}{32}{chapter.6}
 \ 
-\contentsline {section}{Statement}{32}{chapter*.20}
-\contentsline {section}{Acknowledgments}{33}{chapter*.21}
+\contentsline {section}{Statement}{33}{chapter*.20}
+\contentsline {section}{Acknowledgments}{34}{chapter*.21}

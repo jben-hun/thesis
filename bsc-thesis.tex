@@ -26,6 +26,7 @@
 \usepackage{subcaption}
 \usepackage[inline]{enumitem}
 \usepackage{wrapfig}
+\usepackage{lipsum}
 
 %Margók:
 \hoffset -1in
@@ -164,7 +165,6 @@ The task of the candidate is to create a framework in which convolutional neural
 
 This thesis falls into the topics of \textit{machine learning} and \textit{digital image processing}. It uses machine learning techniques of training \textit{fully convolutional networks} to perform \textit{edge detection}. The focus is not on the training or task itself, instead it is on optimizing the parameters of the network, specifically minimizing the number of layers and the number of masks in the layers, while not sacrificing the accuracy of the network. Similar topics have already been researched before, e.g. in \cite{pruning_web}, \cite{pruning_arxiv} and \cite{understanding}.
 
-
 The beneficial size for the network is determined by a training process which is capable of saving its state and returning to it later. It is also capable of altering the inner structure of the network temporarily, disabling specific convolutional masks. This is used to test and compare different configurations. The previous techniques are combined with different metrics. The training stops when a desired exiting criterion is met. This results in a network configuration that is regarded as optimal by the current strategy.
 
 Naive and more intelligent strategies were designed, to see which one performs best. A simple strategy would randomly select masks in the network and disable them temporarily. Then it would check if the training can continue without them with approximately the same accuracy. An intelligent strategy would choose based on various metrics and indicators. There might be use cases for both approaches.
@@ -183,6 +183,7 @@ Because images contain large amounts of pixels, convolutional neural networks ar
 This thesis attempts to come up with automatic ways of determining the right neuron count and network size for a given problem. This way, no repeated testing and trial-and-error is required, while manually trying different network sizes. The network will try to find a fitting size for the given problem automatically without requiring human intervention and relying on experience. Existing automatic approaches include exhaustive grid search over a set of parameters. This means repeated training with each combination of the parameters. The method described in this thesis is an alternative way of finding the right parameters. The network is measured and changed during training, as opposed to running it multiple times as in grid search. This is in hope of saving computational resource and reducing training time.
 
 The benefits of using properly sized neural networks include portability and resource efficiency. With less demanding networks, cheaper hardware such as mobile devices will be capable of running convolutional neural networks, making them more widely available. The computational costs can also be reduced, producing results faster and with more modest hardware.
+
 \chapter{Technical overview}
 \section{Minimal fully convolutional networks}
 The goal of this thesis is to create a framework which is capable of training a deep convolutional neural network for simple two-dimensional image processing tasks and provide ways to make this network as small as possible without sacrificing a considerable amount of its accuracy.
@@ -369,8 +370,6 @@ def restore_variable(name):
 		\end{lstlisting}
 	\end{minipage}
 \end{center}
-
-
 \subsubsection{Neglecting neurons}
 To simulate a graph with fewer masks, or ''neurons'', the masks can be disabled any time during training. Masks are contained in multidimensional matrices, one mask for each edge or input that the vertex or operation receives. Since the structure of the graph cannot be modified, we include switches into it, which tell exactly which neurons are disabled. The disabled masks always produce an output of zeros, whatever their input might be. Disabling masks provides no performance advantage, since they are still in the graph, taking up memory, but if we find that the results are still accurate with a few masks disabled, it means that the problem is solvable with fewer masks and more modest computational requirements. After minimization we can create a network for production leaving out the said masks.
 \subsubsection{Freezing neurons}
@@ -453,58 +452,67 @@ In addition to the objective function, or error, which is a metric itself the fo
 	\includegraphics[width=0.8\linewidth]{images/layer2.png}
 	\caption{...and the same after convergence}
 \end{figure}
-
 \chapter{Results}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent diam dolor, rhoncus nec turpis et, congue laoreet nunc. Donec malesuada metus tristique justo maximus, non maximus mi blandit.
 \section{Run 1}
-\begin{figure}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent diam dolor, rhoncus nec turpis et, congue laoreet nunc. Donec malesuada metus tristique justo maximus, non maximus mi blandit. Curabitur maximus, purus nec iaculis lacinia, purus metus varius magna, non gravida nunc turpis a elit.
+\begin{figure}[h!]
 	\centering
-	\begin{subfigure}[b]{0.49\linewidth}
-		\centering
-		\includegraphics[scale=0.7]{dia/all_all.eps}
-		\caption{asdf}
-	\end{subfigure}
-	\begin{subfigure}[b]{0.49\linewidth}
-		\centering
-		\includegraphics[scale=0.7]{dia/best_all.eps}
-		\caption{asdf}
-	\end{subfigure}
+	\includegraphics[scale=0.85]{dia/table.eps}
 	\caption{asdf}
 \end{figure}
-\begin{figure}
-	\centering
-	\begin{subfigure}[b]{0.49\linewidth}
-		\centering
-		\includegraphics[scale=0.7]{dia/all_first.eps}
-		\caption{asdf}
-	\end{subfigure}
-	\begin{subfigure}[b]{0.49\linewidth}
-		\centering
-		\includegraphics[scale=0.7]{dia/best_first.eps}
-		\caption{asdf}
-	\end{subfigure}
-	\caption{asdf}
-\end{figure}
-\begin{figure}
-	\centering
-	\begin{subfigure}[b]{0.49\linewidth}
-		\centering
-		\includegraphics[scale=0.7]{dia/all_second.eps}
-		\caption{asdf}
-	\end{subfigure}
-	\begin{subfigure}[b]{0.49\linewidth}
-		\centering
-		\includegraphics[scale=0.7]{dia/best_second.eps}
-		\caption{asdf}
-	\end{subfigure}
-	\caption{asdf}
-\end{figure}
+Cras in tellus dignissim enim tincidunt elementum id vel eros. Duis luctus faucibus bibendum. Cras nulla mauris, feugiat in placerat quis, pellentesque ut tortor. Morbi sagittis lorem molestie purus cursus hendrerit. Fusce sit amet euismod dolor. Quisque sit amet purus elit. Nulla finibus mattis nisi ut mattis. Sed a vulputate nisl.
 
-
-freezing
 \section{Run 2}
-correlations
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent diam dolor, rhoncus nec turpis et, congue laoreet nunc. Donec malesuada metus tristique justo maximus, non maximus mi blandit. Curabitur maximus, purus nec iaculis lacinia, purus metus varius magna, non gravida nunc turpis a elit.
+\begin{center}
+	\begin{figure}[h!]
+		\centering
+		\begin{subfigure}[b]{0.49\linewidth}
+			\centering
+			\includegraphics[scale=0.7]{dia/all_all.eps}
+			\caption{asdf}
+		\end{subfigure}
+		\begin{subfigure}[b]{0.49\linewidth}
+			\centering
+			\includegraphics[scale=0.7]{dia/best_all.eps}
+			\caption{asdf}
+		\end{subfigure}
+		\begin{subfigure}[b]{0.49\linewidth}
+			\centering
+			\includegraphics[scale=0.7]{dia/all_first.eps}
+			\caption{asdf}
+		\end{subfigure}
+		\begin{subfigure}[b]{0.49\linewidth}
+			\centering
+			\includegraphics[scale=0.7]{dia/best_first.eps}
+			\caption{asdf}
+		\end{subfigure}
+		\begin{subfigure}[b]{0.49\linewidth}
+			\centering
+			\includegraphics[scale=0.7]{dia/all_second.eps}
+			\caption{asdf}
+		\end{subfigure}
+		\begin{subfigure}[b]{0.49\linewidth}
+			\centering
+			\includegraphics[scale=0.7]{dia/best_second.eps}
+			\caption{asdf}
+		\end{subfigure}
+	\end{figure}
+\end{center}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent diam dolor, rhoncus nec turpis et, congue laoreet nunc. Donec malesuada metus tristique justo maximus, non maximus mi blandit. Curabitur maximus, purus nec iaculis lacinia, purus metus varius magna, non gravida nunc turpis a elit.
+
 \section{Run 3}
-final
+Nam ultrices malesuada augue ut congue. Pellentesque eu ante et est commodo convallis. Praesent diam dolor, rhoncus nec turpis et. Donec malesuada metus tristique justo maximus, non maximus mi blandit. Donec malesuada metus tristique justo maximus, non maximus mi blandit.
+
+\begin{wrapfigure}{r}{0.7\textwidth}
+	\includegraphics[width=0.7\textwidth]{dia/stat1.eps}
+	\caption{asdf}
+	\includegraphics[width=0.7\textwidth]{dia/stat1.eps}
+	\caption{asdf}
+\end{wrapfigure}
+Sed a vulputate nisl. Nam ultrices malesuada augue ut congue. Pellentesque eu ante et est commodo convallis. Duis luctus faucibus bibendum. Cras nulla mauris, feugiat in placerat quis, pellentesque ut tortor. Morbi sagittis lorem molestie purus cursus hendrerit. Fusce sit amet euismod dolor. Quisque sit amet purus elit. Nulla finibus mattis nisi ut mattis. Sed a vulputate nisl. Nam ultrices malesuada augue ut congue. Pellentesque eu ante et est commodo convallis. Nam ultrices malesuada augue ut congue. Pellentesque eu ante et est commodo convallis. Nam ultrices malesuada augue ut congue. Pellentesque eu ante et est commodo convallis.
+
 \chapter{Conclusion}
 \chapter{Appendix}
 \chapter*{Statement}
