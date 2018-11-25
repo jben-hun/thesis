@@ -73,4 +73,18 @@ Backward pass of broadcasting on gpu is non-deterministic.
 Mention that gpu reductions are nondeterministic in docs.
 \newblock \url{https://github.com/tensorflow/tensorflow/issues/2732}.
 
+\bibitem{prs}
+Pearson correlation coefficient.
+\newblock \url{https://en.wikipedia.org/wiki/Pearson_correlation_coefficient}.
+
+\bibitem{knd}
+Kendall rank correlation coefficient.
+\newblock
+  \url{https://en.wikipedia.org/wiki/Kendall_rank_correlation_coefficient}.
+
+\bibitem{spr}
+Spearman's rank correlation coefficient.
+\newblock
+  \url{https://en.wikipedia.org/wiki/Spearman%27s_rank_correlation_coefficient}.
+
 \end{thebibliography}

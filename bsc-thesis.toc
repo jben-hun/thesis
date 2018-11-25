@@ -24,17 +24,16 @@
 \contentsline {subsection}{\numberline {2.4.1}Testing the worth of a neuron}{21}{subsection.2.4.1}
 \contentsline {subsection}{\numberline {2.4.2}The minimization process}{22}{subsection.2.4.2}
 \contentsline {subsection}{\numberline {2.4.3}Selection}{23}{subsection.2.4.3}
-\contentsline {subsubsection}{Cosine-similarity}{23}{section*.12}
+\contentsline {subsubsection}{Cosine similarity}{23}{section*.12}
 \contentsline {subsubsection}{Naive selection strategies}{24}{section*.13}
 \contentsline {chapter}{\numberline {3}Metrics}{25}{chapter.3}
 \contentsline {section}{\numberline {3.1}Universal Image Quality Index}{25}{section.3.1}
 \contentsline {section}{\numberline {3.2}Visualization}{25}{section.3.2}
 \contentsline {chapter}{\numberline {4}Results}{28}{chapter.4}
-\contentsline {section}{\numberline {4.1}Run 1}{28}{section.4.1}
+\contentsline {section}{\numberline {4.1}Mask correlations}{28}{section.4.1}
 \contentsline {section}{\numberline {4.2}Run 2}{29}{section.4.2}
-\contentsline {section}{\numberline {4.3}Run 3}{30}{section.4.3}
+\contentsline {section}{\numberline {4.3}Run 3}{29}{section.4.3}
 \contentsline {chapter}{\numberline {5}Conclusion}{31}{chapter.5}
-\contentsline {chapter}{\numberline {6}Appendix}{32}{chapter.6}
 \ 
-\contentsline {section}{Statement}{33}{chapter*.20}
-\contentsline {section}{Acknowledgments}{34}{chapter*.21}
+\contentsline {section}{Statement}{32}{chapter*.20}
+\contentsline {section}{Acknowledgments}{33}{chapter*.21}

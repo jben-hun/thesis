@@ -339,7 +339,7 @@ One of the tensorflow built-in optimizers, \textit{Adam} \cite{adam} is used. It
 
 There is a variety of SGD modifications developed that add a dynamic and adaptive behavior, Adam is one of them. Adam has two built-in running variables, which change over time, resulting in smaller weight updates as time progresses during training. Because of cuDNN, as mentioned in section \ref{cudnn}, Adam is slightly non-deterministic even when used with the same parameters and random-seed. The cause of the non-reproducible results was the implementation of some reductions using asynchronous CUDA atomic operations. This has been resolved in later tensorflow versions, but was still present in the used version (1.6). (See \cite{nondet1} and \cite{nondet2}.)
 
-\textit{Training} and \textit{evaluation} steps are alternating during a training session. Training steps take up the majority of the time, while evaluation or validation steps are around ten or more times less frequent during a run. Both steps iterate on their own separate set of data. These two sets are sometimes created by splitting one large dataset by a ratio favoring the training split. For both the Sobel and Canny tasks, we use 20000 images for training and roughly 14000 images for evaluation.
+\textit{Training} and \textit{evaluation} steps are alternating during a training session. Training steps take up the majority of the time, while evaluation or validation steps are around ten or more times less frequent during a run. Both steps iterate on their own separate set of data. These two sets are sometimes created by splitting one large dataset by a ratio favoring the training split. For both the Sobel and Canny tasks, we use $20000$ images for training and roughly $14000$ images for evaluation.
 
 A \textit{step} during training consist of producing one error value from the input and output, and performing back-propagation once to modify the trainable variables, or weights. This does not mean that one step takes exactly one image, since batching is used, so one step deals with a batch of images, $3$ images in our case. The processing time and resources needed for a step depends on the batch size.
 
@@ -407,7 +407,7 @@ Then comes another selection, which makes sure to select different masks if the 
 	\label{flow}
 \end{wrapfigure}
 Masks have to be selected for freezing or disabling. The choice should reflect the contribution of the selected mask to the overall performance, or in other words, the least important mask should be the one that gets selected, so the network could possibly perform with one less mask. We tested various selection strategies for finding these ''least significant masks''.
-\subsubsection{Cosine-similarity}Cosine similarity  tries to represent how similar two n-dimensional vectors are. The definition of cosine similarity is the following:
+\subsubsection{Cosine similarity}Cosine similarity  tries to represent how similar two n-dimensional vectors are. The definition of cosine similarity is the following:
 \begin{equation*}
 \cos{\theta} = \dfrac{\lVert\bar{a}\rVert\times\lVert\bar{b}\rVert\times\cos{\theta}}{\lVert\bar{a}\rVert\times\lVert\bar{b}\rVert} = \dfrac{\bar{a}\times\bar{b}}{\lVert\bar{a}\rVert\times\lVert\bar{b}\rVert}\ ,
 \end{equation*}
@@ -453,18 +453,28 @@ In addition to the objective function, or error, which is a metric itself the fo
 	\caption{...and the same after convergence}
 \end{figure}
 \chapter{Results}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent diam dolor, rhoncus nec turpis et, congue laoreet nunc. Donec malesuada metus tristique justo maximus, non maximus mi blandit.
-\section{Run 1}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent diam dolor, rhoncus nec turpis et, congue laoreet nunc. Donec malesuada metus tristique justo maximus, non maximus mi blandit. Curabitur maximus, purus nec iaculis lacinia, purus metus varius magna, non gravida nunc turpis a elit.
-\begin{figure}[h!]
+This chapter will discuss some of the experiments that were made in order to gain insight of how the network works and the observations these experiments lead to.
+\section{Mask correlations}
+100 runs, best=legjobb/továbbengedett, loss=nullázás után/nullázás előtt
+
+With these tests we tried to examine how various cosine similarity statistics of one mask compared to other masks relates to how the network behaves after that mask is disabled. For this, we ran $10000$ training steps, disabled a mask, and ran another $10000$ training steps. This was repeated for every mask in the network. For reference, the second $10000$ steps were also ran once without disabling any masks. The percentage drops in score are measure against this reference. Three different correlation coefficients were used: Pearson correlation coefficient (\textit{prs}) \cite{prs} to measure linear correlation, Kendall rank correlation coefficient (\textit{knd}) \cite{knd} and Spearman's rank correlation coefficient (\textit{spr}) \cite{spr} to measure monotonic correlation with two different methods.
+\begin{table}[h!]
 	\centering
 	\includegraphics[scale=0.85]{dia/table.eps}
-	\caption{asdf}
-\end{figure}
-Cras in tellus dignissim enim tincidunt elementum id vel eros. Duis luctus faucibus bibendum. Cras nulla mauris, feugiat in placerat quis, pellentesque ut tortor. Morbi sagittis lorem molestie purus cursus hendrerit. Fusce sit amet euismod dolor. Quisque sit amet purus elit. Nulla finibus mattis nisi ut mattis. Sed a vulputate nisl.
+	\caption{asdf}\label{correlations}
+\end{table}
+
+The explanations of the rows and columns of Table \ref{correlations} follows. \textit{Coss(coefficient)}: the loss in percentage of the score of the network after disabling a mask. \textit{Best(coefficient):} the greatest score the network was able to achieve in the second $10000$ training steps after disabling a mask. \textit{Coefficient:} denotes the correlation coefficient used. \textit{Cos(aggregation)}: the cosine distance of a single mask and all the other masks are composed into a vector, and this vector is reduced to a scalar. \textit{Aggregation:} denotes the aggregation used in the vector reduction. The absolute value brackets indicate that elements of the vector containing the cosine distances are replaced by their absolute values.
+
+It is worth noting that the resulting correlations are not very strong, and are really close to each other, so the following are only assumptions and speculations.
+
+Having a high correlation with \textit{loss} could mean that the mask chosen with that method was important and the network relied on it much. Disabling neurons like this and training the network could have a dropout like effect, equalizing the importance of each mask. More investigations are needed to elaborate on this. \textit{Cos:min} seems to show the greatest negative correlation to \textit{loss}, this seems to reinforce the previous hypothesis.
+
+Correlating with \textit{best} indicates that the used strategy qualifies as a selection strategy for minimization, since it provides the best performing network in the long run. \textit{Cos:max} seems to best qualify in this, so it was chosen for further experiments.
 
 \section{Run 2}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent diam dolor, rhoncus nec turpis et, congue laoreet nunc. Donec malesuada metus tristique justo maximus, non maximus mi blandit. Curabitur maximus, purus nec iaculis lacinia, purus metus varius magna, non gravida nunc turpis a elit.
+stats from prev exp
+
 \begin{center}
 	\begin{figure}[h!]
 		\centering
@@ -500,10 +510,9 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent diam dolor, rh
 		\end{subfigure}
 	\end{figure}
 \end{center}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent diam dolor, rhoncus nec turpis et, congue laoreet nunc. Donec malesuada metus tristique justo maximus, non maximus mi blandit. Curabitur maximus, purus nec iaculis lacinia, purus metus varius magna, non gravida nunc turpis a elit.
 
 \section{Run 3}
-Nam ultrices malesuada augue ut congue. Pellentesque eu ante et est commodo convallis. Praesent diam dolor, rhoncus nec turpis et. Donec malesuada metus tristique justo maximus, non maximus mi blandit. Donec malesuada metus tristique justo maximus, non maximus mi blandit.
+50 runs, 10k step then minimization strat
 
 \begin{wrapfigure}{r}{0.7\textwidth}
 	\includegraphics[width=0.7\textwidth]{dia/stat1.eps}
@@ -511,10 +520,8 @@ Nam ultrices malesuada augue ut congue. Pellentesque eu ante et est commodo conv
 	\includegraphics[width=0.7\textwidth]{dia/stat1.eps}
 	\caption{asdf}
 \end{wrapfigure}
-Sed a vulputate nisl. Nam ultrices malesuada augue ut congue. Pellentesque eu ante et est commodo convallis. Duis luctus faucibus bibendum. Cras nulla mauris, feugiat in placerat quis, pellentesque ut tortor. Morbi sagittis lorem molestie purus cursus hendrerit. Fusce sit amet euismod dolor. Quisque sit amet purus elit. Nulla finibus mattis nisi ut mattis. Sed a vulputate nisl. Nam ultrices malesuada augue ut congue. Pellentesque eu ante et est commodo convallis. Nam ultrices malesuada augue ut congue. Pellentesque eu ante et est commodo convallis. Nam ultrices malesuada augue ut congue. Pellentesque eu ante et est commodo convallis.
 
 \chapter{Conclusion}
-\chapter{Appendix}
 \chapter*{Statement}
 %Egy üres sort adunk a tartalomjegyzékhez:
 \addtocontents{toc}{\ }
