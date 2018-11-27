@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.9.8)  26 NOV 2018 21:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.9.8)  27 NOV 2018 19:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -741,22 +741,22 @@ e 508.
  <./dia/all_first-eps-converted-to.pdf> <./dia/best_first-eps-converted-to.pdf>
  <./dia/all_second-eps-converted-to.pdf> <./dia/best_second-eps-converted-to.pd
 f>]
-Package epstopdf Info: Source file: <dia/stat1.eps>
-(epstopdf)                    date: 2018-11-19 21:38:27
-(epstopdf)                    size: 49925 bytes
-(epstopdf)             Output file: <dia/stat1-eps-converted-to.pdf>
+Package epstopdf Info: Source file: <dia/stat2.eps>
+(epstopdf)                    date: 2018-11-19 21:40:36
+(epstopdf)                    size: 50461 bytes
+(epstopdf)             Output file: <dia/stat2-eps-converted-to.pdf>
 (epstopdf)                    date: 2018-11-19 21:45:37
-(epstopdf)                    size: 16116 bytes
-(epstopdf)             Command: <repstopdf --outfile=dia/stat1-eps-converted-to
-.pdf dia/stat1.eps>
-(epstopdf)             \includegraphics on input line 523.
+(epstopdf)                    size: 16716 bytes
+(epstopdf)             Command: <repstopdf --outfile=dia/stat2-eps-converted-to
+.pdf dia/stat2.eps>
+(epstopdf)             \includegraphics on input line 522.
 Package epstopdf Info: Output file is already uptodate.
 
-<dia/stat1-eps-converted-to.pdf, id=458, 496.85625pt x 223.83624pt>
-File: dia/stat1-eps-converted-to.pdf Graphic file (type pdf)
+<dia/stat2-eps-converted-to.pdf, id=459, 496.85625pt x 223.83624pt>
+File: dia/stat2-eps-converted-to.pdf Graphic file (type pdf)
 
-<use dia/stat1-eps-converted-to.pdf>
-Package pdftex.def Info: dia/stat1-eps-converted-to.pdf used on input line 523.
+<use dia/stat2-eps-converted-to.pdf>
+Package pdftex.def Info: dia/stat2-eps-converted-to.pdf used on input line 522.
 
 (pdftex.def)             Requested size: 298.75262pt x 134.58968pt.
 Package epstopdf Info: Source file: <dia/stat1.eps>
@@ -769,27 +769,55 @@ Package epstopdf Info: Source file: <dia/stat1.eps>
 .pdf dia/stat1.eps>
 (epstopdf)             \includegraphics on input line 525.
 Package epstopdf Info: Output file is already uptodate.
+
+<dia/stat1-eps-converted-to.pdf, id=460, 496.85625pt x 223.83624pt>
 File: dia/stat1-eps-converted-to.pdf Graphic file (type pdf)
- <use dia/stat1-eps-converted-to.pdf>
+
+<use dia/stat1-eps-converted-to.pdf>
 Package pdftex.def Info: dia/stat1-eps-converted-to.pdf used on input line 525.
 
 (pdftex.def)             Requested size: 298.75262pt x 134.58968pt.
 
-Underfull \hbox (badness 1102) in paragraph at lines 529--530
-\T1/ptm/m/n/12 find out if the mag-ni-
+Underfull \hbox (badness 7486) in paragraph at lines 530--531
+[][]\T1/ptm/m/it/12 CosMax \T1/ptm/m/n/12 takes the
  []
 
 
-Underfull \hbox (badness 1490) in paragraph at lines 529--530
-\T1/ptm/m/n/12 is able to im-prove its
+Underfull \hbox (badness 1297) in paragraph at lines 530--531
+\T1/ptm/m/n/12 lower than the cur-rent
  []
 
 
-Underfull \hbox (badness 3098) in paragraph at lines 529--530
-\T1/ptm/m/n/12 var-i-ous masks. Dis-
+Underfull \hbox (badness 3068) in paragraph at lines 530--531
+\T1/ptm/m/n/12 thresh-old, we al-lowed
  []
 
-[31 <./dia/stat1-eps-converted-to.pdf>]
+
+Underfull \hbox (badness 4859) in paragraph at lines 530--531
+\T1/ptm/m/n/12 and se-lect the masks
+ []
+
+
+Underfull \hbox (badness 1019) in paragraph at lines 530--531
+\T1/ptm/m/n/12 with the sec-ond max-i-
+ []
+
+
+Underfull \hbox (badness 1253) in paragraph at lines 530--531
+\T1/ptm/m/n/12 the ex-it-ing cri-te-rion is
+ []
+
+
+Underfull \hbox (badness 1803) in paragraph at lines 530--531
+\T1/ptm/m/n/12 met. If the score is
+ []
+
+
+Underfull \hbox (badness 2181) in paragraph at lines 530--531
+\T1/ptm/m/n/12 min-i-miza-tion con-tin-ues
+ []
+
+[31 <./dia/stat2-eps-converted-to.pdf> <./dia/stat1-eps-converted-to.pdf>]
 Chapter 5.
 [32
 
@@ -866,28 +894,21 @@ Underfull \hbox (badness 1117) in paragraph at lines 86--89
  []
 
 )
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 585.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 588.
  [36]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 585.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 588.
  (./bsc-thesis.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 585.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 585.
-
-
-Package rerunfilecheck Warning: File `bsc-thesis.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `bsc-thesis.out':
-(rerunfilecheck)             Before: B393E5AF9C3D201DD1A586C99B508519;2040
-(rerunfilecheck)             After:  04DE0F795625A31B531D415FD3234643;2054.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 585.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 588.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 588.
+Package rerunfilecheck Info: File `bsc-thesis.out' has not changed.
+(rerunfilecheck)             Checksum: 53EDA57DCF969391F300936ACD24AEEB;2077.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 588.
  ) 
 Here is how much of TeX's memory you used:
- 12284 strings out of 493029
- 174715 string characters out of 6136235
+ 12292 strings out of 493029
+ 174887 string characters out of 6136235
  480265 words of memory out of 5000000
- 15499 multiletter control sequences out of 15000+600000
+ 15506 multiletter control sequences out of 15000+600000
  49860 words of font info for 65 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  42i,12n,48p,1379b,1397s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -903,10 +924,10 @@ sfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
 texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-d
 ist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1
 /urw/times/utmri8a.pfb>
-Output written on bsc-thesis.pdf (36 pages, 836233 bytes).
+Output written on bsc-thesis.pdf (36 pages, 851463 bytes).
 PDF statistics:
- 600 PDF objects out of 1000 (max. 8388607)
- 519 compressed objects within 6 object streams
+ 610 PDF objects out of 1000 (max. 8388607)
+ 526 compressed objects within 6 object streams
  150 named destinations out of 1000 (max. 500000)
- 337 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 342 words of extra memory for PDF output out of 10000 (max. 10000000)
 

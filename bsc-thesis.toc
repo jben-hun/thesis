@@ -32,7 +32,7 @@
 \contentsline {chapter}{\numberline {4}Results}{28}{chapter.4}
 \contentsline {section}{\numberline {4.1}Mask correlations}{28}{section.4.1}
 \contentsline {section}{\numberline {4.2}Plotting the scores}{29}{section.4.2}
-\contentsline {section}{\numberline {4.3}Run 3}{31}{section.4.3}
+\contentsline {section}{\numberline {4.3}Minimization strategy charts}{31}{section.4.3}
 \contentsline {chapter}{\numberline {5}Conclusion}{32}{chapter.5}
 \ 
 \contentsline {section}{Statement}{33}{chapter*.20}
