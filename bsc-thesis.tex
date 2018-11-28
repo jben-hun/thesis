@@ -2,7 +2,7 @@
 
 %Magyar nyelvi támogatás (Babel 3.7 vagy későbbi kell!)
 \def\magyarOptions{defaults=hu-min}
-%\usepackage[magyar]{babel}
+\usepackage[english]{babel}
 
 %Az ékezetes betűk használatához:
 \usepackage{t1enc}% ékezetes szavak automatikus elválasztásához
@@ -27,6 +27,12 @@
 \usepackage[inline]{enumitem}
 \usepackage{wrapfig}
 \usepackage{lipsum}
+\usepackage{etoolbox}
+
+\apptocmd{\sloppy}{\hbadness 10000\relax}{}{}
+\sloppy
+
+\linespread{1.3}
 
 %Margók:
 \hoffset -1in
@@ -38,9 +44,7 @@
 \headsep 5mm
 \textheight 237mm
 
-%%JB 
-\linespread{1.3}
-
+%%JB
 \lstdefinestyle{py}{
 	xleftmargin=\parindent,
 	basicstyle=\linespread{1.0}\footnotesize\ttfamily,
@@ -56,9 +60,6 @@
 }
 
 \lstset{style=py}
-
-\newcommand\todo[1]{\textcolor{red}{#1}}
-%\renewcommand\todo[1]{}
 
 \begin{document}
 
@@ -101,7 +102,7 @@
 
 	{\Large Bachelor's thesis}
 
-	\vspace*{2.5cm}
+	\vspace*{2.15cm}
 
 	%Értelemszerűen megváltoztatandó:
 	{\large
@@ -110,8 +111,7 @@
 			\emph{Author:} \\
 			\bf{Jenei Bendegúz}  \\
 			\normalfont{BSc in Engineering \\
-				Information Technology \\
-				undergraduate}
+				Information Technology}
 		\end{center}
 		\begin{tabular}{c@{\hspace{4cm}}c}
 			\emph{Supervisor:}      & \emph{Supervisor:} \\
@@ -121,7 +121,7 @@
 
 	}
 
-	\vspace*{1.0cm}
+	\vspace*{2.15cm}
 
 	{\Large
 		Szeged
@@ -142,7 +142,7 @@
 \chapter*{Tartalmi összefoglaló\\(content summary in Hungarian)}
 \addcontentsline{toc}{section}{Tartalmi összefoglaló (content summary in Hungarian)}
 
-Ez a dolgozat a \textit{gépi tanulás} és a \textit{digitális képfeldolgozás} kategóriákhoz tartozik. Egy \textit{teljesen konvolúciós hálózatot} alkalmaz (ami a gépi tanulásban haszlálatos technika), hogy \textit{éldetektálást} végezzen (ami egy digitális képfeldolgozásbeli feladat). A hangsúly nem a tanításon vagy a feladaton van, hanem a hálózat paramétereinek optimalizálásán,  \hyphenation{kon-kré-tab-ban} a rétegek és a rétegbeli konvolúciós maszkok számának csökkentésén, miközben a hálózat pontossága változatlan marad. Egy hálózat tanítása után az algoritmus maszkokat deadktivál egy kisebb méretű és gyorsabb működésű hálózat elérése érdekében. Már végeztek kutatást hasonló témákban, lásd a \cite{pruning_web}, \cite{pruning_arxiv} és \cite{understanding} hivatkozásokat.
+Ez a dolgozat a \textit{gépi tanulás} és a \textit{digitális képfeldolgozás} kategóriákhoz tartozik. Egy \textit{teljesen konvolúciós hálózatot} alkalmaz (ami a gépi tanulásban haszlálatos technika), hogy \textit{éldetektálást} végezzen (ami egy digitális képfeldolgozásbeli feladat). A hangsúly nem a tanításon vagy a feladaton van, hanem a hálózat paramétereinek optimalizálásán, konkrétabban a rétegek és a rétegbeli konvolúciós maszkok számának csökkentésén, miközben a hálózat pontossága változatlan marad. Egy hálózat tanítása után az algoritmus maszkokat deadktivál egy kisebb méretű és gyorsabb működésű hálózat elérése érdekében. Már végeztek kutatást hasonló témákban, lásd a \cite{pruning_web}, \cite{pruning_arxiv} és \cite{understanding} hivatkozásokat.
 
 A hálózat előnyös méretének meghatározását egy tantási folyamat végzi, ami képes elmenteni állapotát és később visszatölteni azt. Ezen kívül képes ideiglenesen módosítani a belső struktúráján. Ez különböző konfigurációk tesztelésére és összehasonlítására van használva. Ezek a technikák különböző mértékekkel együtt vannak alkalmazva. A tanítás akkor áll meg, amikor egy kilépési feltétel teljesül. Az eredmény egy olyan konfiguráció, amit az alkalmazott stratégia optimálisnak talált.
 
@@ -445,24 +445,45 @@ In addition to the objective function, or error, which is a metric itself the fo
 	\includegraphics[width=0.8\linewidth]{images/out2.png}
 	\caption{Output after a few iterations and after convergence}
 \end{figure}
+
 \begin{figure}
 	\centering
-	\includegraphics[width=0.8\linewidth]{images/layer1.png}
-	\caption{The output of the first mask in the first layer and the final output before activation, both after a few steps...}
-	\includegraphics[width=0.8\linewidth]{images/layer2.png}
-	\caption{...and the same after convergence}
+	\begin{subfigure}[b]{\linewidth}
+		\centering
+		\includegraphics[width=0.8\linewidth]{images/layer1.png}
+		\caption{The output of the first mask in the first layer and the final output before activation, both after a few steps...}
+	\end{subfigure}
+	\\
+	\begin{subfigure}[b]{\linewidth}
+		\centering
+		\includegraphics[width=0.8\linewidth]{images/layer2.png}
+		\caption{...and the same after convergence}
+	\end{subfigure}
+	\caption{Intermediate outputs}
 \end{figure}
+
+
 \chapter{Results}
 This chapter will discuss some of the experiments that were made in order to gain insight of how the network works and the observations these experiments lead to.
 \section{Mask correlations}
-With these tests we tried to examine how various cosine similarity statistics of one mask compared to other masks relates to how the network behaves after that mask is disabled. For this, we ran $10000$ training steps, disabled a mask, and ran another $10000$ training steps. This was repeated for every mask in the network. For reference, the second $10000$ steps were also ran once without disabling any masks. This experiment was repeated $100$ times. The percentage drops in score are measure against this reference. Three different correlation coefficients were used: Pearson correlation coefficient (\textit{prs}) \cite{prs} to measure linear correlation, Kendall rank correlation coefficient (\textit{knd}) \cite{knd} and Spearman's rank correlation coefficient (\textit{spr}) \cite{spr} to measure monotonic correlation with two different methods.
+With these tests we tried to examine how various cosine similarity statistics of one mask compared to other masks relates to how the network behaves after that mask is disabled. For this, we ran $10000$ training steps, disabled a mask, and ran another $10000$ training steps. This was repeated for every mask in the network. For reference, the second $10000$ steps were also ran once without disabling any masks. This experiment was repeated $100$ times. The percentage drops in score are measure against this reference. Three different correlation coefficients were used: Pearson correlation coefficient (\textit{prs}) \cite{prs} to measure linear correlation, Kendall rank correlation coefficient (\textit{knd}) \cite{knd} and Spearman's rank correlation coefficient (\textit{spr}) \cite{spr} to measure monotonic correlation with two different methods. The explanations of the rows and columns of Table \ref{correlations} follows.
+\begin{itemize}
+	\item \textit{Loss(coefficient)}: the relative score of the network after disabling a mask compared to the case where we did not disable any masks.
+	
+	\item\textit{Best(coefficient):} the greatest score the network was able to achieve in the second $10000$ training steps after disabling a mask.
+	
+	\item\textit{Coefficient:} denotes the correlation coefficient used.
+	
+	\item\textit{Cos(aggregation)}: the cosine similarity of a single mask and all the other masks are composed into a vector, and this vector is reduced to a scalar. After all the experiments, we will have $100$ scalars to compute correlations with.
+	
+	\item\textit{Aggregation:} denotes the aggregation used in the vector reduction. The absolute value brackets indicate that elements of the vector containing the cosine similarities are replaced by their absolute values.
+\end{itemize}
 
-The explanations of the rows and columns of Table \ref{correlations} follows. \textit{Loss(coefficient)}: the relative score of the network after disabling a mask compared to the case where we did not disable any masks. \textit{Best(coefficient):} the greatest score the network was able to achieve in the second $10000$ training steps after disabling a mask. \textit{Coefficient:} denotes the correlation coefficient used. \textit{Cos(aggregation)}: the cosine similarity of a single mask and all the other masks are composed into a vector, and this vector is reduced to a scalar. After all the experiments, we will have $100$ scalars to compute correlations with. \textit{Aggregation:} denotes the aggregation used in the vector reduction. The absolute value brackets indicate that elements of the vector containing the cosine similarities are replaced by their absolute values.
-
-\begin{table}[h!]
+\begin{table}[!ht]
 	\centering
 	\includegraphics[scale=0.85]{dia/table.eps}
-	\caption{Correlations}\label{correlations}
+	\caption{The minimum, maximum, standard deviance, mean and median of the cosine similarities and their absolute values are compared against the relative loss in score and best achieved score after disabling, using the Pearson, Kendall and Spearman correlation coefficients}
+	\label{correlations}
 \end{table}
 
 It is worth noting that the resulting correlations are not very strong, and are really close to each other, so the following are only assumptions and speculations.
@@ -472,71 +493,81 @@ Having a high correlation with \textit{loss} could mean that the mask chosen wit
 Correlating with \textit{best} indicates that the used strategy qualifies as a selection strategy for minimization, since it provides the best performing network in the long run. \textit{Cos:max} seems to best qualify in this, so it was chosen for further experiments.
 
 \section{Plotting the scores}
-For this next experiment, the same data was used as for the previous one. The aim was to find out if the magnitude of the drop in score after disabling the neuron has any relation to how much the network is able to improve its performance in the future. This implies that the network was relying on a single or a couple of masks instead of distributing the task across various masks. Disabling the masks overly relied on could lead to a more balanced network.
+For this next experiment, the same data was used as for the previous one. The aim was to find out if the magnitude of the drop in score after disabling the neuron has any relation to how much the network is able to improve its performance in the future. This implies that the network was relying on a single or a couple of masks instead of distributing the task across various masks. Disabling the masks that are overly relied on by other masks could lead to a more balanced network.
 
-\textit{Drop} on the x axis has the same meaning as \textit{loss} in the previous section, and \textit{gain} on the y axis is the same as \textit{best}. The first column of plots displays all score data. the second column is filtered to only show the result of the optimal mask choice. The choice is optimal if the score after the additional $10000$ training steps is maximal. The plots are shown on Figures \ref{all_layer}, \ref{first_layer} and \ref{second_layer}.
-
-\newpage
-\begin{figure}[h!]
+\begin{figure}[!ht]
 	\centering
-	\begin{subfigure}[b]{0.49\linewidth}
-		\centering
-		\includegraphics[scale=0.7]{dia/all_all.eps}
+	\begin{subfigure}[b]{\linewidth}
+		\begin{subfigure}[b]{0.49\linewidth}
+			\centering
+			\includegraphics[scale=0.7]{dia/all_all.eps}
+		\end{subfigure}
+		\begin{subfigure}[b]{0.49\linewidth}
+			\centering
+			\includegraphics[scale=0.7]{dia/best_all.eps}
+		\end{subfigure}
+		\caption{All layers combined}
 	\end{subfigure}
-	\begin{subfigure}[b]{0.49\linewidth}
-		\centering
-		\includegraphics[scale=0.7]{dia/best_all.eps}
+	\begin{subfigure}[b]{\linewidth}
+		\begin{subfigure}[b]{0.49\linewidth}
+			\centering
+			\includegraphics[scale=0.7]{dia/all_first.eps}
+		\end{subfigure}
+		\begin{subfigure}[b]{0.49\linewidth}
+			\centering
+			\includegraphics[scale=0.7]{dia/best_first.eps}
+		\end{subfigure}
+		\caption{First layer}
 	\end{subfigure}
-	\caption{Plot from all layers}
-	\label{all_layer}
-	\begin{subfigure}[b]{0.49\linewidth}
-		\centering
-		\includegraphics[scale=0.7]{dia/all_first.eps}
+	\begin{subfigure}[b]{\linewidth}
+		\begin{subfigure}[b]{0.49\linewidth}
+			\centering
+			\includegraphics[scale=0.7]{dia/all_second.eps}
+		\end{subfigure}
+		\begin{subfigure}[b]{0.49\linewidth}
+			\centering
+			\includegraphics[scale=0.7]{dia/best_second.eps}
+		\end{subfigure}
+		\caption{Second layer}
 	\end{subfigure}
-	\begin{subfigure}[b]{0.49\linewidth}
-		\centering
-		\includegraphics[scale=0.7]{dia/best_first.eps}
-	\end{subfigure}
-	\caption{First layer plot}
-	\label{first_layer}
-	\begin{subfigure}[b]{0.49\linewidth}
-		\centering
-		\includegraphics[scale=0.7]{dia/all_second.eps}
-	\end{subfigure}
-	\begin{subfigure}[b]{0.49\linewidth}
-		\centering
-		\includegraphics[scale=0.7]{dia/best_second.eps}
-	\end{subfigure}
-	\caption{Second layer plot}
-	\label{second_layer}
+	\caption{Plots displaying the percentage drop and gain in score for various layers. The right column only shows scores that are results of an optimal mask selection.}\label{plots}
 \end{figure}
 
-What we can take from these plots is that drop and loss are not strongly correlated, or they have a more complex relationship. The plot in first column second row shows that a drop to lower percentages results in fair performance later ($98-100\%$). However, the best score is achieved where the drop was minimal.
+\textit{Drop} on the x axis displays the relative score after disabling a mask, and \textit{gain} on the y axis shows the maximal relative score achieved after disabling. The first column of plots displays all score data. the second column is filtered to only show the result of the optimal mask choice. The choice is optimal if the score after the additional $10000$ training steps is maximal. The plots are shown on Figures \ref{plots}.
 
-\newpage
+What we can take from these plots is that drop and loss are not strongly correlated, or they have a more complex relationship. The plot in the first column of the second row shows that a drop to lower percentages results in fair performance later ($98-100\%$). However, the best score is achieved where the drop was minimal.
+
 \section{Minimization strategy charts}
-The purpose of this last test is to compare the proposed minimization strategies against each other. For each threshold parameter ($ 85\%,\ 90\%,\ 95\%,\ 98\%$ and $100\%$, as described in \ref{thresholds}), $50$ runs were carried out. A single run consisted of training a network for $10000$
+The purpose of this last test is to compare the proposed minimization strategies against each other. For each threshold parameter ($ 85,\ 90,\ 95,\ 98$ and $100\%$, as described in \ref{thresholds}), $50$ runs were carried out. A single run consisted of training a network for $10000$
 iterations, and then performing the minimization with three strategies. A minimization step is $2000$ iterations long. The number of minimization steps depends on the stopping criterion of the specific strategy.
-
-\begin{wrapfigure}{r}{0.7\textwidth}
-	\includegraphics[width=0.7\textwidth]{dia/stat2.eps}
-	\caption{Score drop}
-	\label{fin1}
-	\includegraphics[width=0.7\textwidth]{dia/stat1.eps}
-	\caption{Disabled masks}
-	\label{fin2}
-\end{wrapfigure}
 
 \textit{CosMax} takes the mask with the greatest cosine similarity to the other masks and disables it. If the score of the network after the $2000$ training iterations were lower than the current threshold, we allowed the minimization to restore the $2000$ iterations and select the masks with the second maximal similarity to disable. If that also failed then the exiting criterion is met. If the score is above the threshold, the minimization continues selecting another mask. \textit{Random} selects masks randomly, reverting the $2000$ iteration or continuing based on the threshold. The exiting criterion here is a limit of $10$ minimization steps. This leads to a fixed $20000$ iteration number for the whole minimization in this case. The \textit{Seq} strategy sequentially goes through all the masks, keeping a mask disabled based on the threshold. It stops after reaching the last mask. This leads to a $10000$ iteration number, since we have $10$ masks combined in the first two layers.
 
-Figure \ref{fin1} shows the loss in score after minimization, and Figure \ref{fin2} shows the number of masks we managed to disable. \textit{Random} seems to be the most efficient strategy.
+The upper chart on Figure \ref{fin} shows the loss in score after minimization, and bottom one shows the number of masks we managed to disable. \textit{Random} seems to be the most efficient strategy.
+
+\begin{figure}
+	\centering
+	\begin{subfigure}[b]{\linewidth}
+		\centering
+		\includegraphics[width=0.9\linewidth]{dia/stat2.eps}
+		\caption{Relative score drop}
+	\end{subfigure}
+	\begin{subfigure}[b]{\linewidth}
+		\centering
+		\includegraphics[width=0.9\linewidth]{dia/stat1.eps}
+		\caption{Number of disabled masks}
+	\end{subfigure}
+	\caption{Results of the minimization with specific thresholds and strategies}
+	\label{fin}
+\end{figure}
 
 \chapter{Conclusion}
+
 \chapter*{Statement}
 %Egy üres sort adunk a tartalomjegyzékhez:
 \addtocontents{toc}{\ }
 \addcontentsline{toc}{section}{Statement}
-%\hspace{\parindent}
+\hspace{\parindent}
 
 % A nyilatkozat szövege más titkos és nem titkos dolgozatok esetében.
 % Csak az egyik tipusú myilatokzatnak kell a dolgozatban szerepelni
@@ -548,13 +579,11 @@ Figure \ref{fin1} shows the loss in score after minimization, and Figure \ref{fi
 %nem kézzel helyettesítendők:
 
 \noindent
-Alulírott \makebox[4cm]{\dotfill} szakos hallgató, kijelentem, hogy a dolgozatomat \\
-a Szegedi Tudományegyetem, Informatikai Intézet \makebox[4cm]{\dotfill} Tanszékén készítettem, \makebox[4cm]{\dotfill} diploma megszerzése érdekében.
+Alulírott Mérnökinformatikus BSc szakos hallgató, kijelentem, hogy a dolgozatomat a Szegedi Tudományegyetem, Informatikai Intézet Képfeldolgozás és Számítógépes Grafika Tanszékén készítettem, Mérnökinformatikus BSc diploma megszerzése érdekében.
 
 Kijelentem, hogy a dolgozatot más szakon korábban nem védtem meg, saját munkám eredménye, és csak a hivatkozott forrásokat (szakirodalom, eszközök, stb.) használtam fel.
 
-Tudomásul veszem, hogy szakdolgozatomat / diplomamunkámat \\
-a Szegedi Tudományegyetem Informatikai Intézet könyvtárában, a helyben olvasható könyvek között helyezik el.
+Tudomásul veszem, hogy szakdolgozatomat a Szegedi Tudományegyetem Informatikai Intézet könyvtárában, a helyben olvasható könyvek között helyezik el.
 
 \vspace*{2cm}
 
