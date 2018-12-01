@@ -139,8 +139,8 @@
 
 %A \chapter* parancs nem ad a fejezetnek sorszámot
 
-\chapter*{Tartalmi összefoglaló\\(content summary in Hungarian)}
-\addcontentsline{toc}{section}{Tartalmi összefoglaló (content summary in Hungarian)}
+\chapter*{Tartalmi összefoglaló\\(Hungarian content summary)}
+\addcontentsline{toc}{section}{Tartalmi összefoglaló (Hungarian content summary)}
 
 Ez a dolgozat a \textit{gépi tanulás} és a \textit{digitális képfeldolgozás} kategóriákhoz tartozik. Egy \textit{teljesen konvolúciós hálózatot} alkalmaz (ami a gépi tanulásban haszlálatos technika), hogy \textit{éldetektálást} végezzen (ami egy digitális képfeldolgozásbeli feladat). A hangsúly nem a tanításon vagy a feladaton van, hanem a hálózat paramétereinek optimalizálásán, konkrétabban a rétegek és a rétegbeli konvolúciós maszkok számának csökkentésén, miközben a hálózat pontossága változatlan marad. Egy hálózat tanítása után az algoritmus maszkokat deadktivál egy kisebb méretű és gyorsabb működésű hálózat elérése érdekében. Már végeztek kutatást hasonló témákban, lásd a \cite{pruning_web}, \cite{pruning_arxiv} és \cite{understanding} hivatkozásokat.
 
@@ -149,6 +149,21 @@ A hálózat előnyös méretének meghatározását egy tantási folyamat végzi
 Naív és intelligens stratégiák is tervezve lettek annak érdekében, hogy kiderüljön melyik működik jobban. Egy egyszerű stratégia véletlenszerűen választ a maszkok közül, és ideiglenesen letiltja a kiválasztottakat. Ezután ellenőrzi, hogy folytatódhat-e a tanítás nélkülük az addigihoz hasonló pontossággal. Egy intelligens stratégia különböző mértékek alapján dönt. Mindkét stratégia bizonyulhat hasznosnak bizonyos esetekben.
 
 A keretrendszer \textit{Python}-ban lett kódolva a \textit{tensorflow} könyvtár \cite{tensorflow2015-whitepaper} használatával. A teljesítmény növelése érdekében \textit{CUDA} magokat tartalmazó \textit{NVIDIA} típusú videókártya segítségével hardveresen gyorsított tanítás volt alkalmazva. Ezt a tensorflow teszi lehetővé a \textit{CUDA} és \textit{cuDNN} könyvtárakkal.
+
+A dolgozat kapcsán egy speciális program lesz elkészítve, ami konvolúciós neurális hólózatokat alkalmaz. Azért lesz speciális, mert mert a neurális hálózatok segítségével képes lesz dinamikuson módosítani a működésén. Az ilyen programokat tanuló algoritmusoknak hívják. Amíg a klasszíkus algoritmusok emberi intuíció és matematikai formalizmus szüleményei, a gépi tanulásbeli algoritmusok példákat kapnak az adatokról, és az adatokhoz tartozó helyes megoldásokról, amik alapján kialakírját a saját működésüket egy probléma megoldására a saját teljesítményükről szolgáltatott visszajelzés alapján.
+
+Ha a konvolúció módszerét ötvözzük a gépi tanulással, akkor különösen hatékonnyá tesszük ezeket az algoritmusokat képek feldolgozásában. Ezzel olyan lehetőségek felé nyitunk, mint az arcfelismerés, tárgydetektálás vagy kép rekonstrukció. A konvolúciós neurális hálózatokat jelenleg is használják például a biztonságtechnikában vagy az ipari automatizálásban \cite{applications}.
+
+A képeket alkotó rengetek pixel miatt a konvolúciós neurális hálózatok számításigénye magas, ezért drága hardvert és hosszú betanulási időt igényelnek. Egy nagyobb hálózat több neuront tartalmaz, ami több művelethez és nagyobb erőforrásigényhez vezet. Ezért fontos egy olyan hálózatot építeni, amiben pont elég nauron van holy ellása a feladatát a szükséges pontossággal, és nem több annál, hogy elkerülje a fölösleges számításokat és számítási időt.
+
+Ezen dolgozat témája olyan módszerek fejlesztése és tesztelése, amik automatikusan meghatározzák egy adott feledathoz szukséges minimális neuronszámot és hálózat méretet. Egy ilyen módszerrel elkerülhető a hosszadalmas próba-szerencse megközelítés és ismételt tesztek futtatása különböző hálózat méretekkel. A hálózat önállóan fog a problémához illeszkedő hálózat méretet keresni anélkül, hogy emberi beavatkozásra vagy tapasztalatokra lenne szükség. A létező automatikus megközelítések közé tartozik a kimerítő rácskeresés adott paraméterhalmazok fölött. Ez ismételt tanításokat jelent az adott paraméterek minden lehetséges kombinációjával. A dolgozatban leírt módszer egy alternatív megoldás a megfelelő paraméterek megtalálásához. A hálózat futás közben kiértékelődik és módosul a rácskeresésbeli ismételt futások helyett. Ez a tanítási idő és számítási igény csökkentése érdekében történik.
+
+Egy megfelelően skálázott neurális hálózat használatának előnyei közé tartozik a hordozhatósága és az erőforrások hatékony kihasználása. Kevésbé igényes hálózatokkal olcsóbb hardverek, például kézi eszközök is képesek lesznek konvolúciós neurális hálózatok futtatására, ezzel szélesebb körben elérhető lesz a technológia. A számítási költségek csökkentésével hamarabb kaphatunk eredményeket visszafogottab hardverekkel.
+
+
+A dolozat végére érve a kiírt célokat sikerült elérni, viszont maradtak felfedezetlen területek minden irányban. Az elkészült keretrendszer képes megközelíteni a választott egyszerű képfeldolgozási feladatot, a Canny éldetekciót. Ezen kívül képes csökkenteni a hálózat méretét egy intelligens és egy sztochasztikus stratégia segtségével. Az intelligens stratégia koszinusz hasonlóságokat használva választ egy olyan konvolúciós maszkot, ami a legjobban hasonlít a többi maszkra. Ez a módszer különböző tesztek alapján lett kiválasztva, amik a lehetséges megközelítéseken lettek végezve. A másik hasznosnak bizonyuló stratégia stochasztikus elven működik, véletlenszerűen válasz maszkot. Végül az intelligens stratégia is működőképes, de a stochasztikus véletlenszerű választás hatékonyabban minimalizál a pontosság és a méretcsökenés szempontjából is. Ezek alapján még lehetséges, hogy létezik egy intelligencián alapuló megközelítés, ami jobban teljesít a véletlen választásnál.
+
+A kezdeti feltételezés igaznak bizonyult, miszerint az eredeti hálózat struktúrája zsugorítható, és egy kisebb méretű struktúra automatikusan meghatározható. A vizualizációk segítettek belelátni abba, hogy egy konvolúciós hálózat hogyan old meg egy viszonylag egyszerű feladatot. A keretrendszer felépítése a tensorflow függvénykönyvtár és a neurális hálózatok mélyebb ismeretéhez vezetett. Jövőbeli kutatási terület lehet különböző feladatok tanítása a hálózatnak, mélyebb és összetettebb struktúrák kipróbálása és újabb intelligens minimalizáló stratégiák definiálása.
 
 \chapter*{Task proposal}
 %A tartalomjegyzékben mégis szerepeltetni kell, mint szakasz(section) szerepeljen:
@@ -174,7 +189,7 @@ The framework was coded in the \textit{Python} language, utilizing the \textit{t
 \chapter*{Introduction}
 \addcontentsline{toc}{section}{Introduction}
 
-In this thesis a special computer program is introduced which uses convolutional neural networks. It will be special because with the use of a neural network it will be able to dynamically refine how it works to produce a better result. Programs capable of this are called learning algorithms. While classical algorithms are created using human intuition or mathematical formulation, machine learning algorithms are given examples of the right answers it should produce to the given data, allowing them to automatically develop ways of solving a specific problem based on feedback about its own performance.
+In this thesis a special computer program is introduced which uses convolutional neural networks. It will be special because with the use of neural networks it will be able to dynamically refine how it works to produce a better result. Programs capable of this are called learning algorithms. While classical algorithms are created using human intuition or mathematical formulation, machine learning algorithms are given examples of the right answers it should produce to the given data, allowing them to automatically develop ways of solving a specific problem based on feedback about its own performance.
 
 Integrating the technique of convolution into these networks will make them especially efficient in working with images. This opens up new possibilities, like face recognition, object detection or image reconstruction. Convolutional neural networks are already used for these tasks in areas like security or industrial automation \cite{applications}.
 
@@ -562,11 +577,14 @@ The upper chart on Figure \ref{fin} shows the loss in score after minimization, 
 \end{figure}
 
 \chapter{Conclusion}
+Reaching the end of the thesis, the proposed tasks are completed, although there are unexplored areas remaining for all of them. The final framework is capable of approximating the chose image processing task of Canny edge detection. It is further capable of minimizing the network size using an intelligent and a stochastic strategy. The intelligent strategy uses cosine similarities to select a convolutional mask that the most similar to the other masks. The method was chosen based on the results of various tests performed with the possible approaches. The other viable strategy was stochastic in nature, and it choose masks randomly. In the end, the intelligent, cosine similarity based approach proved useful, but not as efficient as the stochastic random chooser. The random strategy performed better in terms of both accuracy and decrease in network size. This leaves room for further investigations in finding an intelligent approach that beats randomized choices.
 
-\chapter*{Statement}
+The initial assumption that the original network structure can be reduced, and a smaller structure can be automatically determined proved to be true. The visualizations provided some insight into how a convolutional network solves a relatively simple problem. Constructing the framework provided knowledge of tensorflow and neural networks in general. Further areas to continue exploring include trying different tasks for the network, deeper and more complex initial network structures and declaring different intelligence based minimization strategies.
+
+\chapter*{Nyilatkozat / Statement}
 %Egy üres sort adunk a tartalomjegyzékhez:
 \addtocontents{toc}{\ }
-\addcontentsline{toc}{section}{Statement}
+\addcontentsline{toc}{section}{Nyilatkozat / Statement}
 \hspace{\parindent}
 
 % A nyilatkozat szövege más titkos és nem titkos dolgozatok esetében.
@@ -596,7 +614,7 @@ Tudomásul veszem, hogy szakdolgozatomat a Szegedi Tudományegyetem Informatikai
 \vspace*{4cm}
 
 \chapter*{Köszönetnyilvántás / Acknowledgments}
-\addcontentsline{toc}{section}{Acknowledgments}
+\addcontentsline{toc}{section}{Köszönetnyilvántás / Acknowledgments}
 
 \begin{center}
 	Szeretném megköszönni a témavezetők segítségét és bátorítását,\\
