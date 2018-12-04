@@ -89,7 +89,7 @@
 
 	\vspace{0.5cm}
 
-	{\Large\bf Department of Informatics}
+	{\Large\bf Institute of Informatics}
 
 	\vspace*{3.0cm}
 
@@ -175,6 +175,8 @@ A hálózatok tanítása a kezdetekben egy alsó kategóriás laptopon történt
 A laptopon való futtatás miatt visszafogottan kellett meghatározni a kezdeti paramétereket. Ilyen paraméter a képek felbontása, a batch mérete a kötegelt feldolgozásban, a rétegek és rétegbeli konvolúciós maszkok száma, továbbá a maszkok mérete. A dolgozat témája éppen az utóbbi három paraméter minimalizálása, viszont ha egy eleve kisebbre szabott hálózat minimalizálható, akkor feltehetőleg egy nagyobb is, mivel ha a módszerek helytállóak akkor az csak redundanciát tartalmaz a kisebb hálózattal szemben.
 
 Később egy asztali számítógépen is lettek indítva futások. Ezek távoli eléréssel történtek, ezért nem kellett az ember szabadidejére méretezni a futási időt, akár hetekig is tarthatott egy tanítás. Az asztali számítógép paraméterei is jobban voltak, egy külön számításokra tervezett NVIDIA videokártyával. A hálózat kezdeti paraméterei ezzel szemben nem lettek növelve ezen futások erejéig sem. A számítógépen való futtatás inkább arra lett hasznos, hogy hosszabb és sokkal több futás eredményét mérhessük össze, így növelve a mintaszámot és a statisztikák minőségét.
+
+
 
 ...
 
@@ -302,10 +304,10 @@ The objective function must return a single number which the optimizer will try 
 
 Training with the Sobel edge map dataset, we have a continuous output and a set of continuous example images, so the objective function must take two batches of continuous matrices to calculate the error. L1 and L2 losses work with the difference of the matrices. L1 loss or mean absolute error (MAE) calculates the mean of the absolute difference matrix, L2 loss or mean squared error (MSE) calculates the average of the squared values of the difference matrix:
 \begin{equation*}
-MAE = \frac{1}{N}\frac{1}{H\times W}\sum_{y=1}^{H}\sum_{x=1}^{W}\abs{O_{n,y,x}-\hat{O}_{n,y,x}}\ \ ,
+MAE = \frac{1}{N}\frac{1}{H\cdot W}\sum_{y=1}^{H}\sum_{x=1}^{W}\abs{O_{n,y,x}-\hat{O}_{n,y,x}}\ \ ,
 \end{equation*}
 \begin{equation*}
-MSE = \frac{1}{N}\frac{1}{H\times W}\sum_{y=1}^{H}\sum_{x=1}^{W}\left(O_{n,y,x}-\hat{O}_{n,y,x}\right)^{2}\ \ ,
+MSE = \frac{1}{N}\frac{1}{H\cdot W}\sum_{y=1}^{H}\sum_{x=1}^{W}\left(O_{n,y,x}-\hat{O}_{n,y,x}\right)^{2}\ \ ,
 \end{equation*}
 where $N$ is the batch size ($3$), $H$ and $W$ are the image dimensions ($128\times128$), $O$ is the actual output of the network and $\hat{O}$ is the expected output. These losses are common with regression. The reason behind squaring the values is to achieve shorter training times, because bigger errors are penalized exponentially more.
 
@@ -441,7 +443,7 @@ Then comes another selection, which makes sure to select different masks if the 
 Masks have to be selected for freezing or disabling. The choice should reflect the contribution of the selected mask to the overall performance, or in other words, the least important mask should be the one that gets selected, so the network could possibly perform with one less mask. We tested various selection strategies for finding these ''least significant masks''.
 \subsubsection{Cosine similarity}Cosine similarity  tries to represent how similar two n-dimensional vectors are. The definition of cosine similarity is the following:
 \begin{equation*}
-\cos{\theta} = \dfrac{\lVert\bar{a}\rVert\times\lVert\bar{b}\rVert\times\cos{\theta}}{\lVert\bar{a}\rVert\times\lVert\bar{b}\rVert} = \dfrac{\bar{a}\times\bar{b}}{\lVert\bar{a}\rVert\times\lVert\bar{b}\rVert}\ ,
+\cos{\theta} = \dfrac{\bar{a}\cdot\bar{b}}{\lVert\bar{a}\rVert\cdot\lVert\bar{b}\rVert} = \dfrac{\lVert\bar{a}\rVert\cdot\lVert\bar{b}\rVert\cdot\cos{\theta}}{\lVert\bar{a}\rVert\cdot\lVert\bar{b}\rVert}\ ,
 \end{equation*}
 where $\bar{a}$ and $\bar{b}$ are vectors with matching dimensions. A mask is a set of two-dimensional matrices plus scalar biases, so they are reshaped to a vector format, with the bias appended to the end of the vector. Then all the vectors are compared to each other using cosine similarity, and the end result is stored in a matrix, where the element at indices $i$ and $j$ represents the cosine similarity between the the mask in place $i$ and the mask in place $j$. These values have a range of $\left[-1;1\right] $, where $1$ represent the greatest similarity (vectors facing the same direction, i.e., the masks are the same), while negative numbers represent opposites (vectors facing the opposite direction, i.e., the masks are inverse of each other). This is done for each layer, producing a matrix for each layer.
 
