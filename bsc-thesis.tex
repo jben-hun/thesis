@@ -28,6 +28,7 @@
 \usepackage{wrapfig}
 \usepackage{lipsum}
 \usepackage{etoolbox}
+\usepackage[us]{datetime} 
 
 \apptocmd{\sloppy}{\hbadness 10000\relax}{}{}
 \sloppy
@@ -109,13 +110,13 @@
 
 		\begin{center}
 			\emph{Author:} \\
-			\bf{Jenei Bendegúz}  \\
+			\bf{Bendegúz Jenei}  \\
 			\normalfont{BSc in Engineering \\
 				Information Technology}
 		\end{center}
 		\begin{tabular}{c@{\hspace{4cm}}c}
 			\emph{Supervisor:}      & \emph{Supervisor:} \\
-			\bf{Varga László Gábor} & \bf{Berend Gábor} \\
+			\bf{László Gábor Varga} & \bf{Gábor Berend} \\
 			Senior lecturer         & Senior lecturer
 		\end{tabular}
 
@@ -142,47 +143,50 @@
 \chapter*{Tartalmi összefoglaló\\(Hungarian content summary)}
 \addcontentsline{toc}{section}{Tartalmi összefoglaló (Hungarian content summary)}
 
-Ez a dolgozat a \textit{gépi tanulás} és a \textit{digitális képfeldolgozás} kategóriákhoz tartozik. Egy \textit{teljesen konvolúciós hálózatot} alkalmaz (ami a gépi tanulásban használatos technika), hogy \textit{éldetektálást} végezzen (ami egy digitális képfeldolgozásbeli feladat). A hangsúly nem a tanításon vagy a feladaton van, hanem a hálózat paramétereinek optimalizálásán, konkrétabban a rétegek és a rétegbeli konvolúciós maszkok számának csökkentésén, miközben a hálózat pontossága változatlan marad. Egy hálózat tanítása után az algoritmus maszkokat deaktivál egy kisebb méretű és gyorsabb működésű hálózat elérése érdekében. Már végeztek kutatást hasonló témákban, lásd a \cite{pruning_web}, \cite{pruning_arxiv} és \cite{understanding} hivatkozásokat.
+Ez a dolgozat a \textit{gépi tanulás} és a \textit{digitális képfeldolgozás} kategóriákhoz tartozik. Egy \textit{teljesen konvolúciós hálózatot} alkalmaz (ami a gépi tanulásban használatos technika), hogy \textit{éldetektálást} végezzen (ami egy digitális képfeldolgozásbeli feladat). A hangsúly nem a tanításon vagy a feladaton van, hanem a hálózat paramétereinek optimalizálásán, konkrétabban a rétegek és a rétegbeli konvolúciós maszkok számának csökkentésén, miközben a hálózat pontossága nem csökken számottevően. Egy hálózat tanítása után a megadott módszer maszkokat deaktivál egy kisebb méretű és gyorsabb működésű hálózat elérése érdekében. Már végeztek kutatást hasonló témákban, lásd az \cite{pruning_web, pruning_arxiv, understanding} hivatkozásokat.
 
-A hálózat előnyös méretének meghatározását egy tanítási folyamat végzi, ami képes elmenteni állapotát és később visszatölteni azt. Ezen kívül képes ideiglenesen módosítani a belső struktúráján. Ez különböző konfigurációk tesztelésére és összehasonlítására van használva. Ezek a technikák különböző mértékekkel együtt vannak alkalmazva. A tanítás akkor áll meg, amikor egy kilépési feltétel teljesül. Az eredmény egy olyan konfiguráció, amit az alkalmazott stratégia optimálisnak talált.
+A hálózat előnyös méretének meghatározását egy tanítási folyamat végzi, ami képes elmenteni állapotát, és később visszatölteni azt. Ezen kívül képes ideiglenesen módosítani a belső struktúráján. Ez különböző konfigurációk tesztelésére és összehasonlítására lett használva. Ezek a technikák különböző mértékekkel együtt vannak alkalmazva. A tanítás akkor áll meg, amikor egy kilépési feltétel teljesül. Az eredmény egy olyan konfiguráció, amit az alkalmazott stratégia optimálisnak talált.
 
-Naiv és intelligens stratégiák is tervezve lettek annak érdekében, hogy kiderüljön melyik működik jobban. Egy egyszerű stratégia véletlenszerűen választ a maszkok közül, és ideiglenesen letiltja a kiválasztottakat. Ezután ellenőrzi, hogy folytatódhat-e a tanítás nélkülük az addigihoz hasonló pontossággal. Egy intelligens stratégia különböző mértékek alapján dönt. Mindkét stratégia bizonyulhat hasznosnak bizonyos esetekben.
+Naiv és intelligens stratégiákat is terveztem annak érdekében, hogy kiderüljön melyik működik jobban. Egy egyszerű stratégia véletlenszerűen választ a maszkok közül, és ideiglenesen letiltja a kiválasztottakat. Ezután ellenőrzi, hogy vissza lehet-e tanítani a hálót az eredeti pontosságra a letiltott elemek nélkül. Egy intelligens stratégia különböző mértékek alapján dönt. Mindkét stratégia bizonyulhat hasznosnak bizonyos esetekben.
 
-A keretrendszer \textit{Python}-ban lett kódolva a \textit{tensorflow} könyvtár \cite{tensorflow2015-whitepaper} használatával. A teljesítmény növelése érdekében \textit{CUDA} magokat tartalmazó \textit{NVIDIA} típusú videokártya segítségével hardveresen gyorsított tanítás volt alkalmazva. Ezt a tensorflow teszi lehetővé a \textit{CUDA} és \textit{cuDNN} könyvtárakkal.
+A keretrendszert \textit{Python}-ban kódoltam a \textit{tensorflow} könyvtár \cite{tensorflow2015-whitepaper} használatával. A teljesítmény növelése érdekében \textit{CUDA} magokat tartalmazó \textit{NVIDIA} típusú videokártya segítségével hardveresen gyorsított tanítást alkalmaztam. Ezt a tensorflow teszi lehetővé a \textit{CUDA} és \textit{cuDNN} könyvtárakkal.
 
-A dolgozat kapcsán egy speciális program lesz elkészítve, ami konvolúciós neurális hálózatokat alkalmaz. Azért lesz speciális, mert mert a neurális hálózatok segítségével képes lesz dinamikuson módosítani a működésén. Az ilyen programokat tanuló algoritmusoknak hívják. Amíg a klasszikus algoritmusok emberi intuíció és matematikai formalizmus szüleményei, a gépi tanulásbeli algoritmusok példákat kapnak az adatokról, és az adatokhoz tartozó helyes megoldásokról, amik alapján kialakítják a saját működésüket egy probléma megoldására a saját teljesítményükről szolgáltatott visszajelzés alapján.
+A dolgozat kapcsán egy speciális program készült el, ami konvolúciós neurális hálózatokat alkalmaz. Azért speciális, mert mert a neurális hálózatok segítségével képes dinamikuson módosítani a működésén. Az ilyen programokat tanuló algoritmusoknak hívják. Amíg a klasszikus algoritmusok emberi intuíció és matematikai formalizmus szüleményei, a gépi tanulásbeli algoritmusok példákat kapnak az adatokról, és az adatokhoz tartozó helyes megoldásokról, amik alapján kialakítják a saját működésüket egy probléma megoldására a saját teljesítményükről szolgáltatott visszajelzés alapján.
 
 Ha a konvolúció módszerét ötvözzük a gépi tanulással, akkor különösen hatékonnyá tesszük ezeket az algoritmusokat képek feldolgozásában. Ezzel olyan lehetőségek felé nyitunk, mint az arcfelismerés, tárgydetektálás vagy kép rekonstrukció. A konvolúciós neurális hálózatokat jelenleg is használják például a biztonságtechnikában vagy az ipari automatizálásban \cite{applications}.
 
-A képeket alkotó rengetek pixel miatt a konvolúciós neurális hálózatok számításigénye magas, ezért drága hardvert és hosszú betanulási időt igényelnek. Egy nagyobb hálózat több neuront tartalmaz, ami több művelethez és nagyobb erőforrásigényhez vezet. Ezért fontos egy olyan hálózatot építeni, amiben pont elég neuron van hogy ellása a feladatát a szükséges pontossággal, és nem több annál, hogy elkerülje a fölösleges számításokat és számítási időt.
+A képeket alkotó rengeteg pixel miatt a konvolúciós neurális hálózatok számításigénye magas, ezért drága hardvert és hosszú betanulási időt igényelnek. Egy nagyobb hálózat több neuront tartalmaz, ami több művelethez és nagyobb erőforrásigényhez vezet. Ezért fontos egy olyan hálózatot építeni, amiben pont elég neuron van, hogy ellása a feladatát a szükséges pontossággal, és nem több annál, hogy elkerüljük a fölösleges számításokat és magas számítási időt.
 
-Ezen dolgozat témája olyan módszerek fejlesztése és tesztelése, amik automatikusan meghatározzák egy adott feladathoz szükséges minimális neuronszámot és hálózat méretet. Egy ilyen módszerrel elkerülhető a hosszadalmas próba-szerencse megközelítés és ismételt tesztek futtatása különböző hálózat méretekkel. A hálózat önállóan fog a problémához illeszkedő hálózat méretet keresni anélkül, hogy emberi beavatkozásra vagy tapasztalatokra lenne szükség. A létező automatikus megközelítések közé tartozik a kimerítő rácskeresés adott paraméterhalmazok fölött. Ez ismételt tanításokat jelent az adott paraméterek minden lehetséges kombinációjával. A dolgozatban leírt módszer egy alternatív megoldás a megfelelő paraméterek megtalálásához. A hálózat futás közben kiértékelődik és módosul a rácskeresésbeli ismételt futások helyett. Ez a tanítási idő és számítási igény csökkentése érdekében történik.
+Ezen dolgozat témája olyan módszerek fejlesztése és tesztelése, amik automatikusan meghatározzák egy adott feladathoz szükséges minimális neuronszámot és hálózat méretet. Egy ilyen módszerrel elkerülhető a hosszadalmas próba-szerencse megközelítés, és ismételt tesztek futtatása különböző hálózat méretekkel. A javasolt módszerek önállóan fognak a problémához illeszkedő hálózat méretet keresni anélkül, hogy emberi beavatkozásra vagy tapasztalatokra lenne szükség. A létező automatikus megközelítések közé tartozik a kimerítő rácskeresés adott paraméterhalmazok fölött. Ez ismételt tanításokat jelent az adott paraméterek minden lehetséges kombinációjával. A dolgozatban leírt módszer egy alternatív megoldás a megfelelő paraméterek megtalálásához. A hálózat futás közben kiértékelődik és módosul a rácskeresésbeli ismételt futások helyett. Ez a tanítási idő és számítási igény csökkentése érdekében történik.
 
-Egy megfelelően skálázott neurális hálózat használatának előnyei közé tartozik a hordozhatósága és az erőforrások hatékony kihasználása. Kevésbé igényes hálózatokkal olcsóbb hardverek, például kézi eszközök is képesek lesznek konvolúciós neurális hálózatok futtatására, ezzel szélesebb körben elérhető lesz a technológia. A számítási költségek csökkentésével hamarabb kaphatunk eredményeket visszafogottab hardverekkel.
+Egy megfelelően skálázott neurális hálózat használatának előnyei közé tartozik a hordozhatósága és az erőforrások hatékony kihasználása. Kevésbé igényes hálózatokkal olcsóbb hardverek, például mobil/kézi eszközök is képesek lesznek konvolúciós neurális hálózatok futtatására, ezzel szélesebb körben elérhető lesz a technológia. A számítási költségek csökkentésével hamarabb kaphatunk eredményeket visszafogottab hardverekkel.
 
-Az éldetektálás feladata során a képen lévő tárgyak körvonalát próbálják megtalálni. Az ideális végeredmény egy olyan kép, aminek a mérete megegyezik az eredetiével, ahol az élek fehérek és minden más fekete. Ennek létezik egy folytonos változata, ahol az eredmény kép színei a fekete és a fehér között mozognak a szürke árnyalatait fölvéve, aszerint hogy mennyire tekinthető élnek az adott pixel az eredeti képen. A konvolúciós hálózatunk folytonos, tehát a kimenete az utóbbi változattal fog megegyezni még akkor is, ha a cél fekete-fehér éldetektálás. A hálózatnak az éldetektorok kimenetét kell minél pontosabban reprodukálnia azonos bemenet alapján.
+A dolgozatban megfogalmazott minimalizációs módszer a következőképen működik. Először addig tanítok egy konvolúciós hálózatot, amíg konvergálni nem látszik. Ezután egy stratégia választ egyet a konvolúciós maszkok közül, amit letilt. Naiv stratégia esetében véletlenszerűen, az intelligens stratégia viszont a maszkok hasonlósága alapján dönt. A maszkok hasonlósága a redundanciára utalhat. Az egyedi maszkok fontosabb szerepet látszanak betölteni. A stratégiák közül később a tesztek során a legjobban teljesítő kerül kiválasztásra. A maszk letiltása után újabb adott számú lépésig tanul a hálózat, hogy tudjon alkalmazkodni a letiltott maszk hiányához. Ezután egy kiértékelés történik, ellenőrzése kerül, hogy a hálózat teljesítménye adott százalék alá csökkent-e. Ha igen, akkor visszaállításra kerül a letiltás előtti állapot. Ezután egy újabb választási stratégia zajlik le. Ezek a lépések addig ismétlődnek, amíg a stratégia kilépési feltétele nem teljesül.
 
-Két klasszikus éldetektor kimenetét próbáltuk megközelíteni a hálózattal. Az első és egyszerűbb a \textit{Sobel–Feldman operátor} \cite{sobel} volt. Ez a kezdetekben volt használva a hálózat felépítésekor. Később A \textit{Canny éldetektor} \cite{canny} lett a minta. Ez már több lépésből álló algoritmus, és a kimenete fekete-fehér kép.
+\begin{wrapfigure}{r}{0.45\textwidth}
+	\includegraphics[width=0.45\textwidth]{dia/folyam.eps}
+	Folyamatábra a minimalizálás működéséről
+\end{wrapfigure}
+
+Az éldetektálás feladata során a képen lévő tárgyak körvonalát próbálják megtalálni. Az ideális végeredmény egy olyan kép, aminek a mérete megegyezik az eredetiével, ahol is az élek fehérek amíg minden más fekete. Ennek létezik egy folytonos változata, ahol az eredmény kép színei a fekete és a fehér között mozognak a szürke árnyalatait fölvéve, aszerint hogy mennyire tekinthető élnek az adott pixel az eredeti képen. A konvolúciós hálózatunk folytonos, tehát a kimenete az utóbbi változattal fog megegyezni még akkor is, ha a cél fekete-fehér éldetektálás. A hálózatnak az éldetektorok kimenetét kell minél pontosabban reprodukálnia azonos bemenet alapján.
+
+Két klasszikus éldetektor kimenetét közelítettem a hálózattal. Az első és egyszerűbb a \textit{Sobel–Feldman operátor} \cite{sobel} volt. Ez a kezdetekben volt használva a hálózat felépítésekor. Később A \textit{Canny éldetektor} \cite{canny} lett a minta. Ez már több lépésből álló algoritmus, és a kimenete fekete-fehér kép.
 
 A képek amiken dolgoztunk a \textit{VOC2012} \cite{pascal-voc-2012} adathalmazból származnak. Ez a \textit{The Visual Object Classes Challenge} rövidítése. Az adathalmaz eredetileg arra szolgál, hogy versenyek keretében különböző csapatok mérjék össze rajta a hálózat struktúrájuk teljesítményét. A képeken különféle objektumok vannak más és más környezetben, mennyiségben és méretben. A verseny célja az objektumok lokalizálása és osztályozása, viszont a képek jól használhatóak éldetektálásra való tanításra is az adathalmaz sokszínűsége és mérete végett.
 
 A tesztek során különböző vizualizációk is készültek. Ezek a tanítás során kiértékeléskor mentődnek a merevlemezre. Ezeknek a célja a hálózat megismerésére és a hibák kiszűrésére egy további módszer szolgáltatása. Ezekről a \ref{visualizations} számú Fejezetben található példa. Sorrendben a konvolúcióhoz használt, a hálózat által tanult maszkok, ki- és bemenet, majd a kép állapota még a feldolgozás közben láthatóak rajtuk.
 
-A tanítások során az F1 score egy speciális lossfüggvénnyé alakított változata volt alkalmazva, ami az eredeti formájával ellentétben folytonos számokkal dolgozik. Voltak futtatva tesztek különböző lossfüggvényekkel, például abszolút vagy négyzetes hibával, vagy a különböző hibák (fals pozitív, fals negatív) súlyozásával és transzformálásával. Végül a módosított F1 loss maradt a lossfüggvény, mert jól működött, és jól értelmezhető, közismert metrikán alapszik. A módosított F1 loss pontosan definiálva a \ref{f1loss} számú Fejezetben.
+A tanítások során az F1 score egy speciális hibafüggvénnyé alakított változata volt alkalmazva, ami az eredeti formájával ellentétben folytonos számokkal dolgozik. Futtattam teszteket különböző hibafüggvényekkel, például abszolút vagy négyzetes hibával, vagy a különböző hibák (fals pozitív, fals negatív) súlyozásával és transzformálásával. Végül a módosított F1 loss maradt a hibafüggvény, mert jól működött, és jól értelmezhető, közismert metrikán alapszik. A módosított F1 loss pontosan definiálva a \ref{f1loss} számú Fejezetben.
 
 A hálózatok tanítása a kezdetekben egy alsó kategóriás laptopon történt. A laptop egyetlen előnye az NVIDIA típusú videokártyája, ami alkalmas a hardveresen gyorsított tanításra. A CUDA magokat tartalmazó NVIDIA videokártyák képesek a számítások erősen párhuzamosított feldolgozására. A videokártyára kiszervezett tanítás, amit a tensorflow is támogat, így sokkal gyorsabb mint a tisztán processzoron való futtatás. Így kisebb tesztek már a laptoppal is kivárhatóak voltak meg úgy is, hogy képek feldolgozásáról van szó. A mátrix szorzás például egy optimalizált beépített CUDA művelet, amire a konvolúció is visszavezethető.
 
 A laptopon való futtatás miatt visszafogottan kellett meghatározni a kezdeti paramétereket. Ilyen paraméter a képek felbontása, a batch mérete a kötegelt feldolgozásban, a rétegek és rétegbeli konvolúciós maszkok száma, továbbá a maszkok mérete. A dolgozat témája éppen az utóbbi három paraméter minimalizálása, viszont ha egy eleve kisebbre szabott hálózat minimalizálható, akkor feltehetőleg egy nagyobb is, mivel ha a módszerek helytállóak akkor az csak redundanciát tartalmaz a kisebb hálózattal szemben.
 
-Később egy asztali számítógépen is lettek indítva futások. Ezek távoli eléréssel történtek, ezért nem kellett az ember szabadidejére méretezni a futási időt, akár hetekig is tarthatott egy tanítás. Az asztali számítógép paraméterei is jobban voltak, egy külön számításokra tervezett NVIDIA videokártyával. A hálózat kezdeti paraméterei ezzel szemben nem lettek növelve ezen futások erejéig sem. A számítógépen való futtatás inkább arra lett hasznos, hogy hosszabb és sokkal több futás eredményét mérhessük össze, így növelve a mintaszámot és a statisztikák minőségét.
+Később egy asztali számítógépen is lettek indítva futások. Ezek távoli eléréssel történtek, ezért nem kellett az ember szabadidejére méretezni a futási időt, akár hetekig is tarthatott egy tanítás. Az asztali számítógép paraméterei is jobban voltak, egy külön számításokra tervezett NVIDIA videokártyával. A számítógépen való futtatás arra lett hasznos, hogy hosszabb és sokkal több futás eredményét mérhessük össze, így növelve a mintaszámot és a statisztikák minőségét.
 
+A dolgozat végére érve a kiírt célokat sikerült elérni, viszont maradtak felfedezetlen területek minden irányban. Az elkészült keretrendszer képes megközelíteni a választott egyszerű képfeldolgozási feladatot, a Canny éldetekciót. Ezen kívül képes csökkenteni a hálózat méretét egy intelligens és egy sztochasztikus stratégia segítségével. Az intelligens stratégia koszinusz hasonlóságokat használva választ egy olyan konvolúciós maszkot, ami a legjobban hasonlít a többi maszkra. Ez a módszert különböző tesztek alapján választottam ki, amiket a lehetséges megközelítéseken végeztem. A másik hasznosnak bizonyuló stratégia sztochasztikus elven működik, véletlenszerűen válasz maszkot. Végül az intelligens stratégia is működőképes, de a sztochasztikus véletlenszerű választás hatékonyabban minimalizál a pontosság és a méretcsökkenés szempontjából is. Ezek alapján még lehetséges, hogy létezik egy intelligencián alapuló megközelítés, ami jobban teljesít a véletlen választásnál.
 
-
-...
-
-A dolgozat végére érve a kiírt célokat sikerült elérni, viszont maradtak felfedezetlen területek minden irányban. Az elkészült keretrendszer képes megközelíteni a választott egyszerű képfeldolgozási feladatot, a Canny éldetekciót. Ezen kívül képes csökkenteni a hálózat méretét egy intelligens és egy sztochasztikus stratégia segítségével. Az intelligens stratégia koszinusz hasonlóságokat használva választ egy olyan konvolúciós maszkot, ami a legjobban hasonlít a többi maszkra. Ez a módszer különböző tesztek alapján lett kiválasztva, amik a lehetséges megközelítéseken lettek végezve. A másik hasznosnak bizonyuló stratégia sztochasztikus elven működik, véletlenszerűen válasz maszkot. Végül az intelligens stratégia is működőképes, de a sztochasztikus véletlenszerű választás hatékonyabban minimalizál a pontosság és a méretcsökkenés szempontjából is. Ezek alapján még lehetséges, hogy létezik egy intelligencián alapuló megközelítés, ami jobban teljesít a véletlen választásnál.
-
-A kezdeti feltételezés igaznak bizonyult, miszerint az eredeti hálózat struktúrája zsugorítható, és egy kisebb méretű struktúra automatikusan meghatározható. A vizualizációk segítettek belelátni abba, hogy egy konvolúciós hálózat hogyan old meg egy viszonylag egyszerű feladatot. A keretrendszer felépítése a tensorflow függvénykönyvtár és a neurális hálózatok mélyebb ismeretéhez vezetett. Jövőbeli kutatási terület lehet különböző feladatok tanítása a hálózatnak, mélyebb és összetettebb struktúrák kipróbálása és újabb intelligens minimalizáló stratégiák definiálása.
+A kezdeti feltételezés igaznak bizonyult, miszerint az eredeti hálózat struktúrája zsugorítható, és egy kisebb méretű struktúra automatikusan meghatározható. A vizualizációk segítettek belelátni abba, hogy egy konvolúciós hálózat hogyan old meg egy viszonylag egyszerű feladatot. A keretrendszer felépítése a tensorflow függvénykönyvtár és a neurális hálózatok mélyebb ismeretéhez vezetett. Jövőbeli kutatási terület lehet különböző feladatok tanítása a hálózatnak, mélyebb és összetettebb struktúrák kipróbálása, és újabb intelligens minimalizáló stratégiák definiálása.
 
 \chapter*{Task proposal}
 %A tartalomjegyzékben mégis szerepeltetni kell, mint szakasz(section) szerepeljen:
@@ -197,7 +201,7 @@ The task of the candidate is to create a framework in which convolutional neural
 \chapter*{Content summary}
 \addcontentsline{toc}{section}{Content summary}
 
-This thesis falls into the topics of \textit{machine learning} and \textit{digital image processing}. It uses machine learning techniques of training \textit{fully convolutional networks} to perform \textit{edge detection}. The focus is not on the training or task itself, instead it is on optimizing the parameters of the network, specifically minimizing the number of layers and the number of masks in the layers, while not sacrificing the accuracy of the network. Similar topics have already been researched before, e.g. in \cite{pruning_web}, \cite{pruning_arxiv} and \cite{understanding}.
+This thesis falls into the topics of \textit{machine learning} and \textit{digital image processing}. It uses machine learning techniques of training \textit{fully convolutional networks} to perform \textit{edge detection}. The focus is not on the training or task itself, instead it is on optimizing the parameters of the network, specifically minimizing the number of layers and the number of masks in the layers, while not sacrificing the accuracy of the network. Similar topics have already been researched before, e.g. in \cite{pruning_web, pruning_arxiv, understanding}.
 
 The beneficial size for the network is determined by a training process which is capable of saving its state and returning to it later. It is also capable of altering the inner structure of the network temporarily, disabling specific convolutional masks. This is used to test and compare different configurations. The previous techniques are combined with different metrics. The training stops when a desired exiting criterion is met. This results in a network configuration that is regarded as optimal by the current strategy.
 
@@ -219,6 +223,7 @@ This thesis attempts to come up with automatic ways of determining the right neu
 The benefits of using properly sized neural networks include portability and resource efficiency. With less demanding networks, cheaper hardware such as mobile devices will be capable of running convolutional neural networks, making them more widely available. The computational costs can also be reduced, producing results faster and with more modest hardware.
 
 \chapter{Technical overview}
+This chapter is about the technological background and tools that make the thesis possible.
 \section{Minimal fully convolutional networks}
 The goal of this thesis is to create a framework which is capable of training a deep convolutional neural network for simple two-dimensional image processing tasks and provide ways to make this network as small as possible without sacrificing a considerable amount of its accuracy.
 
@@ -371,7 +376,7 @@ The training operation is joined last after the layers, right after the operatio
 
 One of the tensorflow built-in optimizers, \textit{Adam} \cite{adam} is used. It features momentum-based dynamic learning rate, which promises improved convergence time over SGD \cite{sgd}, on which it is based. SGD is short for \textit{stochastic gradient descent}. It is a gradient descent variant which only uses a random subset of the training examples to approximate the gradients in each training step. This makes the calculations cheaper and shortens the training steps. The approximation becomes more accurate as we increase the size of this subset.
 
-There is a variety of SGD modifications developed that add a dynamic and adaptive behavior, Adam is one of them. Adam has two built-in running variables, which change over time, resulting in smaller weight updates as time progresses during training. Because of cuDNN, as mentioned in section \ref{cudnn}, Adam is slightly non-deterministic even when used with the same parameters and random-seed. The cause of the non-reproducible results was the implementation of some reductions using asynchronous CUDA atomic operations. This has been resolved in later tensorflow versions, but was still present in the used version (1.6). (See \cite{nondet1} and \cite{nondet2}.)
+There is a variety of SGD modifications developed that add a dynamic and adaptive behavior, Adam is one of them. Adam has two built-in running variables, which change over time, resulting in smaller weight updates as time progresses during training. Because of cuDNN, as mentioned in section \ref{cudnn}, Adam is slightly non-deterministic even when used with the same parameters and random-seed. The cause of the non-reproducible results was the implementation of some reductions using asynchronous CUDA atomic operations. This has been resolved in later tensorflow versions, but was still present in the used version (1.6). (See \cite{nondet1, nondet2}.)
 
 \textit{Training} and \textit{evaluation} steps are alternating during a training session. Training steps take up the majority of the time, while evaluation or validation steps are around ten or more times less frequent during a run. Both steps iterate on their own separate set of data. These two sets are sometimes created by splitting one large dataset by a ratio favoring the training split. For both the Sobel and Canny tasks, we use $20000$ images for training and roughly $14000$ images for evaluation.
 
@@ -474,10 +479,18 @@ In addition to the objective function, or error, which is a metric itself the fo
 \end{figure}
 \begin{figure}
 	\centering
-	\includegraphics[width=0.8\linewidth]{images/out1.png}
-	\caption{An input and ground truth image}
-	\includegraphics[width=0.8\linewidth]{images/out2.png}
-	\caption{Output after a few iterations and after convergence}
+	\begin{subfigure}[b]{\linewidth}
+		\centering
+		\includegraphics[width=0.8\linewidth]{images/out1.png}
+		\caption{An input and ground truth image}
+	\end{subfigure}
+	\\
+	\begin{subfigure}[b]{\linewidth}
+		\centering
+		\includegraphics[width=0.8\linewidth]{images/out2.png}
+		\caption{Output after a few iterations and after convergence}
+	\end{subfigure}
+	\caption{Intermediate outputs}
 \end{figure}
 
 \begin{figure}
@@ -493,12 +506,12 @@ In addition to the objective function, or error, which is a metric itself the fo
 		\includegraphics[width=0.8\linewidth]{images/layer2.png}
 		\caption{...and the same after convergence}
 	\end{subfigure}
-	\caption{Intermediate outputs}
+	\caption{Ground truth and output examples}
 \end{figure}
 
 
 \chapter{Results}
-This chapter will discuss some of the experiments that were made in order to gain insight of how the network works and the observations these experiments lead to.
+This chapter discusses some of the experiments that were made in order to gain insight of how the network works and the observations these experiments lead to.
 \section{Mask correlations}
 With these tests we tried to examine how various cosine similarity statistics of one mask compared to other masks relates to how the network behaves after that mask is disabled. For this, we ran $10000$ training steps, disabled a mask, and ran another $10000$ training steps. This was repeated for every mask in the network. For reference, the second $10000$ steps were also ran once without disabling any masks. This experiment was repeated $100$ times. The percentage drops in score are measure against this reference. Three different correlation coefficients were used: Pearson correlation coefficient (\textit{prs}) \cite{prs} to measure linear correlation, Kendall rank correlation coefficient (\textit{knd}) \cite{knd} and Spearman's rank correlation coefficient (\textit{spr}) \cite{spr} to measure monotonic correlation with two different methods. The explanations of the rows and columns of Table \ref{correlations} follows.
 \begin{itemize}
@@ -516,7 +529,7 @@ With these tests we tried to examine how various cosine similarity statistics of
 \begin{table}[!ht]
 	\centering
 	\includegraphics[scale=0.85]{dia/table.eps}
-	\caption{The minimum, maximum, standard deviance, mean and median of the cosine similarities and their absolute values are compared against the relative loss in score and best achieved score after disabling, using the Pearson, Kendall and Spearman correlation coefficients}
+	\caption{The minimum, maximum, standard deviance, mean and median of the cosine similarities and their absolute values are compared against the relative loss in score and best achieved score after disabling. The comparison uses the Pearson, Kendall and Spearman correlation coefficients}
 	\label{correlations}
 \end{table}
 
@@ -591,14 +604,14 @@ The upper chart on Figure \ref{fin} shows the loss in score after minimization, 
 		\includegraphics[width=0.9\linewidth]{dia/stat1.eps}
 		\caption{Number of disabled masks}
 	\end{subfigure}
-	\caption{Results of the minimization with specific thresholds and strategies}
+	\caption{Results of the minimization with specific thresholds and strategies. The groups are the strategies used (CosMax, Random, Sequential), and the bars are corresponding to the score thresholds ($ 85,\ 90,\ 95,\ 98$ and $100\%$)}
 	\label{fin}
 \end{figure}
 
 \chapter{Conclusion}
-Reaching the end of the thesis, the proposed tasks are completed, although there are unexplored areas remaining for all of them. The final framework is capable of approximating the chose image processing task of Canny edge detection. It is further capable of minimizing the network size using an intelligent and a stochastic strategy. The intelligent strategy uses cosine similarities to select a convolutional mask that the most similar to the other masks. The method was chosen based on the results of various tests performed with the possible approaches. The other viable strategy was stochastic in nature, and it choose masks randomly. In the end, the intelligent, cosine similarity based approach proved useful, but not as efficient as the stochastic random chooser. The random strategy performed better in terms of both accuracy and decrease in network size. This leaves room for further investigations in finding an intelligent approach that beats randomized choices.
+Reaching the end of the thesis, the proposed tasks are completed, although there are unexplored areas remaining for all of them. The final framework is capable of approximating the result of the Canny edge detector. It is further capable of minimizing the network size using an intelligent and a stochastic strategy. The intelligent strategy uses cosine similarities to select a convolutional mask that is the most similar to the other masks. The method was chosen based on the results of various tests performed with the possible approaches. The other viable strategy was stochastic in nature, and it choses masks randomly. In the end, the intelligent, cosine similarity based approach proved useful, but not as efficient as the stochastic random chooser. The random strategy performed better in terms of both accuracy and decrease in network size. This leaves room for further investigations in finding an intelligent approach that performs favorably over randomized choices.
 
-The initial assumption that the original network structure can be reduced, and a smaller structure can be automatically determined proved to be true. The visualizations provided some insight into how a convolutional network solves a relatively simple problem. Constructing the framework provided knowledge of tensorflow and neural networks in general. Further areas to continue exploring include trying different tasks for the network, deeper and more complex initial network structures and declaring different intelligence based minimization strategies.
+The initial assumption that the original network structure can be reduced	 and a smaller structure can be automatically determined proved to be true. The visualizations provided some insight into how a convolutional network solves a relatively simple problem. Constructing the framework provided knowledge of tensorflow and neural networks in general. Further areas to explore include trying different tasks for the network, deeper and more complex initial network structures and declaring different intelligent minimization strategies.
 
 \chapter*{Nyilatkozat / Statement}
 %Egy üres sort adunk a tartalomjegyzékhez:
@@ -625,7 +638,7 @@ Tudomásul veszem, hogy szakdolgozatomat a Szegedi Tudományegyetem Informatikai
 \vspace*{2cm}
 
 \begin{tabular}{lc}
-	Szeged, \today\
+	Szeged, 2018 December 6.
 	\hspace{2cm} & \makebox[6cm]{\dotfill} \\
 	& aláírás \\
 \end{tabular}

@@ -1,40 +1,40 @@
 \select@language {english}
 \contentsline {section}{Tartalmi \IeC {\"o}sszefoglal\IeC {\'o} (Hungarian content summary)}{4}{chapter*.2}
-\contentsline {section}{Task proposal}{8}{chapter*.3}
-\contentsline {section}{Content summary}{9}{chapter*.4}
-\contentsline {section}{Introduction}{10}{chapter*.5}
-\contentsline {chapter}{\numberline {1}Technical overview}{12}{chapter.1}
-\contentsline {section}{\numberline {1.1}Minimal fully convolutional networks}{12}{section.1.1}
-\contentsline {section}{\numberline {1.2}Edge detection}{13}{section.1.2}
-\contentsline {subsection}{\numberline {1.2.1}Conventional algorithmic edge detectors}{14}{subsection.1.2.1}
-\contentsline {subsection}{\numberline {1.2.2}Using the detectors}{14}{subsection.1.2.2}
-\contentsline {section}{\numberline {1.3}Tools}{15}{section.1.3}
-\contentsline {subsection}{\numberline {1.3.1}Software}{15}{subsection.1.3.1}
-\contentsline {subsection}{\numberline {1.3.2}Hardware}{16}{subsection.1.3.2}
-\contentsline {chapter}{\numberline {2}Implementation}{17}{chapter.2}
-\contentsline {section}{\numberline {2.1}Code structure}{17}{section.2.1}
-\contentsline {section}{\numberline {2.2}Preparing the input images}{17}{section.2.2}
-\contentsline {section}{\numberline {2.3}Network structure}{18}{section.2.3}
-\contentsline {subsection}{\numberline {2.3.1}The objective function and output}{19}{subsection.2.3.1}
-\contentsline {subsection}{\numberline {2.3.2}Training and error back-propagation}{21}{subsection.2.3.2}
-\contentsline {section}{\numberline {2.4}Minimization}{22}{section.2.4}
-\contentsline {subsubsection}{Neglecting neurons}{23}{section*.7}
-\contentsline {subsubsection}{Freezing neurons}{24}{section*.8}
-\contentsline {subsubsection}{Reinitializing neurons}{24}{section*.9}
-\contentsline {subsubsection}{Stepping back}{24}{section*.10}
-\contentsline {subsection}{\numberline {2.4.1}Testing the worth of a neuron}{24}{subsection.2.4.1}
-\contentsline {subsection}{\numberline {2.4.2}The minimization process}{25}{subsection.2.4.2}
-\contentsline {subsection}{\numberline {2.4.3}Selection}{26}{subsection.2.4.3}
-\contentsline {subsubsection}{Cosine similarity}{26}{section*.12}
-\contentsline {subsubsection}{Naive selection strategies}{27}{section*.13}
-\contentsline {chapter}{\numberline {3}Metrics}{28}{chapter.3}
-\contentsline {section}{\numberline {3.1}Universal Image Quality Index}{28}{section.3.1}
-\contentsline {section}{\numberline {3.2}Visualization}{28}{section.3.2}
-\contentsline {chapter}{\numberline {4}Results}{31}{chapter.4}
-\contentsline {section}{\numberline {4.1}Mask correlations}{31}{section.4.1}
-\contentsline {section}{\numberline {4.2}Plotting the scores}{32}{section.4.2}
-\contentsline {section}{\numberline {4.3}Minimization strategy charts}{34}{section.4.3}
-\contentsline {chapter}{\numberline {5}Conclusion}{36}{chapter.5}
+\contentsline {section}{Task proposal}{9}{chapter*.4}
+\contentsline {section}{Content summary}{10}{chapter*.5}
+\contentsline {section}{Introduction}{11}{chapter*.6}
+\contentsline {chapter}{\numberline {1}Technical overview}{13}{chapter.1}
+\contentsline {section}{\numberline {1.1}Minimal fully convolutional networks}{13}{section.1.1}
+\contentsline {section}{\numberline {1.2}Edge detection}{14}{section.1.2}
+\contentsline {subsection}{\numberline {1.2.1}Conventional algorithmic edge detectors}{15}{subsection.1.2.1}
+\contentsline {subsection}{\numberline {1.2.2}Using the detectors}{15}{subsection.1.2.2}
+\contentsline {section}{\numberline {1.3}Tools}{16}{section.1.3}
+\contentsline {subsection}{\numberline {1.3.1}Software}{16}{subsection.1.3.1}
+\contentsline {subsection}{\numberline {1.3.2}Hardware}{17}{subsection.1.3.2}
+\contentsline {chapter}{\numberline {2}Implementation}{18}{chapter.2}
+\contentsline {section}{\numberline {2.1}Code structure}{18}{section.2.1}
+\contentsline {section}{\numberline {2.2}Preparing the input images}{18}{section.2.2}
+\contentsline {section}{\numberline {2.3}Network structure}{19}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}The objective function and output}{20}{subsection.2.3.1}
+\contentsline {subsection}{\numberline {2.3.2}Training and error back-propagation}{22}{subsection.2.3.2}
+\contentsline {section}{\numberline {2.4}Minimization}{23}{section.2.4}
+\contentsline {subsubsection}{Neglecting neurons}{24}{section*.8}
+\contentsline {subsubsection}{Freezing neurons}{25}{section*.9}
+\contentsline {subsubsection}{Reinitializing neurons}{25}{section*.10}
+\contentsline {subsubsection}{Stepping back}{25}{section*.11}
+\contentsline {subsection}{\numberline {2.4.1}Testing the worth of a neuron}{25}{subsection.2.4.1}
+\contentsline {subsection}{\numberline {2.4.2}The minimization process}{26}{subsection.2.4.2}
+\contentsline {subsection}{\numberline {2.4.3}Selection}{27}{subsection.2.4.3}
+\contentsline {subsubsection}{Cosine similarity}{27}{section*.13}
+\contentsline {subsubsection}{Naive selection strategies}{28}{section*.14}
+\contentsline {chapter}{\numberline {3}Metrics}{29}{chapter.3}
+\contentsline {section}{\numberline {3.1}Universal Image Quality Index}{29}{section.3.1}
+\contentsline {section}{\numberline {3.2}Visualization}{29}{section.3.2}
+\contentsline {chapter}{\numberline {4}Results}{32}{chapter.4}
+\contentsline {section}{\numberline {4.1}Mask correlations}{32}{section.4.1}
+\contentsline {section}{\numberline {4.2}Plotting the scores}{33}{section.4.2}
+\contentsline {section}{\numberline {4.3}Minimization strategy charts}{35}{section.4.3}
+\contentsline {chapter}{\numberline {5}Conclusion}{37}{chapter.5}
 \ 
-\contentsline {section}{Nyilatkozat / Statement}{37}{chapter*.20}
-\contentsline {section}{K\IeC {\"o}sz\IeC {\"o}netnyilv\IeC {\'a}nt\IeC {\'a}s / Acknowledgments}{38}{chapter*.21}
+\contentsline {section}{Nyilatkozat / Statement}{38}{chapter*.21}
+\contentsline {section}{K\IeC {\"o}sz\IeC {\"o}netnyilv\IeC {\'a}nt\IeC {\'a}s / Acknowledgments}{39}{chapter*.22}
