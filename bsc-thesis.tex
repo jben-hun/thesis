@@ -161,12 +161,15 @@ Ezen dolgozat témája olyan módszerek fejlesztése és tesztelése, amik autom
 
 Egy megfelelően skálázott neurális hálózat használatának előnyei közé tartozik a hordozhatósága és az erőforrások hatékony kihasználása. Kevésbé igényes hálózatokkal olcsóbb hardverek, például mobil/kézi eszközök is képesek lesznek konvolúciós neurális hálózatok futtatására, ezzel szélesebb körben elérhető lesz a technológia. A számítási költségek csökkentésével hamarabb kaphatunk eredményeket visszafogottab hardverekkel.
 
-A dolgozatban megfogalmazott minimalizációs módszer a következőképen működik. Először addig tanítok egy konvolúciós hálózatot, amíg konvergálni nem látszik. Ezután egy stratégia választ egyet a konvolúciós maszkok közül, amit letilt. Naiv stratégia esetében véletlenszerűen, az intelligens stratégia viszont a maszkok hasonlósága alapján dönt. A maszkok hasonlósága a redundanciára utalhat. Az egyedi maszkok fontosabb szerepet látszanak betölteni. A stratégiák közül később a tesztek során a legjobban teljesítő kerül kiválasztásra. A maszk letiltása után újabb adott számú lépésig tanul a hálózat, hogy tudjon alkalmazkodni a letiltott maszk hiányához. Ezután egy kiértékelés történik, ellenőrzése kerül, hogy a hálózat teljesítménye adott százalék alá csökkent-e. Ha igen, akkor visszaállításra kerül a letiltás előtti állapot. Ezután egy újabb választási stratégia zajlik le. Ezek a lépések addig ismétlődnek, amíg a stratégia kilépési feltétele nem teljesül.
+A dolgozatban megfogalmazott minimalizációs módszer a következőképen működik. Először addig tanítok egy konvolúciós hálózatot, amíg konvergálni nem látszik. Ezután egy stratégia választ egyet a konvolúciós maszkok közül, amit letilt. Naiv stratégia esetében véletlenszerűen, az intelligens stratégia viszont a maszkok hasonlósága alapján dönt. A maszkok hasonlósága a redundanciára utalhat. Az egyedi maszkok fontosabb szerepet látszanak betölteni. A stratégiák közül később a tesztek során a legjobban teljesítő kerül kiválasztásra. A maszk letiltása után újabb adott számú lépésig tanul a hálózat, hogy tudjon alkalmazkodni a letiltott maszk hiányához. Ezután egy kiértékelés történik, ellenőrzése kerül, hogy a hálózat teljesítménye adott százalék alá csökkent-e. Ha igen, akkor visszaállításra kerül a letiltás előtti állapot. Ezután egy újabb választási stratégia zajlik le. Ezek a lépések addig ismétlődnek, amíg a stratégia kilépési feltétele nem teljesül. A minimalizálás folyamata látható az \ref{folyam} számú ábrán.
 
+\renewcommand{\figurename}{Ábra}
 \begin{wrapfigure}{r}{0.45\textwidth}
 	\includegraphics[width=0.45\textwidth]{dia/folyam.eps}
-	Folyamatábra a minimalizálás működéséről
+	\caption{Folyamatábra a minimalizálás működéséről}
+	\label{folyam}
 \end{wrapfigure}
+\renewcommand{\figurename}{Figure}
 
 Az éldetektálás feladata során a képen lévő tárgyak körvonalát próbálják megtalálni. Az ideális végeredmény egy olyan kép, aminek a mérete megegyezik az eredetiével, ahol is az élek fehérek amíg minden más fekete. Ennek létezik egy folytonos változata, ahol az eredmény kép színei a fekete és a fehér között mozognak a szürke árnyalatait fölvéve, aszerint hogy mennyire tekinthető élnek az adott pixel az eredeti képen. A konvolúciós hálózatunk folytonos, tehát a kimenete az utóbbi változattal fog megegyezni még akkor is, ha a cél fekete-fehér éldetektálás. A hálózatnak az éldetektorok kimenetét kell minél pontosabban reprodukálnia azonos bemenet alapján.
 
@@ -176,15 +179,15 @@ A képek amiken dolgoztunk a \textit{VOC2012} \cite{pascal-voc-2012} adathalmazb
 
 A tesztek során különböző vizualizációk is készültek. Ezek a tanítás során kiértékeléskor mentődnek a merevlemezre. Ezeknek a célja a hálózat megismerésére és a hibák kiszűrésére egy további módszer szolgáltatása. Ezekről a \ref{visualizations} számú Fejezetben található példa. Sorrendben a konvolúcióhoz használt, a hálózat által tanult maszkok, ki- és bemenet, majd a kép állapota még a feldolgozás közben láthatóak rajtuk.
 
-A tanítások során az F1 score egy speciális hibafüggvénnyé alakított változata volt alkalmazva, ami az eredeti formájával ellentétben folytonos számokkal dolgozik. Futtattam teszteket különböző hibafüggvényekkel, például abszolút vagy négyzetes hibával, vagy a különböző hibák (fals pozitív, fals negatív) súlyozásával és transzformálásával. Végül a módosított F1 loss maradt a hibafüggvény, mert jól működött, és jól értelmezhető, közismert metrikán alapszik. A módosított F1 loss pontosan definiálva a \ref{f1loss} számú Fejezetben.
+A tanítások során az F1 score egy speciális hibafüggvénnyé alakított változata volt alkalmazva, ami az eredeti formájával ellentétben folytonos számokkal dolgozik. Futtattam teszteket különböző hibafüggvényekkel, például abszolút vagy négyzetes hibával, vagy a különböző hibák (fals pozitív, fals negatív) súlyozásával és transzformálásával. Végül a módosított F1 hiba maradt a hibafüggvény, mert jól működött, és jól értelmezhető, közismert metrikán alapszik. A módosított F1 hiba pontosan definiálva a \ref{f1loss} számú Fejezetben.
 
-A hálózatok tanítása a kezdetekben egy alsó kategóriás laptopon történt. A laptop egyetlen előnye az NVIDIA típusú videokártyája, ami alkalmas a hardveresen gyorsított tanításra. A CUDA magokat tartalmazó NVIDIA videokártyák képesek a számítások erősen párhuzamosított feldolgozására. A videokártyára kiszervezett tanítás, amit a tensorflow is támogat, így sokkal gyorsabb mint a tisztán processzoron való futtatás. Így kisebb tesztek már a laptoppal is kivárhatóak voltak meg úgy is, hogy képek feldolgozásáról van szó. A mátrix szorzás például egy optimalizált beépített CUDA művelet, amire a konvolúció is visszavezethető.
+A hálózatok tanítása a kezdetekben egy alsó kategóriás laptopon történt. A laptop egyetlen előnye az NVIDIA típusú videokártyája, ami alkalmas a hardveresen gyorsított tanításra. A CUDA magokat tartalmazó NVIDIA videokártyák képesek a számítások erősen párhuzamosított feldolgozására. A videokártyára kiszervezett tanítás, amit a tensorflow is támogat, így sokkal gyorsabb, mint a tisztán processzoron való futtatás. Így kisebb tesztek már a laptoppal is kivárhatóak voltak még úgy is, hogy képek feldolgozásáról van szó. A mátrix szorzás például egy optimalizált beépített CUDA művelet, amire a konvolúció is visszavezethető.
 
 A laptopon való futtatás miatt visszafogottan kellett meghatározni a kezdeti paramétereket. Ilyen paraméter a képek felbontása, a batch mérete a kötegelt feldolgozásban, a rétegek és rétegbeli konvolúciós maszkok száma, továbbá a maszkok mérete. A dolgozat témája éppen az utóbbi három paraméter minimalizálása, viszont ha egy eleve kisebbre szabott hálózat minimalizálható, akkor feltehetőleg egy nagyobb is, mivel ha a módszerek helytállóak akkor az csak redundanciát tartalmaz a kisebb hálózattal szemben.
 
 Később egy asztali számítógépen is lettek indítva futások. Ezek távoli eléréssel történtek, ezért nem kellett az ember szabadidejére méretezni a futási időt, akár hetekig is tarthatott egy tanítás. Az asztali számítógép paraméterei is jobban voltak, egy külön számításokra tervezett NVIDIA videokártyával. A számítógépen való futtatás arra lett hasznos, hogy hosszabb és sokkal több futás eredményét mérhessük össze, így növelve a mintaszámot és a statisztikák minőségét.
 
-A dolgozat végére érve a kiírt célokat sikerült elérni, viszont maradtak felfedezetlen területek minden irányban. Az elkészült keretrendszer képes megközelíteni a választott egyszerű képfeldolgozási feladatot, a Canny éldetekciót. Ezen kívül képes csökkenteni a hálózat méretét egy intelligens és egy sztochasztikus stratégia segítségével. Az intelligens stratégia koszinusz hasonlóságokat használva választ egy olyan konvolúciós maszkot, ami a legjobban hasonlít a többi maszkra. Ez a módszert különböző tesztek alapján választottam ki, amiket a lehetséges megközelítéseken végeztem. A másik hasznosnak bizonyuló stratégia sztochasztikus elven működik, véletlenszerűen válasz maszkot. Végül az intelligens stratégia is működőképes, de a sztochasztikus véletlenszerű választás hatékonyabban minimalizál a pontosság és a méretcsökkenés szempontjából is. Ezek alapján még lehetséges, hogy létezik egy intelligencián alapuló megközelítés, ami jobban teljesít a véletlen választásnál.
+A dolgozat végére érve a kiírt célokat sikerült elérni, viszont maradtak felfedezetlen területek minden irányban. Az elkészült keretrendszer képes megközelíteni a választott egyszerű képfeldolgozási feladatot, a Canny éldetekciót. Ezen kívül képes csökkenteni a hálózat méretét egy intelligens és egy sztochasztikus stratégia segítségével. Az intelligens stratégia koszinusz hasonlóságokat használva választ egy olyan konvolúciós maszkot, ami a legjobban hasonlít a többi maszkra. Ezt a módszert különböző tesztek alapján választottam ki, amiket a lehetséges megközelítéseken végeztem. A másik hasznosnak bizonyuló stratégia sztochasztikus elven működik, véletlenszerűen válasz maszkot. Végül az intelligens stratégia is működőképes, de a sztochasztikus véletlenszerű választás hatékonyabban minimalizál a pontosság és a méretcsökkenés szempontjából is. Ezek alapján még lehetséges, hogy létezik egy intelligencián alapuló megközelítés, ami jobban teljesít a véletlen választásnál.
 
 A kezdeti feltételezés igaznak bizonyult, miszerint az eredeti hálózat struktúrája zsugorítható, és egy kisebb méretű struktúra automatikusan meghatározható. A vizualizációk segítettek belelátni abba, hogy egy konvolúciós hálózat hogyan old meg egy viszonylag egyszerű feladatot. A keretrendszer felépítése a tensorflow függvénykönyvtár és a neurális hálózatok mélyebb ismeretéhez vezetett. Jövőbeli kutatási terület lehet különböző feladatok tanítása a hálózatnak, mélyebb és összetettebb struktúrák kipróbálása, és újabb intelligens minimalizáló stratégiák definiálása.
 
@@ -271,6 +274,7 @@ Initially a relatively low performance notebook was used to perform all the trai
 
 Later, several tests were ran remotely at a higher performance desktop computer, while the notebook was used to develop the models and check if they work as intended. These runs were often longer than a week, depending on the sample size. This PC was an Intel Core i7-6700 with 16GB RAM, and it had an NVIDIA Tesla K40 GPU with 12GB VRAM and 2880 CUDA cores.
 \chapter{Implementation}
+This chapter describes the details of coding, testing and experimentation.
 \section{Code structure}
 The framework is spread across multiple source files dividing the code into groups based on roles.
 \begin{alignat*}{3}
@@ -580,9 +584,9 @@ For this next experiment, the same data was used as for the previous one. The ai
 	\caption{Plots displaying the percentage drop and gain in score for various layers. The right column only shows scores that are results of an optimal mask selection.}\label{plots}
 \end{figure}
 
-\textit{Drop} on the x axis displays the relative score after disabling a mask, and \textit{gain} on the y axis shows the maximal relative score achieved after disabling. The first column of plots displays all score data. the second column is filtered to only show the result of the optimal mask choice. The choice is optimal if the score after the additional $10000$ training steps is maximal. The plots are shown on Figures \ref{plots}.
+\textit{Loss} on the x axis displays the relative score after disabling a mask, and \textit{Best} on the y axis shows the maximal relative score achieved after disabling. The first column of plots displays all score data. the second column is filtered to only show the result of the optimal mask choice. The choice is optimal if the score after the additional $10000$ training steps is maximal. The plots are shown on Figure \ref{plots}.
 
-What we can take from these plots is that drop and loss are not strongly correlated, or they have a more complex relationship. The plot in the first column of the second row shows that a drop to lower percentages results in fair performance later ($98-100\%$). However, the best score is achieved where the drop was minimal.
+What we can take from these plots is that \textit{loss} and \textit{best} are not strongly correlated, or they have a more complex relationship. The plot in the first column of the second row shows that loss to lower percentages results in fair performance later ($98-100\%$). However, the best score is achieved where the loss was minimal.
 
 \section{Minimization strategy charts}
 The purpose of this last test is to compare the proposed minimization strategies against each other. For each threshold parameter ($ 85,\ 90,\ 95,\ 98$ and $100\%$, as described in \ref{thresholds}), $50$ runs were carried out. A single run consisted of training a network for $10000$
@@ -659,7 +663,9 @@ Tudomásul veszem, hogy szakdolgozatomat a Szegedi Tudományegyetem Informatikai
 	I would like to thank the supervisors for their help and encouragement,\\
 	as well as my family for their support during the writing of this document.
 \end{center}
-
+\begin{center}
+	We are grateful to Nvidia Corporation for providing the Tesla K40 GPU for the evaluation of the methods.
+\end{center}
 %% Az itrodalomjegyzek keszitheto a BibTeX segedprogrammal:
 \bibliography{references} 
 \bibliographystyle{unsrt}
